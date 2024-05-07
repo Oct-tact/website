@@ -1,0 +1,13 @@
+h2 {
+    color: black;
+    text-align: center;
+    text-decoration-line: underline;
+  }
+  button {
+    margin: 3px;
+  }
+
+p{
+    color: black;
+    text-align: center;
+}

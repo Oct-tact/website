@@ -1,0 +1,28 @@
+h2 {
+    color: black;
+    text-align: center;
+    text-decoration-line: underline;
+    
+  }
+  
+  mat-cart{
+    margin: 2%;
+    text-align: left;
+  }
+
+  .mat-50{
+    width: 48%;
+    margin: 1%;
+  }
+  
+  /* Increase width of input fields */
+  .mat-mdc-form-field {
+    width: 96%;
+    margin: 1%;
+  }
+  
+  /* Add vertical space between buttons */
+  button {
+    margin: 3px;
+    color:blue;
+  }

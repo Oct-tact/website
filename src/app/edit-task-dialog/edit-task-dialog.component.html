@@ -1,0 +1,31 @@
+<h2>Update Data</h2>
+<div>
+  <mat-form-field>
+    <mat-label>title</mat-label>
+    <input matInput placeholder="text" [(ngModel)]="rowData.title">
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field>
+    <mat-label>description</mat-label>
+    <input matInput placeholder="text" [(ngModel)]="rowData.description">
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field>
+    <mat-label>startdate</mat-label>
+    <input matInput placeholder="text" [(ngModel)]="rowData.startdate">
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field>
+    <mat-label>enddate</mat-label>
+    <input matInput placeholder="text" [(ngModel)]="rowData.enddate">
+  </mat-form-field>
+</div>
+<div>
+  <button mat-raised-button color="primary" (click)="update()">Update</button>
+  <button mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+</div>
+
+

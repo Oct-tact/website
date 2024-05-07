@@ -1,0 +1,37 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px;
+    width: 200px;
+    display: inline-block;
+    background-color: gray;
+  }
+  
+  .card-header {
+    color: white;
+    padding: 8px;
+    border-radius: 8px 8px 0 0;
+    margin: 20px;
+    font-size: 18px;
+  }
+  
+  .card-body {
+    font-size: 18px;
+    padding: 6px;
+    color: white;
+  }
+  
+  .chart-container {
+    width: 300px; /* Decrease width */
+    height: 300px; /* Increase height */
+    border: 0px solid #ccc; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f0eded; /* Background color */
+    padding: 20px; /* Padding */
+    margin-top: 20px; /* Move it down */
+    margin-right: 700px; /* Move it to the left */
+  
+  }
+  
+  

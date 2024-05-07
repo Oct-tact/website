@@ -1,0 +1,40 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidebar mode="side" opened>
+        <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <div class="toolbar">
+                <mat-toolbar>
+                    <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
+                    <div class="box">APPLICATION
+                        <!-- Settings button for vendors -->
+                        <button mat-icon-button [matMenuTriggerFor]="vendorMenu">
+                            <mat-icon>settings</mat-icon>
+                        </button>
+
+                        <!-- Vendor settings menu -->
+                        <mat-menu #vendorMenu="matMenu">
+                            <button mat-menu-item>Settings</button>
+                            <button mat-menu-item >Logout</button>
+                        </mat-menu>
+
+                        <!-- Logout dropdown for customers -->
+                        <!-- <button mat-icon-button [matMenuTriggerFor]="customerMenu">
+                            <mat-icon>settings</mat-icon>
+                        </button> -->
+
+                        <!-- Customer logout menu -->
+                        <!-- <mat-menu #customerMenu="matMenu">
+                            <button mat-menu-item >Logout</button>
+                        </mat-menu> -->
+                    </div>
+                </mat-toolbar>
+            </div>
+            <div class="main">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

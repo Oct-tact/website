@@ -1,0 +1,36 @@
+
+<div class="card">
+    <div class="card-header">
+      Total Todo :
+    </div>
+    <div class="card-body">
+      {{ totalTodo }}
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header">
+      Total Pending :
+    </div>
+    <div class="card-body">
+      {{ totalPending }}
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header">
+      Total Complete :
+    </div>
+    <div class="card-body">
+      {{ totalComplete }}
+    </div>
+  </div>
+  
+  <div class="chart-container">
+    <canvas id="pieChart"></canvas>
+  </div>
+  
+  <app-pie-chart
+
+></app-pie-chart>
+
