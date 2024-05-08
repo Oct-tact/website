@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -48,6 +48,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { StudentRegisterComponent } from './student-register/student-register.component';
+import { StudentLoginComponent } from './student-login/student-login.component';
+import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
+import { EmployeeLoginComponent } from './employee-login/employee-login.component';
 
 
 
@@ -65,6 +69,10 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     DashboardComponent,
     SidebarComponent,
     PieChartComponent,
+    StudentRegisterComponent,
+    StudentLoginComponent,
+    EmployeeRegisterComponent,
+    EmployeeLoginComponent,
   
   ],
   imports: [
@@ -89,7 +97,8 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     MatExpansionModule,
     HttpClientModule,
     MatPaginatorModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule
  
   
   ],

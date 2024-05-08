@@ -8,6 +8,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppComponent } from './app.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { StudentRegisterComponent } from './student-register/student-register.component';
+import { StudentLoginComponent } from './student-login/student-login.component';
+import { EmployeeLoginComponent } from './employee-login/employee-login.component';
+import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
 
 
 const routes: Routes = [
@@ -18,8 +22,22 @@ const routes: Routes = [
       {path:'tasks', component:HomeComponent },
       {path:'tasksgraphs', component:ShopComponent },
       {path:'navbar', component:NavbarComponent },
+      // {path:'sturegister', component:StudentRegisterComponent },
    
      ]
+     },
+
+     {
+      path:'sturegister', component:StudentRegisterComponent ,
+     },
+     {
+      path:'stulogin', component:StudentLoginComponent ,
+     },
+     {
+      path:'employeelogin', component:EmployeeLoginComponent ,
+     },
+     {
+      path:'employeeregister', component:EmployeeRegisterComponent ,
      }
 
 ];

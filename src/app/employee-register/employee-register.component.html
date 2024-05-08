@@ -1,0 +1,36 @@
+<mat-card class="example-card">
+    <h2>Employee Register</h2>
+<form class="example-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" formControlName="name" required>
+      <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Name is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" type="email" formControlName="email" required>
+      <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Email is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Role</mat-label>
+      <input matInput placeholder="Role" formControlName="role" required>
+      <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Role is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" type="password" formControlName="password" required>
+      <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Password is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Mobile Number</mat-label>
+      <input matInput placeholder="Mobile Number" type="tel" formControlName="mobileNumber" required>
+      <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Mobile Number is required</mat-error>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Register</button>
+  </form>
+</mat-card>
