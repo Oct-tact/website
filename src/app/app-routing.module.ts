@@ -12,6 +12,11 @@ import { StudentRegisterComponent } from './student-register/student-register.co
 import { StudentLoginComponent } from './student-login/student-login.component';
 import { EmployeeLoginComponent } from './employee-login/employee-login.component';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
+import { DailyAttendanceComponent } from './daily-attendance/daily-attendance.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { StudentComponent } from './user-management/student/student.component';
+import { EmployeeComponent } from './user-management/employee/employee.component';
 
 
 const routes: Routes = [
@@ -22,10 +27,20 @@ const routes: Routes = [
       {path:'tasks', component:HomeComponent },
       {path:'tasksgraphs', component:ShopComponent },
       {path:'navbar', component:NavbarComponent },
-      // {path:'sturegister', component:StudentRegisterComponent },
-   
+      {path:'dailyatt', component:DailyAttendanceComponent },
+    
+        { path: 'student', component: StudentComponent },
+        { path: 'employee', component: EmployeeComponent }
+      
      ]
      },
+
+    //  { path: 'usermanagement', component: UserManagementComponent, children: [
+    //   { path: 'student', component: StudentComponent },
+    //   { path: 'employee', component: EmployeeComponent }
+    // ]},
+
+
 
      {
       path:'sturegister', component:StudentRegisterComponent ,
@@ -38,6 +53,9 @@ const routes: Routes = [
      },
      {
       path:'employeeregister', component:EmployeeRegisterComponent ,
+     },
+     {
+      path:'adminlogin', component:AdminLoginComponent ,
      }
 
 ];

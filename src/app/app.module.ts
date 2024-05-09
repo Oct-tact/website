@@ -52,6 +52,13 @@ import { StudentRegisterComponent } from './student-register/student-register.co
 import { StudentLoginComponent } from './student-login/student-login.component';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
 import { EmployeeLoginComponent } from './employee-login/employee-login.component';
+import { DailyAttendanceComponent } from './daily-attendance/daily-attendance.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { StudentComponent } from './user-management/student/student.component';
+import { EmployeeComponent } from './user-management/employee/employee.component';
+import { StudentEditDialogComponent } from './student-edit-dialog/student-edit-dialog.component';
+import { StudentDeleteDialogComponent } from './student-delete-dialog/student-delete-dialog.component';
 
 
 
@@ -73,6 +80,13 @@ import { EmployeeLoginComponent } from './employee-login/employee-login.componen
     StudentLoginComponent,
     EmployeeRegisterComponent,
     EmployeeLoginComponent,
+    DailyAttendanceComponent,
+    AdminLoginComponent,
+    UserManagementComponent,
+    StudentComponent,
+    EmployeeComponent,
+    StudentEditDialogComponent,
+    StudentDeleteDialogComponent,
   
   ],
   imports: [

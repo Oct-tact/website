@@ -3,18 +3,24 @@
       <span>Dashboard</span>
     </div>
     <div class="menu-item">
-      <button mat-button class="menu-button" routerLink="tasks" routerLinkActive="active">
+      <button mat-button class="menu-button" *ngIf="!isAdmin && userType === 0"routerLink="tasks" routerLinkActive="active">
         <span>Tasks</span>
       </button>
-      <button mat-button class="menu-button" routerLink="tasksgraphs" routerLinkActive="active">
+      <button mat-button class="menu-button" *ngIf="!isAdmin && userType === 0" routerLink="tasksgraphs" routerLinkActive="active">
         <span>Tasks Graphs</span>
       </button>
-      <button mat-button class="menu-button" routerLink="navbar" routerLinkActive="active">
+      <button mat-button class="menu-button" *ngIf="!isAdmin && userType === 0" routerLink="navbar" routerLinkActive="active">
         <span>Timetable</span>
       </button>
-      <!-- <button mat-button class="menu-button" routerLink="sturegister" routerLinkActive="active">
-        <span>Student Registeration</span>
-      </button> -->
+      <button mat-button class="menu-button" *ngIf="!isAdmin && userType === 0" routerLink="dailyatt" routerLinkActive="active">
+        <span>Attendance</span>
+      </button>
+      <button mat-button class="menu-button"  routerLink="student" routerLinkActive="active">
+        <span>Student</span>
+      </button>
+      <button mat-button class="menu-button"  routerLink="employee" routerLinkActive="active">
+        <span>Employee</span>
+      </button>
     </div>
   </div>
   

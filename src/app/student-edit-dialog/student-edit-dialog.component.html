@@ -1,0 +1,31 @@
+
+
+<h2>Edit Student Details</h2>
+<div mat-dialog-content>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" required>
+      <mat-error *ngIf="editForm.get('name')?.hasError('required')">Name is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" required>
+      <mat-error *ngIf="editForm.get('email')?.hasError('required')">Email is required</mat-error>
+      <mat-error *ngIf="editForm.get('email')?.hasError('email')">Invalid email format</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Grade" formControlName="grade" required>
+      <mat-error *ngIf="editForm.get('grade')?.hasError('required')">Grade is required</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input matInput placeholder="Parent Contact" formControlName="parentContact" required>
+      <mat-error *ngIf="editForm.get('parentContact')?.hasError('required')">Parent Contact is required</mat-error>
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" type="submit">Update</button>
+    <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+  </form>
+</div>

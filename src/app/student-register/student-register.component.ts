@@ -19,7 +19,8 @@ export class StudentRegisterComponent {
       password: ['', Validators.required],
       grade: ['', Validators.required],
       dob: ['', Validators.required],
-      parentContact: ['', Validators.required]
+      parentContact: ['', Validators.required],
+      rollNumber: ['']
     });
 
     // Initialize nextId based on existing data
@@ -31,7 +32,7 @@ export class StudentRegisterComponent {
     if (this.registrationForm.valid) {
       const formData = this.registrationForm.value;
       formData.id = this.nextId++;
-
+      formData.rollNumber = 'SM' + this.pad(this.nextId, 3);
       // Retrieve existing data from local storage
       const existingData = JSON.parse(localStorage.getItem('students') || '[]');
 
@@ -48,5 +49,12 @@ export class StudentRegisterComponent {
       // Handle invalid form submission
     }
   }
+
+  private pad(num: number, size: number): string {
+    let s = num + '';
+    while (s.length < size) s = '0' + s;
+    return s;
+  }
 }
+
 
