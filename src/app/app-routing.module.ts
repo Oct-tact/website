@@ -18,9 +18,17 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { StudentComponent } from './user-management/student/student.component';
 import { EmployeeComponent } from './user-management/employee/employee.component';
 import { StudentAttendanceComponent } from './student-attendance/student-attendance.component';
+import { AdminSAttendanceComponent } from './admin-s-attendance/admin-s-attendance.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  {
+    path:'welcome',
+    component:WelcomeComponent,
+  },
+
   {
     path:'dashboard',
     component:DashboardComponent,
@@ -32,7 +40,8 @@ const routes: Routes = [
     
         { path: 'student', component: StudentComponent },
         { path: 'employee', component: EmployeeComponent },
-        { path: 'stuatt', component: StudentAttendanceComponent }
+        { path: 'stuatt', component: StudentAttendanceComponent },
+        { path: 'adminS', component: AdminSAttendanceComponent },
       
      ]
      },

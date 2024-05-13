@@ -38,7 +38,7 @@ onSubmit(): void {
       // Login successful, save user details in local storage
       localStorage.setItem('currentUser', JSON.stringify(existingUser));
       // this.router.navigate(['/sturegister']);
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashboard/stuatt']);
     } else {
       // Invalid credentials, handle accordingly
       console.log('Invalid email or password');

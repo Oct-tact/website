@@ -63,6 +63,8 @@ import { StudentUpdatePasswordDialogComponent } from './student-update-password-
 import { EmployeeEditDialogComponent } from './employee-edit-dialog/employee-edit-dialog.component';
 import { EmployeeDeleteDialogComponent } from './employee-delete-dialog/employee-delete-dialog.component';
 import { StudentAttendanceComponent } from './student-attendance/student-attendance.component';
+import { AdminSAttendanceComponent } from './admin-s-attendance/admin-s-attendance.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 
@@ -96,6 +98,8 @@ import { StudentAttendanceComponent } from './student-attendance/student-attenda
     EmployeeEditDialogComponent,
     EmployeeDeleteDialogComponent,
     StudentAttendanceComponent,
+    AdminSAttendanceComponent,
+    WelcomeComponent,
   
   ],
   imports: [
