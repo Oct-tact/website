@@ -38,7 +38,7 @@ export class EmployeeLoginComponent {
         // Login successful, save user details in local storage
         localStorage.setItem('currentUser', JSON.stringify(existingUser));
         // this.router.navigate(['/employeeregister']);
-        this.router.navigate(['/dashboard/dailyatt']);
+        this.router.navigate(['/dashboard']);
       } else {
         // Invalid credentials, handle accordingly
         console.log('Invalid email or password');

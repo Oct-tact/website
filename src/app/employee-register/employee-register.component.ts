@@ -31,7 +31,7 @@ export class EmployeeRegisterComponent {
     if (this.registrationForm.valid) {
       const formData = this.registrationForm.value;
       formData.id = this.nextId++;
-
+      formData.rollNumber = 'EM' + this.pad(this.nextId, 3);
       const existingData = JSON.parse(localStorage.getItem('employees') || '[]');
       existingData.push(formData);
       localStorage.setItem('employees', JSON.stringify(existingData));
@@ -41,6 +41,12 @@ export class EmployeeRegisterComponent {
     } else {
       // Handle invalid form submission
     }
+  }
+
+  private pad(num: number, size: number): string {
+    let s = num + '';
+    while (s.length < size) s = '0' + s;
+    return s;
   }
 }
 

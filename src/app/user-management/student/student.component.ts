@@ -7,6 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentEditDialogComponent } from 'src/app/student-edit-dialog/student-edit-dialog.component';
 import { StudentDeleteDialogComponent } from 'src/app/student-delete-dialog/student-delete-dialog.component';
+import { StudentUpdatePasswordDialogComponent } from 'src/app/student-update-password-dialog/student-update-password-dialog.component';
 
 @Component({
   selector: 'app-student',
@@ -62,7 +63,20 @@ export class StudentComponent implements OnInit  {
   updateLocalStorage() {
     localStorage.setItem('students', JSON.stringify(this.dataSource.data));
   }
+
+  openUpdatePasswordDialog(student: any): void {
+    const dialogRef = this.dialog.open(StudentUpdatePasswordDialogComponent, {
+      width: '400px',
+      data: { oldPassword: student.password }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // Handle update password result here if needed
+    });
+  }
 }
+
 
 
 

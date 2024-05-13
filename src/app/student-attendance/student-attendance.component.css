@@ -1,0 +1,38 @@
+/* Adjustments for the container */
+.attendance-container {
+    display: flex;
+    justify-content: space-between; /* Adjusted to space between */
+    align-items: flex-start; /* Align items to the start */
+}
+
+/* Adjustments for the calendar */
+.mat-calendar {
+    flex: 1; /* Let the calendar take up remaining space */
+    max-width: 30%; /* Reduced the max-width */
+    margin-right: 2px; /* Added margin for spacing */
+    margin-top: 100px;
+    float: left;
+}
+
+/* Marked dates container */
+.marked-dates {
+    width: 45%; /* Adjusted width */
+    border: 1px solid lightblue; /* Changed border color */
+    padding: 10px; /* Added padding */
+    margin-top: 100px;
+}
+
+/* Styles for marked dates */
+.marked-in, .marked-out {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.marked-in {
+    background-color: lightgreen;
+}
+
+.marked-out {
+    background-color: salmon;
+}
+

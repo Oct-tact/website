@@ -17,6 +17,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { StudentComponent } from './user-management/student/student.component';
 import { EmployeeComponent } from './user-management/employee/employee.component';
+import { StudentAttendanceComponent } from './student-attendance/student-attendance.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
       {path:'dailyatt', component:DailyAttendanceComponent },
     
         { path: 'student', component: StudentComponent },
-        { path: 'employee', component: EmployeeComponent }
+        { path: 'employee', component: EmployeeComponent },
+        { path: 'stuatt', component: StudentAttendanceComponent }
       
      ]
      },

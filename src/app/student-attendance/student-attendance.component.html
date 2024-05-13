@@ -1,0 +1,18 @@
+<div class="attendance-container">
+    <div class="button-container">
+      <button mat-raised-button class="marked" color="primary" (click)="markIn()">Mark In</button>
+      <button mat-raised-button  class="markedinn" color="warn" (click)="markOut()">Mark Out</button>
+    </div>
+    <mat-calendar [dateClass]="dateClass"></mat-calendar>
+    <div class="marked-dates">
+        <div *ngIf="markInDate" class="marked-in">Marked In: {{ markInDate | date }}</div>
+        <div *ngIf="markOutDate" class="marked-out">Marked Out: {{ markOutDate | date }}</div>
+      </div>
+  </div>
+  
+
+
+  
+
+  
+  

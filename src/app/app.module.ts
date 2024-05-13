@@ -59,6 +59,11 @@ import { StudentComponent } from './user-management/student/student.component';
 import { EmployeeComponent } from './user-management/employee/employee.component';
 import { StudentEditDialogComponent } from './student-edit-dialog/student-edit-dialog.component';
 import { StudentDeleteDialogComponent } from './student-delete-dialog/student-delete-dialog.component';
+import { StudentUpdatePasswordDialogComponent } from './student-update-password-dialog/student-update-password-dialog.component';
+import { EmployeeEditDialogComponent } from './employee-edit-dialog/employee-edit-dialog.component';
+import { EmployeeDeleteDialogComponent } from './employee-delete-dialog/employee-delete-dialog.component';
+import { StudentAttendanceComponent } from './student-attendance/student-attendance.component';
+
 
 
 
@@ -87,6 +92,10 @@ import { StudentDeleteDialogComponent } from './student-delete-dialog/student-de
     EmployeeComponent,
     StudentEditDialogComponent,
     StudentDeleteDialogComponent,
+    StudentUpdatePasswordDialogComponent,
+    EmployeeEditDialogComponent,
+    EmployeeDeleteDialogComponent,
+    StudentAttendanceComponent,
   
   ],
   imports: [
@@ -112,7 +121,8 @@ import { StudentDeleteDialogComponent } from './student-delete-dialog/student-de
     HttpClientModule,
     MatPaginatorModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
  
   
   ],
