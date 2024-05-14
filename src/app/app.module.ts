@@ -65,6 +65,7 @@ import { EmployeeDeleteDialogComponent } from './employee-delete-dialog/employee
 import { StudentAttendanceComponent } from './student-attendance/student-attendance.component';
 import { AdminSAttendanceComponent } from './admin-s-attendance/admin-s-attendance.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { EmployeeAttendanceComponent } from './employee-attendance/employee-attendance.component';
 
 
 
@@ -100,6 +101,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     StudentAttendanceComponent,
     AdminSAttendanceComponent,
     WelcomeComponent,
+    EmployeeAttendanceComponent,
   
   ],
   imports: [

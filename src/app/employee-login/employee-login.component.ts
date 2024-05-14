@@ -11,7 +11,7 @@ export class EmployeeLoginComponent {
   loginForm: FormGroup;
   employees: any[] = [];
   nextId: number;
-  
+  currentUser:any;
   constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -26,6 +26,16 @@ export class EmployeeLoginComponent {
   }
   
   ngOnInit(): void {
+     // Clear attendance records upon component initialization
+   localStorage.removeItem('attendanceRecords');
+   const storedUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+   if (storedUser && storedUser.id) {
+     this.currentUser = storedUser;
+     const userRecordsKey = `attendanceRecords_${this.currentUser.rollNumber}`;
+     const currentUserRecords = JSON.parse(localStorage.getItem(userRecordsKey) || '[]');
+     // Display existing attendance records
+     console.log("Existing attendance records for user:", currentUserRecords);
+   }
   }
   
   onSubmit(): void {
@@ -35,10 +45,17 @@ export class EmployeeLoginComponent {
       // Check if the email and password match any existing user
       const existingUser = this.employees.find((user: any) => user.email === formData.email && user.password === formData.password);
       if (existingUser) {
-        // Login successful, save user details in local storage
+          
+        // Clear attendance records if a new user is logged in
+        if (!this.currentUser || this.currentUser.id !== existingUser.id) {
+          localStorage.removeItem('attendanceRecords');
+        }
+
+      // Login successful, save user details in local storage
+      this.currentUser = existingUser;
         localStorage.setItem('currentUser', JSON.stringify(existingUser));
         // this.router.navigate(['/employeeregister']);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/employeeatt']);
       } else {
         // Invalid credentials, handle accordingly
         console.log('Invalid email or password');

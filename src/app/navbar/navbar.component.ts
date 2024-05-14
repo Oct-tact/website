@@ -17,14 +17,14 @@ export class NavbarComponent {
   sections = ['A', 'B', 'C', 'D', 'E'];
  // Define periods for each subject
  periods = [
-  { time: '8:00-8:45', index: 0 },
-  { time: '8:45-9:30', index: 1 },
-  { time: '9:30-10:15', index: 2 },
-  { time: '10:15-11:00', index: 3 },
-  { time: '11:00-11:45', index: 4 },
-  { time: '11:45-12:30', index: 5 },
-  { time: '12:30-1:15', index: 6 },
-  { time: '1:15-2:00', index: 7 },
+  { time: '8:00am-8:45am', index: 0 },
+  { time: '8:45am-9:30am', index: 1 },
+  { time: '9:30am-10:15am', index: 2 },
+  { time: '10:15am-11:00am', index: 3 },
+  { time: '11:00am-11:45am', index: 4 },
+  { time: '11:45am-12:30pm', index: 5 },
+  { time: '12:30pm-1:15pm', index: 6 },
+  { time: '1:15pm-2:00pm', index: 7 },
 ];
 
 // Initialize timetables for each section
