@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./student-login.component.css']
 })
 export class StudentLoginComponent {
-
+  currentUser: any;
 loginForm: FormGroup;
 students: any[] = [];
 nextId: number;
@@ -26,6 +26,16 @@ constructor(private fb: FormBuilder, private router: Router) {
 }
 
 ngOnInit(): void {
+   // Clear attendance records upon component initialization
+   localStorage.removeItem('attendanceRecords');
+   const storedUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+   if (storedUser && storedUser.id) {
+     this.currentUser = storedUser;
+     const userRecordsKey = `attendanceRecords_${this.currentUser.rollNumber}`;
+     const currentUserRecords = JSON.parse(localStorage.getItem(userRecordsKey) || '[]');
+     // Display existing attendance records
+     console.log("Existing attendance records for user:", currentUserRecords);
+   }
 }
 
 onSubmit(): void {
@@ -35,7 +45,13 @@ onSubmit(): void {
     // Check if the email and password match any existing user
     const existingUser = this.students.find((user: any) => user.email === formData.email && user.password === formData.password);
     if (existingUser) {
+         // Clear attendance records if a new user is logged in
+         if (!this.currentUser || this.currentUser.id !== existingUser.id) {
+          localStorage.removeItem('attendanceRecords');
+        }
+
       // Login successful, save user details in local storage
+      this.currentUser = existingUser;
       localStorage.setItem('currentUser', JSON.stringify(existingUser));
       // this.router.navigate(['/sturegister']);
       this.router.navigate(['/dashboard/stuatt']);

@@ -8,82 +8,16 @@ import { DateAdapter } from '@angular/material/core';
   styleUrls: ['./student-attendance.component.css']
 })
 export class StudentAttendanceComponent {
-// markInDate: Date | null = null; // Variable to store marked in date
-//   markOutDate: Date | null = null; // Variable to store marked out date
-
-//   constructor(private dateAdapter: DateAdapter<Date>) {}
-
-//   // markIn(): void {
-//   //   console.log('Mark In button clicked');
-//   //   this.markInDate = new Date();
-//   //   console.log('Marked In Date:', this.markInDate);
-//   // }
-
-//   // markOut(): void {
-//   //   console.log('Mark Out button clicked');
-//   //   this.markOutDate = new Date();
-//   //   console.log('Marked Out Date:', this.markOutDate);
-//   // }
-
-//   markIn(): void {
-//     console.log('Mark In button clicked');
-//     const currentDate = new Date();
-//     console.log('Marked In Date:', currentDate);
-//     this.markInDate = currentDate;
-//     // If marked in and out dates are the same, clear marked out
-//     if (this.markOutDate && this.markOutDate.toDateString() === currentDate.toDateString()) {
-//       this.markOutDate = null;
-//     }
-//   }
-
-//   markOut(): void {
-//     console.log('Mark Out button clicked');
-//     const currentDate = new Date();
-//     console.log('Marked Out Date:', currentDate);
-//     this.markOutDate = currentDate;
-//     // If marked in and out dates are the same, clear marked in
-//     if (this.markInDate && this.markInDate.toDateString() === currentDate.toDateString()) {
-//       this.markInDate = null;
-//     }
-//   }
-
-
-
-//   dateClass: MatCalendarCellClassFunction<any> = (date: Date): MatCalendarCellCssClasses => {
-//     console.log('Checking date:', date);
-
-//     const day = this.dateAdapter.getDate(date);
-//     console.log('Day:', day);
-
-//     const currentDate = new Date();
-//     console.log('Current Date:', currentDate);
-
-//     if (this.markInDate && this.dateAdapter.sameDate(this.markInDate, date)) {
-//       console.log('Marked In Date found');
-//       return 'mark-in';
-//     }
-
-//     if (this.markOutDate && this.dateAdapter.sameDate(this.markOutDate, date)) {
-//       console.log('Marked Out Date found');
-//       return 'mark-out';
-//     }
-
-//     if (this.dateAdapter.sameDate(currentDate, date)) {
-//       console.log('Today\'s Date');
-//       return 'today';
-//     }
-
-//     return '';
-//   };
-// }
-
-
 
 
 // markInDate: Date | null = null;
 //   markOutDate: Date | null = null;
-
-//   constructor(private dateAdapter: DateAdapter<Date>) {}
+//   attendanceRecords: { date: string, time: string, attendance: string }[] = JSON.parse(localStorage.getItem('attendanceRecords') || '[]');
+//   currentUser: any;
+//   showMarkOutButton: boolean = false;
+//   constructor(private dateAdapter: DateAdapter<Date>) {
+//     this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+//   }
 
 //   ngOnInit(): void {
 //     // Retrieve marked dates from local storage
@@ -97,131 +31,170 @@ export class StudentAttendanceComponent {
 //     if (markedOut) {
 //       this.markOutDate = markedOut.date;
 //     }
+//       // Load existing attendance records or initialize an empty array
+//      // Load existing attendance records for the current user or initialize an empty array
+//      const currentUserAttendanceRecords = JSON.parse(localStorage.getItem(`attendanceRecords_${this.currentUser.rollNumber}`) || '[]');
+//      if (currentUserAttendanceRecords.length > 0) {
+//          this.attendanceRecords = currentUserAttendanceRecords;
+//      }
 //   }
 
 //   markIn(): void {
 //     const currentDate = new Date();
 //     this.markInDate = currentDate;
-//     this.saveDateToLocalStorage('markInDate', currentDate, true);
+//     this.addAttendanceRecord(currentDate, 'Mark In');
+//     this.saveDateToLocalStorage('markInDate', currentDate);
+//     this.showMarkOutButton = true;
 //   }
 
 //   markOut(): void {
 //     const currentDate = new Date();
 //     this.markOutDate = currentDate;
-//     this.saveDateToLocalStorage('markOutDate', currentDate, false);
+//     this.addAttendanceRecord(currentDate, 'Mark Out');
+//     this.saveDateToLocalStorage('markOutDate', currentDate);
 //   }
 
 //   dateClass: MatCalendarCellClassFunction<any> = (date: Date): MatCalendarCellCssClasses => {
-//     const day = this.dateAdapter.getDate(date);
 //     const currentDate = new Date();
 
-//     if (this.markInDate && this.dateAdapter.sameDate(this.markInDate, date)) {
+//     if (this.markInDate && this.isSameDate(date, this.markInDate)) {
 //       return 'mark-in';
 //     }
 
-//     if (this.markOutDate && this.dateAdapter.sameDate(this.markOutDate, date)) {
+//     if (this.markOutDate && this.isSameDate(date, this.markOutDate)) {
 //       return 'mark-out';
 //     }
 
-//     if (this.dateAdapter.sameDate(currentDate, date)) {
+//     if (this.isSameDate(date, currentDate)) {
 //       return 'today';
 //     }
 
 //     return '';
 //   };
 
-//   saveDateToLocalStorage(key: string, date: Date, isMarkedIn: boolean): void {
-//     const markedDate = { date: date.toISOString(), isMarkedIn: isMarkedIn };
-//     localStorage.setItem(key, JSON.stringify(markedDate));
+//   saveDateToLocalStorage(key: string, date: Date): void {
+//     localStorage.setItem(key, JSON.stringify({ date: date.toISOString() }));
 //   }
 
-//   getDateFromLocalStorage(key: string): { date: Date, isMarkedIn: boolean } | null {
+//   addAttendanceRecord(date: Date, action: string): void {
+//     const formattedDate = date.toLocaleDateString();
+//     const formattedTime = date.toLocaleTimeString();
+//     const record = { date: formattedDate, time: formattedTime, attendance: action };
+//     this.attendanceRecords.push(record);
+//     localStorage.setItem('attendanceRecords', JSON.stringify(this.attendanceRecords));
+//   }
+
+//   getDateFromLocalStorage(key: string): { date: Date | null } | null {
 //     const markedDateString = localStorage.getItem(key);
 //     if (markedDateString) {
 //       const markedDate = JSON.parse(markedDateString);
-//       return { date: new Date(markedDate.date), isMarkedIn: markedDate.isMarkedIn };
+//       return { date: markedDate.date ? new Date(markedDate.date) : null };
 //     }
 //     return null;
 //   }
+
+//   isSameDate(date1: Date, date2: Date): boolean {
+//     return date1.getFullYear() === date2.getFullYear() &&
+//       date1.getMonth() === date2.getMonth() &&
+//       date1.getDate() === date2.getDate();
+//   }
 // }
 
-
 markInDate: Date | null = null;
-markOutDate: Date | null = null;
+  markOutDate: Date | null = null;
+  attendanceRecords: { date: string, time: string, attendance: string }[] = [];
+  currentUser: any;
+  showMarkOutButton: boolean = false;
 
-constructor(private dateAdapter: DateAdapter<Date>) {}
-
-ngOnInit(): void {
-  // Retrieve marked dates from local storage
-  const markedIn = this.getDateFromLocalStorage('markInDate');
-  const markedOut = this.getDateFromLocalStorage('markOutDate');
-
-  if (markedIn) {
-    this.markInDate = markedIn.date;
+  constructor(private dateAdapter: DateAdapter<Date>) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
   }
 
-  if (markedOut) {
-    this.markOutDate = markedOut.date;
-  }
-}
+  ngOnInit(): void {
+    // Retrieve marked dates from local storage
+    const markedIn = this.getDateFromLocalStorage('markInDate');
+    const markedOut = this.getDateFromLocalStorage('markOutDate');
 
-markIn(): void {
-  const currentDate = new Date();
-  this.markInDate = currentDate;
-  this.saveDateToLocalStorage('markInDate', currentDate, true);
-  // Clear markOutDate if the same date was marked out
-  if (this.markOutDate && this.isSameDate(currentDate, this.markOutDate)) {
-    this.markOutDate = null;
-    this.saveDateToLocalStorage('markOutDate', null, false);
-  }
-}
+    if (markedIn) {
+      this.markInDate = markedIn.date;
+    }
 
-markOut(): void {
-  const currentDate = new Date();
-  this.markOutDate = currentDate;
-  this.saveDateToLocalStorage('markOutDate', currentDate, false);
-  // Clear markInDate if the same date was marked in
-  if (this.markInDate && this.isSameDate(currentDate, this.markInDate)) {
-    this.markInDate = null;
-    this.saveDateToLocalStorage('markInDate', null, true);
-  }
-}
+    if (markedOut) {
+      this.markOutDate = markedOut.date;
+    }
 
-dateClass: MatCalendarCellClassFunction<any> = (date: Date): MatCalendarCellCssClasses => {
-  const currentDate = new Date();
-
-  if (this.markInDate && this.isSameDate(date, this.markInDate)) {
-    return 'mark-in';
+    // Load existing attendance records for the current user or initialize an empty array
+    const userRecordsKey = `attendanceRecords_${this.currentUser.rollNumber}`;
+    const currentUserAttendanceRecords = JSON.parse(localStorage.getItem(userRecordsKey) || '[]');
+    if (currentUserAttendanceRecords.length > 0) {
+      this.attendanceRecords = currentUserAttendanceRecords;
+    }
   }
 
-  if (this.markOutDate && this.isSameDate(date, this.markOutDate)) {
-    return 'mark-out';
+  markIn(): void {
+    const currentDate = new Date();
+    this.markInDate = currentDate;
+    this.addAttendanceRecord(currentDate, 'Mark In');
+    this.saveDateToLocalStorage('markInDate', currentDate);
+    this.showMarkOutButton = true; // Show the "Mark Out" button after marking in
   }
 
-  if (this.isSameDate(date, currentDate)) {
-    return 'today';
+  markOut(): void {
+    const currentDate = new Date();
+    this.markOutDate = currentDate;
+    this.addAttendanceRecord(currentDate, 'Mark Out');
+    this.saveDateToLocalStorage('markOutDate', currentDate);
   }
 
-  return '';
-};
+  dateClass: MatCalendarCellClassFunction<any> = (date: Date): MatCalendarCellCssClasses => {
+    const currentDate = new Date();
 
-saveDateToLocalStorage(key: string, date: Date | null, isMarkedIn: boolean | null): void {
-  const markedDate = { date: date ? date.toISOString() : null, isMarkedIn: isMarkedIn };
-  localStorage.setItem(key, JSON.stringify(markedDate));
-}
+    if (this.markInDate && this.isSameDate(date, this.markInDate)) {
+      return 'mark-in';
+    }
 
-getDateFromLocalStorage(key: string): { date: Date | null, isMarkedIn: boolean | null } | null {
-  const markedDateString = localStorage.getItem(key);
-  if (markedDateString) {
-    const markedDate = JSON.parse(markedDateString);
-    return { date: markedDate.date ? new Date(markedDate.date) : null, isMarkedIn: markedDate.isMarkedIn };
+    if (this.markOutDate && this.isSameDate(date, this.markOutDate)) {
+      return 'mark-out';
+    }
+
+    if (this.isSameDate(date, currentDate)) {
+      return 'today';
+    }
+
+    return '';
+  };
+
+  saveDateToLocalStorage(key: string, date: Date): void {
+    localStorage.setItem(key, JSON.stringify({ date: date.toISOString() }));
   }
-  return null;
-}
 
-isSameDate(date1: Date, date2: Date): boolean {
-  return date1.getFullYear() === date2.getFullYear() &&
-         date1.getMonth() === date2.getMonth() &&
-         date1.getDate() === date2.getDate();
-}
+  addAttendanceRecord(date: Date, action: string): void {
+    const formattedDate = date.toLocaleDateString();
+    const formattedTime = date.toLocaleTimeString();
+    const record = { date: formattedDate, time: formattedTime, attendance: action };
+
+    // Save the attendance record specifically for the current user
+    const userRecordsKey = `attendanceRecords_${this.currentUser.rollNumber}`;
+    const currentUserRecords = JSON.parse(localStorage.getItem(userRecordsKey) || '[]');
+    currentUserRecords.push(record);
+    localStorage.setItem(userRecordsKey, JSON.stringify(currentUserRecords));
+
+    // Update the local array for display
+    this.attendanceRecords.push(record);
+  }
+
+  getDateFromLocalStorage(key: string): { date: Date | null } | null {
+    const markedDateString = localStorage.getItem(key);
+    if (markedDateString) {
+      const markedDate = JSON.parse(markedDateString);
+      return { date: markedDate.date ? new Date(markedDate.date) : null };
+    }
+    return null;
+  }
+
+  isSameDate(date1: Date, date2: Date): boolean {
+    return date1.getFullYear() === date2.getFullYear() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getDate() === date2.getDate();
+  }
 }
