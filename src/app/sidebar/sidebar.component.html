@@ -12,19 +12,19 @@
       <button mat-button class="menu-button"  routerLink="student" routerLinkActive="active">
         <span>Student</span>
       </button>
-      <button mat-button class="menu-button"  routerLink="employee" routerLinkActive="active">
+      <button mat-button class="menu-button"    routerLink="employee" routerLinkActive="active">
         <span>Employee</span>
       </button>
-      <button mat-button class="menu-button" routerLink="navbar" routerLinkActive="active">
+      <button mat-button class="menu-button"     routerLink="navbar" routerLinkActive="active">
         <span>Timetable</span>
       </button>
-      <button mat-button class="menu-button" *ngIf="!isAdmin && userType === 0" routerLink="stuatt" routerLinkActive="active">
+      <button mat-button class="menu-button"     routerLink="stuatt" routerLinkActive="active">
         <span>Student Attendance</span>
       </button>
-      <button mat-button class="menu-button" *ngIf="!isAdmin && userType === 0" routerLink="employeeatt" routerLinkActive="active">
+      <button mat-button class="menu-button"   routerLink="employeeatt" routerLinkActive="active">
         <span>Employee Attendance</span>
       </button>
-      <button mat-button class="menu-button"  routerLink="adminS" routerLinkActive="active">
+      <button mat-button class="menu-button"   routerLink="adminS" routerLinkActive="active">
         <span>Admin Attendance</span>
       </button>
     </div>

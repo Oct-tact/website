@@ -49,7 +49,8 @@ onSubmit(): void {
          if (!this.currentUser || this.currentUser.id !== existingUser.id) {
           localStorage.removeItem('attendanceRecords');
         }
-
+        existingUser.userType = 1; // UserType 1 indicates a student
+        existingUser.isLoggedIn = true;
       // Login successful, save user details in local storage
       this.currentUser = existingUser;
       localStorage.setItem('currentUser', JSON.stringify(existingUser));
