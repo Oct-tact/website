@@ -41,6 +41,7 @@ export class StudentRegisterComponent {
 
       // Save updated data to local storage
       localStorage.setItem('students', JSON.stringify(existingData));
+      
 
       // Reset form after submission
       this.registrationForm.reset();

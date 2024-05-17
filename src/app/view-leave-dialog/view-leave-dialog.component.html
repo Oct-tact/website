@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>View Leave Request</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>From Date</mat-label>
+    <input matInput [value]="data.fromDate | date: 'shortDate'" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>To Date</mat-label>
+    <input matInput [value]="data.toDate | date: 'shortDate'" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>No of Days</mat-label>
+    <input matInput [value]="data.noOfDays" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Reason</mat-label>
+    <textarea matInput [value]="data.reason" readonly></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <input matInput [value]="data.status" readonly>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">Close</button>
+</div>
+

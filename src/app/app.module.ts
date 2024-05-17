@@ -68,6 +68,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { EmployeeAttendanceComponent } from './employee-attendance/employee-attendance.component';
 import { AdminEmployeeAttendanceComponent } from './admin-employee-attendance/admin-employee-attendance.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { StudentLeaveComponent } from './student-leave/student-leave.component';
+import { LeaveRequestDialogComponent } from './leave-request-dialog/leave-request-dialog.component';
+import { UpdateLeaveComponent } from './update-leave/update-leave.component';
+import { CancelLeaveDialogComponent } from './cancel-leave-dialog/cancel-leave-dialog.component';
+import { ViewLeaveDialogComponent } from './view-leave-dialog/view-leave-dialog.component';
 
 
 
@@ -104,6 +109,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     WelcomeComponent,
     EmployeeAttendanceComponent,
     AdminEmployeeAttendanceComponent,
+    StudentLeaveComponent,
+    LeaveRequestDialogComponent,
+    UpdateLeaveComponent,
+    CancelLeaveDialogComponent,
+    ViewLeaveDialogComponent,
   
   ],
   imports: [

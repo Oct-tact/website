@@ -1,0 +1,79 @@
+
+
+
+<!-- <div class="student-details">
+<h2>Leave Request for {{ studentName }}</h2>
+<p>Roll Number: {{ rollNumber }}</p>
+</div> -->
+<!-- student-leave.component.html -->
+<div class="leave-container">
+    <h2>Student Leave Requests</h2>
+    <div class="container">
+        <div class="button-container">
+          <button mat-raised-button class="add" (click)="openLeaveRequestDialog()">Leave Request</button>
+        </div><br>
+        </div>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- SNO Column -->
+      <ng-container matColumnDef="sno">
+        <mat-header-cell *matHeaderCellDef> SNO. </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index"> {{ i + 1 }} </mat-cell>
+      </ng-container>
+  
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.date | date }} </mat-cell>
+      </ng-container>
+  
+      <!-- From Date Column -->
+      <ng-container matColumnDef="fromDate">
+        <mat-header-cell *matHeaderCellDef> From Date </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.fromDate | date }} </mat-cell>
+      </ng-container>
+  
+      <!-- To Date Column -->
+      <ng-container matColumnDef="toDate">
+        <mat-header-cell *matHeaderCellDef> To Date </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.toDate | date }} </mat-cell>
+      </ng-container>
+  
+      <!-- Number of Days Column -->
+      <ng-container matColumnDef="noOfDays">
+        <mat-header-cell *matHeaderCellDef> No. of Days </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.noOfDays}} </mat-cell>
+      </ng-container>
+  
+      <!-- Reason Column -->
+      <ng-container matColumnDef="reason">
+        <mat-header-cell *matHeaderCellDef> Reason </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.reason }} </mat-cell>
+      </ng-container>
+  
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.status }} </mat-cell>
+      </ng-container>
+  
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onAction(element, 'view')">View</button>
+            <button mat-menu-item (click)="onAction(element, 'update')">Update</button>
+            <button mat-menu-item (click)="onAction(element, 'cancel')">Cancel</button>
+          </mat-menu>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  
+  

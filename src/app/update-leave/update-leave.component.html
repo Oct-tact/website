@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Update Leave Request</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>From Date</mat-label>
+    <input matInput [matDatepicker]="picker1" [(ngModel)]="data.fromDate" (dateChange)="calculateNoOfDays()">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>To Date</mat-label>
+    <input matInput [matDatepicker]="picker2" [(ngModel)]="data.toDate" (dateChange)="calculateNoOfDays()">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>No. of Days</mat-label>
+    <input matInput [(ngModel)]="data.noOfDays" disabled>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Reason</mat-label>
+    <textarea matInput [(ngModel)]="data.reason"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data">Update</button>
+</div>
+
