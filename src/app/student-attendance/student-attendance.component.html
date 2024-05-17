@@ -37,7 +37,7 @@
 
 
  
-
+<!-- 
    <div class="all">
     <p class="name">Name: {{ currentUser.name }}</p>
     <p class="roll">Roll Number: {{ currentUser.rollNumber }}</p>
@@ -69,4 +69,41 @@
   
   </div>
    
- 
+  -->
+
+
+  
+
+
+  <div class="all">
+    <p class="name">Name: {{ currentUser.name }}</p>
+    <p class="roll">Roll Number: {{ currentUser.rollNumber }}</p>
+  </div>
+  <div class="button-container">
+    <button mat-raised-button *ngIf="!markInDate && !showMarkOutButton" class="marked" (click)="markIn()">Mark In</button>
+    <button mat-raised-button *ngIf="markInDate && showMarkOutButton" class="markedinn" (click)="markOut()">Mark Out</button>
+  </div>
+  <div class="attendance-container">
+    <mat-calendar class="cal" [dateClass]="dateClass"></mat-calendar>
+    <table class="attendance-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Mark In Time</th>
+          <th>Mark Out Time</th>
+          <th>Status</th>
+          <th>Status by Admin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of attendanceRecords">
+          <td>{{ record.date }}</td>
+          <td>{{ record.markInTime ? record.markInTime : '------' }}</td>
+          <td>{{ record.markOutTime ? record.markOutTime : '------' }}</td>
+          <td>{{ record.status }}</td>
+          <td>{{ record.adminStatus ? record.adminStatus : 'Not Marked' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
