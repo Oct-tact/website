@@ -150,7 +150,7 @@
 
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { MatSnackBar } from '@angular/material/snack-bar'; 
 @Component({
   selector: 'app-admin-s-attendance',
   templateUrl: './admin-s-attendance.component.html',
@@ -161,7 +161,7 @@ export class AdminSAttendanceComponent {
   displayedColumns: string[] = ['name', 'rollNumber', 'status', 'action'];
   dataSource: MatTableDataSource<any>;
 
-  constructor() {
+  constructor(private snackBar: MatSnackBar) {
     this.dataSource = new MatTableDataSource<any>(this.students);
   }
 
@@ -187,6 +187,7 @@ export class AdminSAttendanceComponent {
     student.status = status;
     this.saveAttendance();
     this.updateStudentAttendance(student.name, status); // Update student attendance status
+    this.showSuccessMessage(status);
   }
 
   resetAttendanceOnNextDay(): void {
@@ -228,4 +229,12 @@ export class AdminSAttendanceComponent {
     }
     localStorage.setItem('studentAttendanceByAdmin', JSON.stringify(studentAttendance));
   }
+  showSuccessMessage(status: string): void {
+    const message = `Marked ${status.toLowerCase()} successfully.`;
+    this.snackBar.open(message, 'Close', {
+      duration: 3000, // Duration in milliseconds
+      verticalPosition: 'top' // Position of the snackbar
+    });
+  }
 }
+

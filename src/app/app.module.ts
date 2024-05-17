@@ -10,7 +10,7 @@ import { ShopComponent } from './shop/shop.component';
 import { ContactComponent } from './contact/contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatSnackBar } from '@angular/material/snack-bar'; 
 
 
 
@@ -66,7 +66,8 @@ import { StudentAttendanceComponent } from './student-attendance/student-attenda
 import { AdminSAttendanceComponent } from './admin-s-attendance/admin-s-attendance.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { EmployeeAttendanceComponent } from './employee-attendance/employee-attendance.component';
-
+import { AdminEmployeeAttendanceComponent } from './admin-employee-attendance/admin-employee-attendance.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -102,6 +103,7 @@ import { EmployeeAttendanceComponent } from './employee-attendance/employee-atte
     AdminSAttendanceComponent,
     WelcomeComponent,
     EmployeeAttendanceComponent,
+    AdminEmployeeAttendanceComponent,
   
   ],
   imports: [
@@ -128,6 +130,8 @@ import { EmployeeAttendanceComponent } from './employee-attendance/employee-atte
     MatPaginatorModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
+   
    
  
   

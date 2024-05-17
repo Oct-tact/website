@@ -15,7 +15,7 @@
 .menu-item{
     .menu-button{
         display: block;
-        width: 100%;
+        width: 110%;
         position: relative;
         display: flex;
         padding-right: 30px;
