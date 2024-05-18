@@ -1,0 +1,70 @@
+<div class="employee-leave">
+    <h2>Employee Leave Requests</h2>
+    <div class="container">
+        <div class="button-container">
+          <button mat-raised-button class="add" (click)="openLeaveRequestDialog()">Employee Leave Request</button>
+        </div><br>
+        </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- SNO Column -->
+      <ng-container matColumnDef="sno">
+        <th mat-header-cell *matHeaderCellDef> SNO. </th>
+        <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
+      </ng-container>
+  
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date | date}} </td>
+      </ng-container>
+  
+      <!-- From Date Column -->
+      <ng-container matColumnDef="fromDate">
+        <th mat-header-cell *matHeaderCellDef> From Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.fromDate | date}} </td>
+      </ng-container>
+  
+      <!-- To Date Column -->
+      <ng-container matColumnDef="toDate">
+        <th mat-header-cell *matHeaderCellDef> To Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.toDate | date}} </td>
+      </ng-container>
+  
+      <!-- No of Days Column -->
+      <ng-container matColumnDef="noOfDays">
+        <th mat-header-cell *matHeaderCellDef> No of Days </th>
+        <td mat-cell *matCellDef="let element"> {{element.noOfDays}} </td>
+      </ng-container>
+  
+      <!-- Reason Column -->
+      <ng-container matColumnDef="reason">
+        <th mat-header-cell *matHeaderCellDef> Reason </th>
+        <td mat-cell *matCellDef="let element"> {{element.reason}} </td>
+      </ng-container>
+  
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+  
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onAction(element, 'update')">Update</button>
+            <button mat-menu-item (click)="onAction(element, 'view')">View</button>
+            <button mat-menu-item (click)="onAction(element, 'cancel')">Cancel</button>
+          </mat-menu>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

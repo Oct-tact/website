@@ -73,6 +73,7 @@ import { LeaveRequestDialogComponent } from './leave-request-dialog/leave-reques
 import { UpdateLeaveComponent } from './update-leave/update-leave.component';
 import { CancelLeaveDialogComponent } from './cancel-leave-dialog/cancel-leave-dialog.component';
 import { ViewLeaveDialogComponent } from './view-leave-dialog/view-leave-dialog.component';
+import { EmployeeLeaveComponent } from './employee-leave/employee-leave.component';
 
 
 
@@ -114,6 +115,7 @@ import { ViewLeaveDialogComponent } from './view-leave-dialog/view-leave-dialog.
     UpdateLeaveComponent,
     CancelLeaveDialogComponent,
     ViewLeaveDialogComponent,
+    EmployeeLeaveComponent,
   
   ],
   imports: [

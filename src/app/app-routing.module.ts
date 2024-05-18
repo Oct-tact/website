@@ -23,6 +23,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { EmployeeAttendanceComponent } from './employee-attendance/employee-attendance.component';
 import { AdminEmployeeAttendanceComponent } from './admin-employee-attendance/admin-employee-attendance.component';
 import { StudentLeaveComponent } from './student-leave/student-leave.component';
+import { EmployeeLeaveComponent } from './employee-leave/employee-leave.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
         { path: 'adminS', component: AdminSAttendanceComponent },
         { path: 'adminE', component: AdminEmployeeAttendanceComponent },
         { path: 'studentleave', component: StudentLeaveComponent },
+        { path: 'employeeleave', component: EmployeeLeaveComponent },
       
      ]
      },
