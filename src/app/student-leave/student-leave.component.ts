@@ -324,6 +324,7 @@ import { ViewLeaveDialogComponent } from '../view-leave-dialog/view-leave-dialog
 interface LeaveRequest {
   sno: number;
   studentRollNumber: string;
+  studentName: string ;
   date: Date;
   fromDate: Date;
   toDate: Date;
@@ -338,7 +339,7 @@ interface LeaveRequest {
   styleUrls: ['./student-leave.component.css']
 })
 export class StudentLeaveComponent implements OnInit {
-  displayedColumns: string[] = ['sno', 'date', 'fromDate', 'toDate', 'noOfDays', 'reason', 'status', 'action'];
+  displayedColumns: string[] = ['sno', 'studentName','date', 'fromDate', 'toDate', 'noOfDays', 'reason', 'status', 'action'];
   dataSource: MatTableDataSource<LeaveRequest>;
 
   leaveRequests: LeaveRequest[] = [];
@@ -379,6 +380,7 @@ export class StudentLeaveComponent implements OnInit {
     const newRequest: LeaveRequest = {
       sno: this.leaveRequests.length + 1,
       studentRollNumber: this.rollNumber,
+      studentName: this.studentName, // Add this line
       date: new Date(),
       fromDate: data.fromDate,
       toDate: data.toDate,

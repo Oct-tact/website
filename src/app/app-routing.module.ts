@@ -24,6 +24,7 @@ import { EmployeeAttendanceComponent } from './employee-attendance/employee-atte
 import { AdminEmployeeAttendanceComponent } from './admin-employee-attendance/admin-employee-attendance.component';
 import { StudentLeaveComponent } from './student-leave/student-leave.component';
 import { EmployeeLeaveComponent } from './employee-leave/employee-leave.component';
+import { AdminLeaveApprovalComponent } from './admin-leave-approval/admin-leave-approval.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,7 @@ const routes: Routes = [
         { path: 'adminE', component: AdminEmployeeAttendanceComponent },
         { path: 'studentleave', component: StudentLeaveComponent },
         { path: 'employeeleave', component: EmployeeLeaveComponent },
+        { path: 'adminleave', component: AdminLeaveApprovalComponent },
       
      ]
      },
