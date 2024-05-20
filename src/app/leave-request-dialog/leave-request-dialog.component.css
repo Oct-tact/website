@@ -1,0 +1,25 @@
+/* leave-request-dialog.component.css */
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form {
+    width: 100%;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  mat-error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  h2 {
+    margin-left: 132px;
+    color: rgb(59, 59, 237);
+    font-weight:600;
+  }

@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Update Leave Request</h1>
+<!-- <h1 mat-dialog-title>Update Leave Request</h1>
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>From Date</mat-label>
@@ -28,4 +28,44 @@
   <button mat-button (click)="onNoClick()">Cancel</button>
   <button mat-button [mat-dialog-close]="data">Update</button>
 </div>
+ -->
 
+
+
+ <h2>Update Leave Request</h2>
+<div mat-dialog-content class="dialog-content">
+  <form #updateLeaveRequestForm="ngForm">
+    <mat-form-field>
+      <mat-label>From Date</mat-label>
+      <input matInput [matDatepicker]="picker1" [(ngModel)]="data.fromDate" (dateChange)="calculateNoOfDays()"
+        name="fromDate" required>
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+      <mat-error *ngIf="updateLeaveRequestForm.controls['fromDate']?.errors?.['required']">From Date is required</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>To Date</mat-label>
+      <input matInput [matDatepicker]="picker2" [(ngModel)]="data.toDate" (dateChange)="calculateNoOfDays()"
+        name="toDate" required>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+      <mat-error *ngIf="updateLeaveRequestForm.controls['toDate']?.errors?.['required']">To Date is required</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>No. of Days</mat-label>
+      <input matInput [(ngModel)]="data.noOfDays" name="noOfDays" disabled>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Reason</mat-label>
+      <textarea matInput [(ngModel)]="data.reason" name="reason" required></textarea>
+      <mat-error *ngIf="updateLeaveRequestForm.controls['reason']?.errors?.['required']">Reason is required</mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="btm">
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>
+  <button  mat-raised-button color="primary" [mat-dialog-close]="data" [disabled]="!updateLeaveRequestForm.valid">Update</button>
+</div>

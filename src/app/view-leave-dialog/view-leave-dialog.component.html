@@ -1,5 +1,5 @@
-<h1 mat-dialog-title>View Leave Request</h1>
-<div mat-dialog-content>
+<h2>View Leave Request</h2>
+<div mat-dialog-content class="dialog-content">
   <mat-form-field>
     <mat-label>From Date</mat-label>
     <input matInput [value]="data.fromDate | date: 'shortDate'" readonly>
@@ -21,7 +21,7 @@
     <input matInput [value]="data.status" readonly>
   </mat-form-field>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onClose()">Close</button>
+<div mat-dialog-actions  class="btm">
+  <button mat-raised-button color="warn" (click)="onClose()">Close</button>
 </div>
 

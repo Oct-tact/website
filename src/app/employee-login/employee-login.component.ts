@@ -45,12 +45,12 @@ export class EmployeeLoginComponent {
       // Check if the email and password match any existing user
       const existingUser = this.employees.find((user: any) => user.email === formData.email && user.password === formData.password);
       if (existingUser) {
-          
+        existingUser.userType = 2;
         // Clear attendance records if a new user is logged in
         if (!this.currentUser || this.currentUser.id !== existingUser.id) {
           localStorage.removeItem('attendanceRecords');
         }
-
+    
       // Login successful, save user details in local storage
       this.currentUser = existingUser;
         localStorage.setItem('currentUser', JSON.stringify(existingUser));
