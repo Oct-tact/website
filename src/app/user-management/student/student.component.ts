@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { StudentEditDialogComponent } from 'src/app/student-edit-dialog/student-edit-dialog.component';
 import { StudentDeleteDialogComponent } from 'src/app/student-delete-dialog/student-delete-dialog.component';
 import { StudentUpdatePasswordDialogComponent } from 'src/app/student-update-password-dialog/student-update-password-dialog.component';
+import { EmployeeUpdatePasswordDialogComponent } from 'src/app/employee-update-password-dialog/employee-update-password-dialog.component';
 
 @Component({
   selector: 'app-student',
@@ -63,16 +64,21 @@ export class StudentComponent implements OnInit  {
   updateLocalStorage() {
     localStorage.setItem('students', JSON.stringify(this.dataSource.data));
   }
-
   openUpdatePasswordDialog(student: any): void {
-    const dialogRef = this.dialog.open(StudentUpdatePasswordDialogComponent, {
+    const dialogRef = this.dialog.open(EmployeeUpdatePasswordDialogComponent, {
       width: '400px',
-      data: { oldPassword: student.password }
+      data: { student }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // Handle update password result here if needed
+    dialogRef.afterClosed().subscribe(newPassword => {
+      if (newPassword) {
+        const index = this.dataSource.data.findIndex((item: { id: any; }) => item.id === student.id);
+        if (index !== -1) {
+          this.dataSource.data[index].password = newPassword;
+          this.dataSource._updateChangeSubscription();
+          this.updateLocalStorage();
+        }
+      }
     });
   }
 }

@@ -76,6 +76,7 @@ import { ViewLeaveDialogComponent } from './view-leave-dialog/view-leave-dialog.
 import { EmployeeLeaveComponent } from './employee-leave/employee-leave.component';
 import { AdminLeaveApprovalComponent } from './admin-leave-approval/admin-leave-approval.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { EmployeeUpdatePasswordDialogComponent } from './employee-update-password-dialog/employee-update-password-dialog.component';
 
 
 @NgModule({
@@ -118,6 +119,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     ViewLeaveDialogComponent,
     EmployeeLeaveComponent,
     AdminLeaveApprovalComponent,
+    EmployeeUpdatePasswordDialogComponent,
   
   ],
   imports: [
