@@ -1,14 +1,17 @@
+
 <div class="employee-leave">
     <div class="all">
         <p class="name"><strong>Name:</strong> {{ currentUser?.name }}</p>
         <p class="roll"><strong>Role:</strong> {{ currentUser?.role }}</p>
       </div>
+  
     <h2>Employee Leave Requests</h2>
     <div class="container">
         <div class="button-container">
           <button mat-raised-button class="add" (click)="openLeaveRequestDialog()">Employee Leave Request</button>
-        </div><br>
         </div>
+        </div>
+        <div class="container">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!-- SNO Column -->
       <ng-container matColumnDef="sno">
@@ -76,5 +79,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+  </div> 
   </div>
   

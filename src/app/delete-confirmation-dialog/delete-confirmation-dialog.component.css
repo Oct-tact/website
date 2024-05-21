@@ -1,0 +1,21 @@
+
+
+.tt{
+    width: 100%;
+  }
+  
+  h2 {
+    color: blue;
+    text-align: center;
+    margin-top: 20px;
+  }
+ 
+  p{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  .btm{
+    margin-left: 200px;
+ 
+  }

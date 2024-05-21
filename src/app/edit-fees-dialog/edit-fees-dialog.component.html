@@ -1,0 +1,39 @@
+<h2>Edit Fees</h2>
+<div mat-dialog-content>
+ 
+
+  <mat-form-field style="width: 100%;">
+    <mat-label>Class</mat-label>
+    <input matInput [value]="data.class" readonly />
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;">
+    <mat-label>Fees Amount</mat-label>
+    <input matInput [(ngModel)]="updatedData.feesAmount" (ngModelChange)="onFeesAmountChange()" />
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;">
+    <mat-label>Quarter 1 (Jan-Mar)</mat-label>
+    <input matInput [value]="updatedData.quarterFees.Q1" readonly />
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;">
+    <mat-label>Quarter 2 (Apr-Jun)</mat-label>
+    <input matInput [value]="updatedData.quarterFees.Q2" readonly />
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;">
+    <mat-label>Quarter 3 (Jul-Sep)</mat-label>
+    <input matInput [value]="updatedData.quarterFees.Q3" readonly />
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;">
+    <mat-label>Quarter 4 (Oct-Dec)</mat-label>
+    <input matInput [value]="updatedData.quarterFees.Q4" readonly />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="kk">
+  <button  mat-raised-button color="warn" (click)="onCancelClick()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onUpdateClick()">Update</button>
+</div>
+

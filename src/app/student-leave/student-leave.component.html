@@ -10,8 +10,9 @@
     <div class="container">
         <div class="button-container">
           <button mat-raised-button class="add" (click)="openLeaveRequestDialog()">Student Leave Request</button>
-        </div><br>
         </div>
+        </div>
+        <div class="container">
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!-- SNO Column -->
       <ng-container matColumnDef="sno">
@@ -81,6 +82,7 @@
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
+  </div>
   </div>
   
   

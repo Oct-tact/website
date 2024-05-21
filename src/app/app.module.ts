@@ -77,6 +77,11 @@ import { EmployeeLeaveComponent } from './employee-leave/employee-leave.componen
 import { AdminLeaveApprovalComponent } from './admin-leave-approval/admin-leave-approval.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { EmployeeUpdatePasswordDialogComponent } from './employee-update-password-dialog/employee-update-password-dialog.component';
+import { FeesMasterComponent } from './fees-master/fees-master.component';
+import { AddFeesDialogComponent } from './add-fees-dialog/add-fees-dialog.component';
+import { ViewFeesDialogComponent } from './view-fees-dialog/view-fees-dialog.component';
+import { EditFeesDialogComponent } from './edit-fees-dialog/edit-fees-dialog.component';
+import { DeleteConfirmationDialogComponent } from './delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 
 @NgModule({
@@ -120,6 +125,11 @@ import { EmployeeUpdatePasswordDialogComponent } from './employee-update-passwor
     EmployeeLeaveComponent,
     AdminLeaveApprovalComponent,
     EmployeeUpdatePasswordDialogComponent,
+    FeesMasterComponent,
+    AddFeesDialogComponent,
+    ViewFeesDialogComponent,
+    EditFeesDialogComponent,
+    DeleteConfirmationDialogComponent,
   
   ],
   imports: [

@@ -14,5 +14,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html, body {
     background-image: linear-gradient(to bottom right, #0077b6, #00b4d8); /* Beautiful blue gradient */
   }
+  table {
+    width: 100%;
+  }
+  .container {
+    padding: 16px;
+  }
   
   

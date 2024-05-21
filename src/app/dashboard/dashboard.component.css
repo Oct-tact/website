@@ -1,25 +1,30 @@
 mat-sidenav{
-    background-color: darkslategrey;
-width: 230px;
+    /* background-color: darkslategrey; */
+    background: linear-gradient(to bottom,#ff69b4, #ff1493); 
+
+   
+width: 280px;
 height: 100%;
 }
 mat-sidenav-content{
     height: 100vh;
-    background-color: white;
+    background-color: rgb(234, 239, 242);
     .main{
         margin-left: 30px;
     }
 }
 mat-toolbar{
-    background-color: lightslategray;
+    /* background-color: lightslategray; */
+    background-color: rgb(41, 36, 36);
     mat-icon{
         margin-left: 15px;
-        color:black;
+        color:white;
         
     }
     justify-content: space-between;
     .box{
         margin-top: 15px;
+        color: white;
     }
   
 }

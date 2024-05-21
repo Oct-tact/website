@@ -1,5 +1,6 @@
 
-<div class="predefined-conditions">
+<div class="timetable">
+  <div class="container">
     <h2>Predefined Conditions</h2>
     <table mat-table [dataSource]="sectio" class="mat-elevation-z8">
      
@@ -44,9 +45,11 @@
       <tr mat-row *matRowDef="let row; columns: ['name', 'classTeacher', 'sub', 'status','action'];"></tr>
     </table>
   </div>
-  
 
+
+  <div class="container">
  <h2>Timetable</h2>
+
  <table mat-table [dataSource]="periods" class="mat-elevation-z8">
  
   
@@ -88,6 +91,7 @@
    <tr mat-header-row *matHeaderRowDef="['time', 'sectionA', 'sectionB', 'sectionC', 'sectionD', 'sectionE']"></tr>
    <tr mat-row *matRowDef="let row; columns: ['time', 'sectionA', 'sectionB', 'sectionC', 'sectionD', 'sectionE'];"></tr>
  </table>
- 
+ </div>
+ </div>
   
   

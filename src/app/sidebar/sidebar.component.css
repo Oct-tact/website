@@ -1,14 +1,15 @@
 .menu-head{
-    color: grey;
+    color: white;
     font-size: large;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
     margin-left: 40px;
     margin-right: 40px;
-    margin-bottom: 50px;
-    box-shadow: 0 0 0 2px gray; /* Add box-shadow to create a background border */
-    border-radius: 5px; /* Add border radius for rounded corners */
+    margin-bottom: 40px;
+    /* box-shadow: 0 0 0 2px rgb(82, 77, 77);  */
+    /* border-radius: 5px; Add border radius for rounded corners */
+    border-bottom: 1px solid white;
     padding: 8px 8px;
     margin-top: 20px;
 }
@@ -18,23 +19,23 @@
         width: 110%;
         position: relative;
         display: flex;
-        padding-right: 30px;
-        margin-bottom: 15px;
+        padding-right: 50px;
+        margin-bottom: 4px;
         font-weight: bold;
        
     }
     .menu-button span{
         margin-left:10px ;
         color: white;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         font-weight: bold;
       
     }
     .menu-button:hover{
-        background-color: grey;
+        background-color: rgb(36, 34, 34);
     }
     .menu-button:focus{
-        background-color: grey;
+        background-color: rgb(36, 34, 34);
     }
    
 }
