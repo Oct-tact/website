@@ -75,6 +75,7 @@
   
     .menu-button mat-icon {
       margin-right: 10px;
+  
     }
   
     .menu-text {
@@ -112,22 +113,25 @@
     .sub-menu-button:hover {
       background-color: black;
     }
+    .sub-menu-button:focus{
+      background-color: black;
+    }
+    .kkkk{
+      color: white;
+          margin-bottom: 5px;
+          font-weight: 600;
+          text-transform: uppercase;
+         margin-left: 70px;
   }
-  
+}
   /* Custom expansion panel styling */
   /* .custom-accordion {
     background: none;  Match the sidenav background 
   } */
-  .kkkk{
-    color: white;
-        margin-bottom: 5px;
-        font-weight: 600;
-        text-transform: uppercase;
-       margin-left: 70px;
-}
+
   .custom-expansion-panel {
     background: none;
-  /* Remove shadow */
+    box-shadow: none !important;
     margin-left: 28px; /* Remove margins */
     width: 80%; /* Make the width same as the menu */
   }

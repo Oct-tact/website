@@ -1,0 +1,27 @@
+<h2>Add Subject</h2>
+<div mat-dialog-content>
+  <form [formGroup]="subjectForm">
+    <mat-form-field>
+      <input matInput placeholder="Subject" formControlName="subject">
+      <mat-error *ngIf="subjectForm.controls['subject'].hasError('required')">
+        Subject is required
+      </mat-error>
+      <mat-error *ngIf="subjectForm.controls['subject'].hasError('maxlength')">
+        Subject cannot be longer than 50 characters
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Class" formControlName="class">
+      <mat-error *ngIf="subjectForm.controls['class'].hasError('required')">
+        Class is required
+      </mat-error>
+      <mat-error *ngIf="subjectForm.controls['class'].hasError('maxlength')">
+        Class cannot be longer than 50 characters
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="kk">
+  <button mat-raised-button color="warn" (click)="onCancelClick()">Cancel</button>
+  <button mat-raised-button color="primary"[disabled]="!subjectForm.valid" (click)="onAddClick()">Add</button>
+</div>

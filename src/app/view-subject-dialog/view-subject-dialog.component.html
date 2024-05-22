@@ -1,0 +1,13 @@
+<h2>View Subject</h2>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Subject" [value]="data.subject" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Class" [value]="data.class" readonly>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="kk">
+  <button mat-raised-button color="warn" (click)="onCloseClick()">Close</button>
+</div>
+

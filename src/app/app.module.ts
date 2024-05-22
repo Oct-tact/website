@@ -83,6 +83,10 @@ import { ViewFeesDialogComponent } from './view-fees-dialog/view-fees-dialog.com
 import { EditFeesDialogComponent } from './edit-fees-dialog/edit-fees-dialog.component';
 import { DeleteConfirmationDialogComponent } from './delete-confirmation-dialog/delete-confirmation-dialog.component';
 import { StatusConfirmationDialogComponent } from './status-confirmation-dialog/status-confirmation-dialog.component';
+import { SubjectMasterComponent } from './subject-master/subject-master.component';
+import { SubjectDialogComponent } from './subject-dialog/subject-dialog.component';
+import { EditSubjectDialogComponent } from './edit-subject-dialog/edit-subject-dialog.component';
+import { ViewSubjectDialogComponent } from './view-subject-dialog/view-subject-dialog.component';
 
 
 @NgModule({
@@ -132,6 +136,10 @@ import { StatusConfirmationDialogComponent } from './status-confirmation-dialog/
     EditFeesDialogComponent,
     DeleteConfirmationDialogComponent,
     StatusConfirmationDialogComponent,
+    SubjectMasterComponent,
+    SubjectDialogComponent,
+    EditSubjectDialogComponent,
+    ViewSubjectDialogComponent,
   
   ],
   imports: [
