@@ -87,6 +87,10 @@ import { SubjectMasterComponent } from './subject-master/subject-master.componen
 import { SubjectDialogComponent } from './subject-dialog/subject-dialog.component';
 import { EditSubjectDialogComponent } from './edit-subject-dialog/edit-subject-dialog.component';
 import { ViewSubjectDialogComponent } from './view-subject-dialog/view-subject-dialog.component';
+import { SectionMasterComponent } from './section-master/section-master.component';
+import { AddSectionDialogComponent } from './add-section-dialog/add-section-dialog.component';
+import { EditSectionDialogComponent } from './edit-section-dialog/edit-section-dialog.component';
+import { ViewSectionDialogComponent } from './view-section-dialog/view-section-dialog.component';
 
 
 @NgModule({
@@ -140,6 +144,10 @@ import { ViewSubjectDialogComponent } from './view-subject-dialog/view-subject-d
     SubjectDialogComponent,
     EditSubjectDialogComponent,
     ViewSubjectDialogComponent,
+    SectionMasterComponent,
+    AddSectionDialogComponent,
+    EditSectionDialogComponent,
+    ViewSectionDialogComponent,
   
   ],
   imports: [

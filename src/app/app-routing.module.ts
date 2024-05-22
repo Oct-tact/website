@@ -1,3 +1,4 @@
+import { SectionMasterComponent } from './section-master/section-master.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -56,6 +57,7 @@ const routes: Routes = [
         { path: 'adminleave', component: AdminLeaveApprovalComponent },
         { path: 'fessmaster', component: FeesMasterComponent },
         { path: 'subjectsmaster', component: SubjectMasterComponent },
+        { path: 'sectionsmaster', component: SectionMasterComponent },
       
      ]
      },

@@ -1,0 +1,22 @@
+<!-- <h2>View Section</h2>
+<div mat-dialog-content>
+  <p><strong>Class:</strong> {{ data.class }}</p>
+  <p><strong>Section:</strong> {{ data.section }}</p>
+  <p><strong>Status:</strong> {{ data.status }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onCloseClick()">Close</button>
+</div> -->
+
+<h2>View Section</h2>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="class" [value]="data.class" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="section" [value]="data.section" readonly>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="kk">
+  <button mat-raised-button color="warn" (click)="onCloseClick()">Close</button>
+</div>
