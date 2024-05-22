@@ -1,14 +1,12 @@
-.menu-head{
+/* .menu-head{
     color: white;
-    font-size: large;
+    font-size: 1.6rem;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 40px;
-    /* box-shadow: 0 0 0 2px rgb(82, 77, 77);  */
-    /* border-radius: 5px; Add border radius for rounded corners */
     border-bottom: 1px solid white;
     padding: 8px 8px;
     margin-top: 20px;
@@ -22,13 +20,16 @@
         padding-right: 50px;
         margin-bottom: 4px;
         font-weight: bold;
-       
+        font-size: 13px;
+        text-transform: uppercase;
+     
     }
     .menu-button span{
-        margin-left:10px ;
+
         color: white;
         margin-bottom: 5px;
-        font-weight: bold;
+        font-weight: 700;
+  
       
     }
     .menu-button:hover{
@@ -37,6 +38,110 @@
     .menu-button:focus{
         background-color: rgb(36, 34, 34);
     }
+    .white-icon {
+        color: white;
+      }
+ /* Sub-menu items styling */
+ 
+
+ 
+
+
+ .menu-head {
+    color: white;
+    font-size: large;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid white;
+    padding: 8px 8px;
+    margin-top: 20px;
+  }
+  
+  .menu-item {
+    .menu-button {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 10px 20px;
+      font-weight: bold;
+      text-align: left;
+      color: white;
+      text-transform: none;
+    }
+  
+    .menu-button mat-icon {
+      margin-right: 10px;
+    }
+  
+    .menu-text {
+      flex: 1;
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  
+    .menu-button:hover {
+      background-color: rgb(36, 34, 34);
+    }
+  
+    .menu-button:focus {
+      background-color: rgb(36, 34, 34);
+    }
+  
+    .white-icon {
+      color: white;
+    }
+  
+    /* Sub-menu items styling */
+    /* .sub-menu-item {
+      padding-left: 1px; 
+    }
+   */
+    .sub-menu-button {
+      color: white;
+      width: 100%;
    
+      margin-left: 1px;
+    }
+  
+    .sub-menu-button:hover {
+      background-color: black;
+    }
+  }
+  
+  /* Custom expansion panel styling */
+  /* .custom-accordion {
+    background: none;  Match the sidenav background 
+  } */
+  .kkkk{
+    color: white;
+        margin-bottom: 5px;
+        font-weight: 600;
+        text-transform: uppercase;
+       margin-left: 70px;
 }
+  .custom-expansion-panel {
+    background: none;
+  /* Remove shadow */
+    margin-left: 28px; /* Remove margins */
+    width: 80%; /* Make the width same as the menu */
+  }
+  
+  .custom-expansion-panel .mat-expansion-panel-header {
+    padding: 0px 8px; /* Match the menu button padding */
+  }
+  
+  /* .custom-expansion-panel .mat-expansion-panel-header.mat-expanded {
+    color: white;
+  }
+   */
+
+
+
+
 

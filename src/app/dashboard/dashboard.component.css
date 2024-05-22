@@ -10,7 +10,7 @@ mat-sidenav-content{
     height: 100vh;
     background-color: rgb(234, 239, 242);
     .main{
-        margin-left: 30px;
+        margin-left:4px;
     }
 }
 mat-toolbar{

@@ -1,4 +1,4 @@
-<h2>Edit Fees</h2>
+<!-- <h2>Edit Fees</h2>
 <div mat-dialog-content>
  
 
@@ -36,4 +36,48 @@
   <button  mat-raised-button color="warn" (click)="onCancelClick()">Cancel</button>
   <button mat-raised-button color="primary" (click)="onUpdateClick()">Update</button>
 </div>
+ -->
 
+ <!-- edit-fees.component.html -->
+ <form #myForm="ngForm" (ngSubmit)="onUpdateClick()">
+<h2>Edit Fees</h2>
+<div mat-dialog-content>
+
+  <mat-form-field style="width: 100%;" appearance="fill">
+    <mat-label>Class</mat-label>
+    <input matInput [value]="data.class" readonly />
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;" appearance="fill">
+    <mat-label>Fees Amount</mat-label>
+    <input matInput [(ngModel)]="updatedData.feesAmount" (ngModelChange)="onFeesAmountChange()" name="feesAmount" required #feesAmountField="ngModel" />
+    <mat-error *ngIf="!updatedData.feesAmount">Fees Amount is required</mat-error>
+    <mat-error *ngIf="feesAmountField.invalid && (feesAmountField.dirty || feesAmountField.touched)">Fees Amount must be a valid number</mat-error>
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;" appearance="fill">
+    <mat-label>Quarter 1 (Jan-Mar)</mat-label>
+    <input matInput [value]="updatedData.quarterFees.Q1" readonly />
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;" appearance="fill">
+    <mat-label>Quarter 2 (Apr-Jun)</mat-label>
+    <input matInput [value]="updatedData.quarterFees.Q2" readonly />
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;" appearance="fill">
+    <mat-label>Quarter 3 (Jul-Sep)</mat-label>
+    <input matInput [value]="updatedData.quarterFees.Q3" readonly />
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;" appearance="fill">
+    <mat-label>Quarter 4 (Oct-Dec)</mat-label>
+    <input matInput [value]="updatedData.quarterFees.Q4" readonly />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="kk">
+  <button mat-raised-button color="warn" (click)="onCancelClick()">Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="!myForm.valid">Update</button>
+</div>
+
+</form>

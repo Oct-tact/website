@@ -1,16 +1,53 @@
-.container {
+/* .feecontainer {
     padding: 16px;
   }
   
   table {
     width: 100%;
   }
-  
+  */
   .add {
-    margin-left: 1028px;
-    margin-top: 1px;
+    margin-left: 1018px;
+    margin-top: 0px;
     background-color: gray;
     color: white;  
     padding: 12px;
     width: 195px;
     }
+
+ /* Style for the Fees Master container */
+.feecontainer {
+  width: 95%;
+  margin: auto;
+  margin-right: 53px;
+}
+
+
+/* Style for the table */
+table {
+  width: 100%;
+ 
+}
+
+.mat-column-sno,
+.mat-column-class,
+.mat-column-feesAmount,
+.mat-column-status,
+.mat-column-action {
+  width: 10%;
+
+}
+
+/* Style for the status buttons */
+button.active {
+  background-color: rgb(163, 243, 163); /* Green */
+  color: rgb(68, 63, 63);
+}
+
+button.inactive {
+  background-color:#eec7db ;
+  color: rgb(68, 63, 63);
+}
+
+
+
