@@ -1,5 +1,5 @@
-
-<h1 mat-dialog-title>Add Teacher</h1>
+<!-- 
+<h1 mat-dialog-title>Add Teachers</h1>
 <div mat-dialog-content>
   <form [formGroup]="addTeacherForm">
     <mat-form-field appearance="fill">
@@ -34,4 +34,30 @@
 <div mat-dialog-actions>
   <button mat-button (click)="onCancel()">Cancel</button>
   <button mat-button (click)="onSubmit()" [disabled]="!addTeacherForm.valid">Add</button>
+</div> -->
+
+<h2>Assign Teachers</h2>
+<div mat-dialog-content>
+  <form [formGroup]="addTeacherForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Class</mat-label>
+      <mat-select formControlName="class" (selectionChange)="onClassChange($event.value)" required>
+        <mat-option *ngFor="let classOption of classOptions" [value]="classOption">
+          {{ classOption }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Section</mat-label>
+      <mat-select formControlName="section" required>
+        <mat-option *ngFor="let sectionOption of sectionOptions" [value]="sectionOption">
+          {{ sectionOption }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="kk">
+  <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!addTeacherForm.valid">Assign</button>
 </div>

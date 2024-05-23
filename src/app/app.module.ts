@@ -93,6 +93,8 @@ import { EditSectionDialogComponent } from './edit-section-dialog/edit-section-d
 import { ViewSectionDialogComponent } from './view-section-dialog/view-section-dialog.component';
 import { TeacherMasterComponent } from './teacher-master/teacher-master.component';
 import { AddTeacherDialogComponent } from './add-teacher-dialog/add-teacher-dialog.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -152,6 +154,7 @@ import { AddTeacherDialogComponent } from './add-teacher-dialog/add-teacher-dial
     ViewSectionDialogComponent,
     TeacherMasterComponent,
     AddTeacherDialogComponent,
+    ConfirmDialogComponent,
   
   ],
   imports: [
@@ -179,7 +182,8 @@ import { AddTeacherDialogComponent } from './add-teacher-dialog/add-teacher-dial
     MatSelectModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCheckboxModule
    
  
   
