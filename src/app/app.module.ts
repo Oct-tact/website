@@ -91,6 +91,8 @@ import { SectionMasterComponent } from './section-master/section-master.componen
 import { AddSectionDialogComponent } from './add-section-dialog/add-section-dialog.component';
 import { EditSectionDialogComponent } from './edit-section-dialog/edit-section-dialog.component';
 import { ViewSectionDialogComponent } from './view-section-dialog/view-section-dialog.component';
+import { TeacherMasterComponent } from './teacher-master/teacher-master.component';
+import { AddTeacherDialogComponent } from './add-teacher-dialog/add-teacher-dialog.component';
 
 
 @NgModule({
@@ -148,6 +150,8 @@ import { ViewSectionDialogComponent } from './view-section-dialog/view-section-d
     AddSectionDialogComponent,
     EditSectionDialogComponent,
     ViewSectionDialogComponent,
+    TeacherMasterComponent,
+    AddTeacherDialogComponent,
   
   ],
   imports: [

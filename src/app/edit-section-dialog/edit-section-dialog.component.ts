@@ -10,7 +10,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EditSectionDialogComponent {
   sectionForm: FormGroup;
-
+  classes: string[] = ['KG', 'Class I', 'Class II', 'Class III', 'Class IV', 'Class V', 
+  'Class VI', 'Class VII', 'Class VIII', 'Class IX', 'Class X', 
+  'Class XI', 'Class XII'];
   constructor(
     public dialogRef: MatDialogRef<EditSectionDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,

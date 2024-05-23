@@ -2,7 +2,10 @@
 <div mat-dialog-content>
   <form [formGroup]="sectionForm">
     <mat-form-field>
-      <input matInput placeholder="Class" formControlName="class">
+      <!-- <input matInput placeholder="Class" formControlName="class"> -->
+      <mat-select placeholder="Class" formControlName="class">
+        <mat-option *ngFor="let cls of classes" [value]="cls">{{cls}}</mat-option>
+      </mat-select>
       <mat-error *ngIf="sectionForm.controls['class'].hasError('required')">
         Class is required
       </mat-error>

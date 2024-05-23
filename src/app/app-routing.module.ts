@@ -28,6 +28,7 @@ import { EmployeeLeaveComponent } from './employee-leave/employee-leave.componen
 import { AdminLeaveApprovalComponent } from './admin-leave-approval/admin-leave-approval.component';
 import { FeesMasterComponent } from './fees-master/fees-master.component';
 import { SubjectMasterComponent } from './subject-master/subject-master.component';
+import { TeacherMasterComponent } from './teacher-master/teacher-master.component';
 
 
 const routes: Routes = [
@@ -58,6 +59,7 @@ const routes: Routes = [
         { path: 'fessmaster', component: FeesMasterComponent },
         { path: 'subjectsmaster', component: SubjectMasterComponent },
         { path: 'sectionsmaster', component: SectionMasterComponent },
+        { path: 'teahcermaster', component: TeacherMasterComponent },
       
      ]
      },
