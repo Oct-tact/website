@@ -15,9 +15,12 @@
   
     <mat-form-field class="example-full-width">
       <mat-label>Role</mat-label>
-      <input matInput placeholder="Role" formControlName="role" required>
-      <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Role is required</mat-error>
+      <mat-select formControlName="role" required>
+        <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="registrationForm.get('role')?.hasError('required')">Role is required</mat-error>
     </mat-form-field>
+
   
     <mat-form-field class="example-full-width">
       <mat-label>Password</mat-label>
@@ -29,6 +32,22 @@
       <mat-label>Mobile Number</mat-label>
       <input matInput placeholder="Mobile Number" type="tel" formControlName="mobileNumber" required>
       <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Mobile Number is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender" required>
+        <mat-option *ngFor="let gender of genders" [value]="gender">{{ gender }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="registrationForm.get('gender')?.hasError('required')">Gender is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Cast</mat-label>
+      <mat-select formControlName="cast" required>
+        <mat-option *ngFor="let cast of casts" [value]="cast">{{ cast }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="registrationForm.get('cast')?.hasError('required')">Cast is required</mat-error>
     </mat-form-field>
   
     <button mat-raised-button color="primary" type="submit">Register</button>

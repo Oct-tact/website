@@ -1,0 +1,30 @@
+<h2>View Student Details</h2>
+<div mat-dialog-content class="view">
+  <mat-form-field>
+    <input matInput  [value]="data.student.name" readonly>
+  </mat-form-field>
+  <!-- <mat-form-field>
+    <input matInput [value]="data.student.rollNumber" readonly>
+  </mat-form-field> -->
+  <mat-form-field>
+    <input matInput [value]="data.student.rollNumber" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [value]="data.student.email" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput  [value]="data.student.grade" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput  [value]="data.student.parentContact" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput  [value]="data.student.gender" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput  [value]="data.student.cast" readonly>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="kk">
+  <button mat-raised-button color="warn" (click)="close()">Close</button>
+</div>

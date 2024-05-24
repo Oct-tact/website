@@ -1,0 +1,43 @@
+
+<!-- <h2 mat-dialog-title>Employee Details</h2>
+<mat-dialog-content>
+  <p><strong>Name:</strong> {{ data.student.name }}</p>
+  <p><strong>Roll Number:</strong> {{ data.student.rollNumber }}</p>
+  <p><strong>Email:</strong> {{ data.student.email }}</p>
+  <p><strong>Role:</strong> {{ data.student.role }}</p>
+  <p><strong>Mobile Number:</strong> {{ data.student.mobileNumber }}</p>
+  <p><strong>Gender:</strong> {{ data.student.gender }}</p>
+  <p><strong>Cast:</strong> {{ data.student.cast }}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Close</button>
+</mat-dialog-actions> -->
+
+
+<h2>View Employee Details</h2>
+<div mat-dialog-content class="view">
+  <mat-form-field>
+    <input matInput  [value]="data.student.name" readonly>
+  </mat-form-field>
+  <!-- <mat-form-field>
+    <input matInput [value]="data.student.rollNumber" readonly>
+  </mat-form-field> -->
+  <mat-form-field>
+    <input matInput [value]="data.student.email" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [value]="data.student.role" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput  [value]="data.student.mobileNumber" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput  [value]="data.student.gender" readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput  [value]="data.student.cast" readonly>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="kk">
+  <button mat-raised-button color="warn" (click)="close()">Close</button>
+</div>

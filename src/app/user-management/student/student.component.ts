@@ -9,6 +9,7 @@ import { StudentEditDialogComponent } from 'src/app/student-edit-dialog/student-
 import { StudentDeleteDialogComponent } from 'src/app/student-delete-dialog/student-delete-dialog.component';
 import { StudentUpdatePasswordDialogComponent } from 'src/app/student-update-password-dialog/student-update-password-dialog.component';
 import { EmployeeUpdatePasswordDialogComponent } from 'src/app/employee-update-password-dialog/employee-update-password-dialog.component';
+import { StudentViewDialogComponent } from 'src/app/student-view-dialog/student-view-dialog.component';
 
 @Component({
   selector: 'app-student',
@@ -38,6 +39,12 @@ export class StudentComponent implements OnInit  {
       // Refresh the table data after editing
       const existingData = JSON.parse(localStorage.getItem('students') || '[]');
       this.dataSource.data = existingData;
+    });
+  }
+  openViewDialog(student: any): void {
+    this.dialog.open(StudentViewDialogComponent, {
+      width: '400px',
+      data: { student }
     });
   }
 

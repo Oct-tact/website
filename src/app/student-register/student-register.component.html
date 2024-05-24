@@ -1,4 +1,76 @@
-<mat-card class="example-card ">
+<mat-card class="example-card">
+  <h2>Student Register</h2>
+  <form class="example-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" formControlName="name" required>
+      <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" type="email" formControlName="email" required>
+      <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">Email is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" type="password" formControlName="password" required>
+      <mat-error *ngIf="registrationForm.get('password')?.hasError('required')">Password is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Grade</mat-label>
+      <input matInput placeholder="Grade" formControlName="grade" required>
+      <mat-error *ngIf="registrationForm.get('grade')?.hasError('required')">Grade is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Date Of Birth</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dob" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="registrationForm.get('dob')?.hasError('required')">Date Of Birth is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Parents Contact No.</mat-label>
+      <input matInput placeholder="Parent Contact Number" type="tel" formControlName="parentContact" required>
+      <mat-error *ngIf="registrationForm.get('parentContact')?.hasError('required')">Parents Contact No. is required</mat-error>
+    </mat-form-field>
+
+    <!-- Gender Dropdown -->
+    <mat-form-field class="example-full-width">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender" required>
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+        <mat-option value="Others">Others</mat-option>
+      </mat-select>
+      <mat-error *ngIf="registrationForm.get('gender')?.hasError('required')">Gender is required</mat-error>
+    </mat-form-field>
+
+    <!-- Cast Dropdown -->
+    <mat-form-field class="example-full-width">
+      <mat-label>Cast</mat-label>
+      <mat-select formControlName="cast" required>
+        <mat-option value="SC">SC</mat-option>
+        <mat-option value="ST">ST</mat-option>
+        <mat-option value="OBC">OBC</mat-option>
+        <mat-option value="General">General</mat-option>
+      </mat-select>
+      <mat-error *ngIf="registrationForm.get('cast')?.hasError('required')">Cast is required</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Register</button>
+  </form>
+</mat-card>
+
+
+
+
+
+<!-- <mat-card class="example-card ">
   <h2>Student Register</h2>
 <form class="example-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <mat-form-field class="example-full-width">
@@ -43,4 +115,4 @@
   
     <button mat-raised-button color="primary" type="submit">Register</button>
   </form>
-</mat-card>
+</mat-card> -->

@@ -24,6 +24,30 @@
       <input matInput placeholder="Parent Contact" formControlName="parentContact" required>
       <mat-error *ngIf="editForm.get('parentContact')?.hasError('required')">Parent Contact is required</mat-error>
     </mat-form-field>
+
+
+
+  <!-- <mat-form-field class="example-full-width">
+    <mat-label>Gender</mat-label>
+    <mat-select formControlName="gender" required>
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="female">Female</mat-option>
+      <mat-option value="other">Other</mat-option>
+    </mat-select>
+    <mat-error *ngIf="editForm.get('gender')?.hasError('required')">Gender is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Cast</mat-label>
+    <mat-select formControlName="cast" required>
+      <mat-option value="sc">SC</mat-option>
+      <mat-option value="st">ST</mat-option>
+      <mat-option value="obc">OBC</mat-option>
+      <mat-option value="general">General</mat-option>
+    </mat-select>
+    <mat-error *ngIf="editForm.get('cast')?.hasError('required')">Cast is required</mat-error>
+  </mat-form-field> -->
+
     
     <button mat-raised-button color="primary" type="submit">Update</button>
     <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>

@@ -95,7 +95,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddTeacherDialogComponent } from '../add-teacher-dialog/add-teacher-dialog.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
-import { MatSnackBar } from '@angular/material/snack-bar';  // Import MatSnackBar for displaying error messages
+import { MatSnackBar } from '@angular/material/snack-bar'; 
 
 interface TeacherData {
   name: string;

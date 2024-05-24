@@ -24,6 +24,8 @@ export class StudentEditDialogComponent {
       grade: [this.data.student.grade, Validators.required],
       parentContact: [this.data.student.parentContact, Validators.required],
       rollNumber: [this.data.student.rollNumber, Validators.required],
+      gender: [this.data.student.gender, Validators.required], // New field
+      cast: [this.data.student.cast, Validators.required] // New field
     });
   }
 

@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 export class EmployeeRegisterComponent {
   registrationForm: FormGroup;
   nextId: number;
+  roles: string[] = ['teacher', 'Receptionist', 'Librarian', 'HOD', 'Administrator', 'Domestic Help'];
+  genders: string[] = ['Male', 'Female', 'Others'];
+  casts: string[] = ['SC', 'ST', 'OBC', 'General'];
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.registrationForm = this.fb.group({
@@ -17,7 +20,9 @@ export class EmployeeRegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       role: ['', Validators.required],
       password: ['', Validators.required],
-      mobileNumber: ['', Validators.required]
+      mobileNumber: ['', Validators.required],
+      gender: ['', Validators.required],
+      cast: ['', Validators.required]
     });
 
     const existingData = JSON.parse(localStorage.getItem('employees') || '[]');

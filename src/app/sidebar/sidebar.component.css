@@ -53,8 +53,8 @@
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 40px;
     border-bottom: 1px solid white;
     padding: 8px 8px;
@@ -96,6 +96,7 @@
   
     .white-icon {
       color: white;
+     margin-right: 3px;
     }
   
     /* Sub-menu items styling */
@@ -121,7 +122,14 @@
           margin-bottom: 5px;
           font-weight: 600;
           text-transform: uppercase;
-         margin-left: 70px;
+         margin-left: 20px;
+  }
+    .userM{
+      color: white;
+          margin-bottom: 5px;
+          font-weight: 600;
+          text-transform: uppercase;
+         margin-left: 20px;
   }
 }
   /* Custom expansion panel styling */
@@ -132,8 +140,9 @@
   .custom-expansion-panel {
     background: none;
     box-shadow: none !important;
-    margin-left: 28px; /* Remove margins */
-    width: 80%; /* Make the width same as the menu */
+    margin-left: 28px; 
+    margin: auto;
+    width: 85%; /* Make the width same as the menu */
   }
   
   .custom-expansion-panel .mat-expansion-panel-header {

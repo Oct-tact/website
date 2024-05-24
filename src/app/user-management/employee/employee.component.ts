@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { EmployeeDeleteDialogComponent } from 'src/app/employee-delete-dialog/employee-delete-dialog.component';
 import { EmployeeEditDialogComponent } from 'src/app/employee-edit-dialog/employee-edit-dialog.component';
 import { EmployeeUpdatePasswordDialogComponent } from 'src/app/employee-update-password-dialog/employee-update-password-dialog.component';
+import { EmployeeViewDialogComponent } from 'src/app/employee-view-dialog/employee-view-dialog.component';
 
 @Component({
   selector: 'app-employee',
@@ -74,6 +75,15 @@ export class EmployeeComponent {
       }
     });
   }
+
+  openViewDialog(student: any): void {
+    this.dialog.open(EmployeeViewDialogComponent, {
+      width: '400px',
+      data: { student }
+    });
+  }
+
+
   updateLocalStorage() {
     localStorage.setItem('employees', JSON.stringify(this.dataSource.data));
   }

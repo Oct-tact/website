@@ -95,6 +95,8 @@ import { TeacherMasterComponent } from './teacher-master/teacher-master.componen
 import { AddTeacherDialogComponent } from './add-teacher-dialog/add-teacher-dialog.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { EmployeeViewDialogComponent } from './employee-view-dialog/employee-view-dialog.component';
+import { StudentViewDialogComponent } from './student-view-dialog/student-view-dialog.component';
 
 
 @NgModule({
@@ -155,6 +157,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     TeacherMasterComponent,
     AddTeacherDialogComponent,
     ConfirmDialogComponent,
+    EmployeeViewDialogComponent,
+    StudentViewDialogComponent,
   
   ],
   imports: [

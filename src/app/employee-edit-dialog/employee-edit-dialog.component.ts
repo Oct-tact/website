@@ -10,7 +10,9 @@ import { StudentEditDialogComponent } from '../student-edit-dialog/student-edit-
 })
 export class EmployeeEditDialogComponent {
   editForm!: FormGroup;
-
+  roles: string[] = ['teacher', 'Receptionist', 'Librarian', 'HOD', 'Administrator', 'Domestic Help'];
+  genders: string[] = ['Male', 'Female', 'Others'];
+  casts: string[] = ['SC', 'ST', 'OBC', 'General'];
   constructor(
     private dialogRef: MatDialogRef<EmployeeEditDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -24,6 +26,8 @@ export class EmployeeEditDialogComponent {
       role: [this.data.student.role, Validators.required],
       mobileNumber: [this.data.student.mobileNumber, Validators.required],
       rollNumber: [this.data.student.rollNumber, Validators.required],
+      gender: [this.data.student.gender, Validators.required],
+      cast: [this.data.student.cast, Validators.required]
     });
   }
 

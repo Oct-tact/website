@@ -1,43 +1,73 @@
 <div class="menu">
     <div class="menu-head">
-      <span>Dashboard</span>
+      <span>SCHOOL MANAGEMENT</span>
     </div>
     <div class="menu-item">
-      <button mat-button class="menu-button"  routerLink="student" routerLinkActive="active">
-        <span>All Students</span>
-      </button>
-      <button mat-button class="menu-button"  routerLink="employee" routerLinkActive="active">
-    <span>All Employees</span>
-      </button>
-      <button mat-button class="menu-button"   routerLink="navbar" routerLinkActive="active">
+         <mat-accordion class="custom-accordion">
+          <mat-expansion-panel class="custom-expansion-panel">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="userM">
+                <mat-icon class="white-icon">supervisor_account</mat-icon>
+                User Management 
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="sub-menu-item">
+              <button mat-button class="sub-menu-button"  routerLink="student" routerLinkActive="active">
+                <span>Students</span>
+              </button>
+              <button mat-button class="sub-menu-button"  routerLink="employee" routerLinkActive="active">
+                <span>Employees</span>
+                  </button>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      <!-- <button mat-button class="menu-button"   routerLink="navbar" routerLinkActive="active">
         <span>Timetable</span>
-      </button>
-      <button mat-button class="menu-button"    routerLink="stuatt" routerLinkActive="active">
-        <span>Student Attendance</span>
-      </button>
-      <button mat-button class="menu-button"   routerLink="adminS" routerLinkActive="active">
-        <span>Mark Student</span>
-      </button>
-      <button mat-button class="menu-button"   routerLink="employeeatt" routerLinkActive="active">
-        <span> Employee Attendance</span>
-      </button>
-      <button mat-button class="menu-button"   routerLink="adminE" routerLinkActive="active">
-        <span> Mark Employee </span>
-      </button>
-      <button mat-button class="menu-button"   routerLink="studentleave" routerLinkActive="active">
-        <span> Student Leave</span>
-      </button>
-      <button mat-button class="menu-button"   routerLink="employeeleave" routerLinkActive="active">
-        <span> Employee Leave</span>
-      </button>
-      <button mat-button class="menu-button"   routerLink="adminleave" routerLinkActive="active">
-        <span> Leave Approval</span>
-      </button>
+      </button> -->
+    
+      <mat-accordion class="custom-accordion">
+        <mat-expansion-panel class="custom-expansion-panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="userM">
+              <mat-icon class="white-icon">assignment</mat-icon>
+              Attendance
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="sub-menu-item">
+            <button mat-button class="sub-menu-button"   routerLink="adminS" routerLinkActive="active">
+              <span>Mark Students</span>
+            </button>
+            <button mat-button class="sub-menu-button"   routerLink="adminE" routerLinkActive="active">
+              <span>Mark Employees </span>
+            </button>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+
+      <mat-accordion class="custom-accordion">
+        <mat-expansion-panel class="custom-expansion-panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="userM">
+              <mat-icon class="white-icon">event</mat-icon>
+              Leave Approval
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="sub-menu-item">
+            <button mat-button class="sub-menu-button"  routerLink="adminleave" routerLinkActive="active">
+              <span>All Leaves</span>
+            </button>
+        
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+  
       <!-- Masters Menu with Expansion Panel -->
       <mat-accordion class="custom-accordion">
         <mat-expansion-panel class="custom-expansion-panel">
           <mat-expansion-panel-header>
             <mat-panel-title class="kkkk">
+              <mat-icon class="white-icon">account_balance</mat-icon>
               Masters
             </mat-panel-title>
           </mat-expansion-panel-header>
@@ -58,6 +88,20 @@
           </div>
         </mat-expansion-panel>
       </mat-accordion>
+<!--         
+      <button mat-button class="menu-button"    routerLink="stuatt" routerLinkActive="active">
+        <span>Student Attendance</span>
+      </button>
+      <button mat-button class="menu-button"   routerLink="employeeatt" routerLinkActive="active">
+        <span> Employee Attendance</span>
+      </button>
+      <button mat-button class="menu-button"   routerLink="studentleave" routerLinkActive="active">
+        <span> Student Leave</span>
+      </button>
+      <button mat-button class="menu-button"   routerLink="employeeleave" routerLinkActive="active">
+        <span> Employee Leave</span>
+      </button>
+     -->
     </div>
   </div>
 

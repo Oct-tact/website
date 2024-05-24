@@ -1,4 +1,4 @@
-<mat-sidenav-container class="dcontainer">
+<!-- <mat-sidenav-container class="dcontainer">
     <mat-sidenav #sidebar mode="side" opened>
         <app-sidebar></app-sidebar>
     </mat-sidenav>
@@ -7,27 +7,27 @@
             <div class="toolbar">
                 <mat-toolbar>
                     <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
-                    <div class="box">SCHOOL MANAGEMENT
-                        <!-- Settings button for vendors -->
+                    <div class="box">Admin
+                        Settings button for vendors
                         <button mat-icon-button [matMenuTriggerFor]="vendorMenu">
                             <mat-icon>settings</mat-icon>
                         </button>
 
-                        <!-- Vendor settings menu -->
+                        Vendor settings menu
                         <mat-menu #vendorMenu="matMenu">
                             <button mat-menu-item>Settings</button>
                             <button mat-menu-item >Logout</button>
                         </mat-menu>
 
-                        <!-- Logout dropdown for customers -->
-                        <!-- <button mat-icon-button [matMenuTriggerFor]="customerMenu">
+                        Logout dropdown for customers
+                        <button mat-icon-button [matMenuTriggerFor]="customerMenu">
                             <mat-icon>settings</mat-icon>
-                        </button> -->
+                        </button>
 
-                        <!-- Customer logout menu -->
-                        <!-- <mat-menu #customerMenu="matMenu">
+                         Customer logout menu 
+                         <mat-menu #customerMenu="matMenu">
                             <button mat-menu-item >Logout</button>
-                        </mat-menu> -->
+                        </mat-menu> 
                     </div>
                 </mat-toolbar>
             </div>
@@ -38,3 +38,63 @@
     </mat-sidenav-content>
 </mat-sidenav-container>
 
+css---below for the comment html----
+mat-sidenav{
+   
+    background: linear-gradient(to bottom,#ff69b4, #ff1493); 
+
+   
+width: 280px;
+height: 100%;
+}
+
+mat-toolbar{
+    /* background-color: lightslategray; */
+    background-color: rgb(41, 36, 36);
+    mat-icon{
+        margin-left: 15px;
+        color:white;
+        
+    }
+    justify-content: space-between;
+  
+    .box{
+        margin-top: 15px;
+        color: white;
+    }
+  
+}
+
+
+ -->
+
+ <mat-sidenav-container class="dcontainer">
+    <mat-sidenav #sidebar mode="side" opened>
+      <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content">
+        <div class="toolbar">
+          <mat-toolbar>
+            <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
+            <span class="admin-text">ADMIN</span>
+            <span class="spacer"></span>
+            <div class="profile-pic" matTooltip="Admin">
+              A
+            </div>
+            <button mat-icon-button [matMenuTriggerFor]="vendorMenu">
+              <mat-icon>settings</mat-icon>
+            </button>
+            <mat-menu #vendorMenu="matMenu">
+              <button mat-menu-item>Settings</button>
+              <button mat-menu-item>Logout</button>
+            </mat-menu>
+          </mat-toolbar>
+        </div>
+        <div class="main">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

@@ -1,11 +1,4 @@
-mat-sidenav{
-    /* background-color: darkslategrey; */
-    background: linear-gradient(to bottom,#ff69b4, #ff1493); 
 
-   
-width: 280px;
-height: 100%;
-}
 mat-sidenav-content{
     height: 100vh;
     background-color: rgb(241, 243, 244);
@@ -13,19 +6,52 @@ mat-sidenav-content{
         margin-left:4px;
     }
 }
-mat-toolbar{
-    /* background-color: lightslategray; */
+
+
+.dcontainer {
+    height: 100vh;
+  }
+  
+  mat-sidenav {
+    background: linear-gradient(to bottom, #ff69b4, #ff1493);
+    width: 280px;
+    height: 100%;
+  }
+  
+
+  .toolbar mat-toolbar {
     background-color: rgb(41, 36, 36);
-    mat-icon{
-        margin-left: 15px;
-        color:white;
-        
-    }
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
   
-    .box{
-        margin-top: 15px;
-        color: white;
-    }
+  .toolbar mat-icon {
+    margin-left: 0px;
+    color: white;
+  }
   
-}
+  .admin-text {
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ff69b4;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    margin-right: 10px;
+  }
+  
