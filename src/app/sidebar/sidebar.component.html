@@ -3,6 +3,7 @@
       <span>SCHOOL MANAGEMENT</span>
     </div>
     <div class="menu-item">
+      <ng-container *ngIf="userType === 0">
          <mat-accordion class="custom-accordion">
           <mat-expansion-panel class="custom-expansion-panel">
             <mat-expansion-panel-header>
@@ -116,20 +117,28 @@
           </div>
         </mat-expansion-panel>
       </mat-accordion>
-<!--         
-      <button mat-button class="menu-button"    routerLink="stuatt" routerLinkActive="active">
-        <span>Student Attendance</span>
-      </button>
+    </ng-container>
+    <ng-container *ngIf="userType === 2">
+     
       <button mat-button class="menu-button"   routerLink="employeeatt" routerLinkActive="active">
         <span> Employee Attendance</span>
-      </button>
-      <button mat-button class="menu-button"   routerLink="studentleave" routerLinkActive="active">
-        <span> Student Leave</span>
       </button>
       <button mat-button class="menu-button"   routerLink="employeeleave" routerLinkActive="active">
         <span> Employee Leave</span>
       </button>
-     -->
+      </ng-container>
+
+      <ng-container *ngIf="userType === 1">
+        <button mat-button class="menu-button"    routerLink="stuatt" routerLinkActive="active">
+          <span>Student Attendance</span>
+        </button>
+  
+      <button mat-button class="menu-button"   routerLink="studentleave" routerLinkActive="active">
+        <span> Student Leave</span>
+      </button>
+   
+    </ng-container>
+    
     </div>
   </div>
 
@@ -223,13 +232,13 @@
 <!-- sidebar.component.html -->
 
 
-<!-- <div class="menu">
+ <!-- <div class="menu">
   <div class="menu-head">
     <span>Dashboard</span>
-  </div> -->
-  <!-- <div class="menu-item"> -->
+  </div>  -->
+   <!-- <div class="menu-item">  -->
     <!-- Buttons visible only for admin -->
-    <!-- <ng-container *ngIf="userType === 0">
+     <!-- <ng-container *ngIf="userType === 0">
       <button mat-button class="menu-button" routerLink="student" routerLinkActive="active">
         <span>Student</span>
       </button>
@@ -251,20 +260,20 @@
       <button mat-button class="menu-button"   routerLink="navbar" routerLinkActive="active">
         <span>Timetable</span>
       </button>
-    </ng-container> -->
+    </ng-container>  -->
     
     <!-- Buttons visible only for employee -->
-    <!-- <ng-container *ngIf="userType === 2">
+     <!-- <ng-container *ngIf="userType === 2">
       <button mat-button class="menu-button" routerLink="employeeatt" routerLinkActive="active">
         <span>Employee Attendance</span>
       </button>
       <button mat-button class="menu-button" routerLink="employeeleave" routerLinkActive="active">
         <span>Employee Leave</span>
       </button>
-    </ng-container> -->
+    </ng-container>  -->
 
     <!-- Buttons visible only for student -->
-    <!-- <ng-container *ngIf="userType === 1">
+     <!-- <ng-container *ngIf="userType === 1">
       <button mat-button class="menu-button" routerLink="stuatt" routerLinkActive="active">
         <span>Student Attendance</span>
       </button>
@@ -273,5 +282,5 @@
       </button>
     </ng-container>
   </div>
-</div> -->
+</div>  -->
 

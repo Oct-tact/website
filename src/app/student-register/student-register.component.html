@@ -19,11 +19,34 @@
       <mat-error *ngIf="registrationForm.get('password')?.hasError('required')">Password is required</mat-error>
     </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-      <mat-label>Grade</mat-label>
+    <!-- <mat-form-field class="example-full-width">
+      <mat-label>Class</mat-label>
       <input matInput placeholder="Grade" formControlName="grade" required>
       <mat-error *ngIf="registrationForm.get('grade')?.hasError('required')">Grade is required</mat-error>
-    </mat-form-field>
+    </mat-form-field> -->
+
+<!-- Gender Dropdown -->
+<mat-form-field class="example-full-width">
+  <mat-label>Class</mat-label>
+  <mat-select formControlName="class" required>
+    <mat-option value="Male">KG</mat-option>
+    <mat-option value="Class II">Class I</mat-option>
+    <mat-option value="Class II">Class II</mat-option>
+    <mat-option value="Class II">Class III</mat-option>
+    <mat-option value="Class II">Class IV</mat-option>
+    <mat-option value="Class II">Class V</mat-option>
+    <mat-option value="Class II">Class VI</mat-option>
+    <mat-option value="Class II">Class VII</mat-option>
+    <mat-option value="Class II">Class VIII</mat-option>
+    <mat-option value="Class II">Class IX</mat-option>
+    <mat-option value="Class II">Class X</mat-option>
+    <mat-option value="Class II">Class XI</mat-option>
+    <mat-option value="Class II">Class XII</mat-option>
+  </mat-select>
+  <mat-error *ngIf="registrationForm.get('class')?.hasError('required')">class is required</mat-error>
+</mat-form-field>
+
+    
 
     <mat-form-field class="example-full-width">
       <mat-label>Date Of Birth</mat-label>

@@ -16,7 +16,7 @@ export class StudentRegisterComponent {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      grade: ['', Validators.required],
+      class: ['', Validators.required],
       dob: ['', Validators.required],
       parentContact: ['', Validators.required],
       rollNumber: ['',],
