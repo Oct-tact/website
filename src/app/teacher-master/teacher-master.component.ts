@@ -162,7 +162,7 @@ export class TeacherMasterComponent implements OnInit {
     const selectedTeachers = this.dataSource.data.filter(teacher => teacher.selected);
     if (selectedTeachers.length === 0) return;
 
-    if (selectedTeachers.length > 5) {
+    if (selectedTeachers.length > 8) {
       this.snackBar.open('You can only assign up to 5 teachers at a time.', 'Close', {
         duration: 3000,
       });

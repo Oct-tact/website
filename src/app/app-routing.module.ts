@@ -29,6 +29,9 @@ import { AdminLeaveApprovalComponent } from './admin-leave-approval/admin-leave-
 import { FeesMasterComponent } from './fees-master/fees-master.component';
 import { SubjectMasterComponent } from './subject-master/subject-master.component';
 import { TeacherMasterComponent } from './teacher-master/teacher-master.component';
+import { RegularTeacherComponent } from './regular-teacher/regular-teacher.component';
+import { PrivateTeacherComponent } from './private-teacher/private-teacher.component';
+import { BothTeacherComponent } from './both-teacher/both-teacher.component';
 
 
 const routes: Routes = [
@@ -59,7 +62,9 @@ const routes: Routes = [
         { path: 'fessmaster', component: FeesMasterComponent },
         { path: 'subjectsmaster', component: SubjectMasterComponent },
         { path: 'sectionsmaster', component: SectionMasterComponent },
-        { path: 'teahcermaster', component: TeacherMasterComponent },
+        { path: 'regualarteacher', component: RegularTeacherComponent },
+        { path: 'privateteacher', component: PrivateTeacherComponent },
+        { path: 'bothteacher', component: BothTeacherComponent  },
       
      ]
      },

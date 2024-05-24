@@ -97,6 +97,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { EmployeeViewDialogComponent } from './employee-view-dialog/employee-view-dialog.component';
 import { StudentViewDialogComponent } from './student-view-dialog/student-view-dialog.component';
+import { RegularTeacherComponent } from './regular-teacher/regular-teacher.component';
+import { PrivateTeacherComponent } from './private-teacher/private-teacher.component';
+import { BothTeacherComponent } from './both-teacher/both-teacher.component';
 
 
 @NgModule({
@@ -159,6 +162,9 @@ import { StudentViewDialogComponent } from './student-view-dialog/student-view-d
     ConfirmDialogComponent,
     EmployeeViewDialogComponent,
     StudentViewDialogComponent,
+    RegularTeacherComponent,
+    PrivateTeacherComponent,
+    BothTeacherComponent,
   
   ],
   imports: [

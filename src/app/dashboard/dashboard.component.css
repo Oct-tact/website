@@ -1,6 +1,6 @@
 
 mat-sidenav-content{
-    height: 100vh;
+    height: 150vh;
     background-color: rgb(241, 243, 244);
     .main{
         margin-left:4px;
@@ -9,7 +9,7 @@ mat-sidenav-content{
 
 
 .dcontainer {
-    height: 100vh;
+    height: 150vh;
   }
   
   mat-sidenav {

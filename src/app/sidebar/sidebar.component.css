@@ -55,14 +55,15 @@
     font-weight: bold;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     border-bottom: 1px solid white;
     padding: 8px 8px;
     margin-top: 20px;
   }
   
   .menu-item {
-    .menu-button {
+  
+    /* .menu-button {
       display: flex;
       align-items: center;
       width: 100%;
@@ -72,7 +73,7 @@
       color: white;
       text-transform: none;
     }
-  
+   */
     .menu-button mat-icon {
       margin-right: 10px;
   
@@ -99,17 +100,20 @@
      margin-right: 3px;
     }
   
-    /* Sub-menu items styling */
-    /* .sub-menu-item {
+/*   
+     .sub-menu-item {
       padding-left: 1px; 
+      width: 100%;
     }
-   */
+    */
     .sub-menu-button {
       color: white;
-      width: 100%;
-   
-      margin-left: 1px;
-    }
+      width: 100%
+    } 
+    .sub-menu-but {
+      color: white;
+      width: 130%;
+    } 
   
     .sub-menu-button:hover {
       background-color: black;
@@ -117,19 +121,34 @@
     .sub-menu-button:focus{
       background-color: black;
     }
+    .sub-menu-but:hover {
+      background-color: black;
+    }
+    .sub-menu-but:focus{
+      background-color: black;
+    }
+  
     .kkkk{
       color: white;
           margin-bottom: 5px;
           font-weight: 600;
           text-transform: uppercase;
-         margin-left: 20px;
+         margin-left: 10px;
   }
     .userM{
       color: white;
           margin-bottom: 5px;
           font-weight: 600;
           text-transform: uppercase;
-         margin-left: 20px;
+         margin-left: 10px;
+  }
+    .employeeM{
+      color: white;
+          margin-bottom: 5px;
+          font-weight: 600;
+          text-transform: uppercase;
+         margin-left: 5px;
+        
   }
 }
   /* Custom expansion panel styling */
@@ -140,7 +159,7 @@
   .custom-expansion-panel {
     background: none;
     box-shadow: none !important;
-    margin-left: 28px; 
+    margin-left: 20px; 
     margin: auto;
     width: 85%; /* Make the width same as the menu */
   }
