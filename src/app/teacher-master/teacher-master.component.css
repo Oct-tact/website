@@ -3,20 +3,28 @@
 
 
 .mat-column-action {
-  width: 20%;
+  width: 15%;
+
+}
+.mat-column-name {
+  width: 10%;
 
 }
 .mat-column-status {
-  width: 20%;
+  width:10%;
 }
-.mat-column-class {
-  width: 20%;
+.mat-column-section {
+  width:10%;
 }
 .mat-column-subject {
-  width: 20%;
+  width:10%;
 }
-.mat-column-sno {
-  width: 20%;
+.mat-column-class {
+  width: 10%;
+}
+
+.mat-column-select {
+  width: 10%;
 }
 
 .teacher-container {

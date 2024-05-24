@@ -62,6 +62,7 @@ const routes: Routes = [
         { path: 'fessmaster', component: FeesMasterComponent },
         { path: 'subjectsmaster', component: SubjectMasterComponent },
         { path: 'sectionsmaster', component: SectionMasterComponent },
+        { path: 'teachermaster', component: TeacherMasterComponent },
         { path: 'regualarteacher', component: RegularTeacherComponent },
         { path: 'privateteacher', component: PrivateTeacherComponent },
         { path: 'bothteacher', component: BothTeacherComponent  },

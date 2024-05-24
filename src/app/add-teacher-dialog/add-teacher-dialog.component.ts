@@ -1,3 +1,4 @@
+
 // import { Component, Inject, OnInit } from '@angular/core';
 // import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -18,10 +19,8 @@
 //     @Inject(MAT_DIALOG_DATA) public data: any
 //   ) {
 //     this.addTeacherForm = this.fb.group({
-//       name: ['', Validators.required],
 //       class: ['', Validators.required],
-//       section: ['', Validators.required],
-//       status: ['Active', Validators.required]
+//       section: ['', Validators.required]
 //     });
 //   }
 
@@ -47,7 +46,6 @@
 //     this.dialogRef.close();
 //   }
 // }
-
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -61,6 +59,8 @@ export class AddTeacherDialogComponent implements OnInit {
   addTeacherForm: FormGroup;
   classOptions: any[] = [];
   sectionOptions: string[] = [];
+  subjectOptions: string[] = [];
+  allSubjects: any[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -69,13 +69,17 @@ export class AddTeacherDialogComponent implements OnInit {
   ) {
     this.addTeacherForm = this.fb.group({
       class: ['', Validators.required],
-      section: ['', Validators.required]
+      section: ['', Validators.required],
+      subject: ['', Validators.required]  // Add subject form control
     });
   }
 
   ngOnInit(): void {
     const sectionData = JSON.parse(localStorage.getItem('sectionData') || '[]');
     this.classOptions = [...new Set(sectionData.map((item: any) => item.class))];
+
+    // Load all subjects from local storage
+    this.allSubjects = JSON.parse(localStorage.getItem('subjectData') || '[]');
   }
 
   onClassChange(selectedClass: string): void {
@@ -83,6 +87,11 @@ export class AddTeacherDialogComponent implements OnInit {
     this.sectionOptions = sectionData
       .filter((item: any) => item.class === selectedClass)
       .map((item: any) => item.section);
+
+    // Filter subjects based on selected class
+    this.subjectOptions = this.allSubjects
+      .filter(subject => subject.class === selectedClass)
+      .map(subject => subject.subject);
   }
 
   onSubmit(): void {
