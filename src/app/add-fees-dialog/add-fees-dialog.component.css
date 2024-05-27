@@ -1,14 +1,30 @@
-mat-form-field {
-    width: 10%;
-  }
-    
+
+.my-form {
+  width: 500px; /* Adjust width as needed */
+}
+
   h2 {
-    margin-left: 138px;
+    margin-left: 200px;
     margin-top: 20px;
     color: rgb(59, 59, 237);
     font-weight:600;
   }
   .kk {
-    margin-left: 220px;
+    margin-left: 320px;
  
   }
+
+  .quarter-section {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+  }
+  
+  .quarter-field {
+    width: 50%; /* Adjust width as needed */
+  }
+  
+  .date-field {
+    width: 50%; /* Adjust width as needed */
+    margin-left: 16px; /* Add spacing between quarter and date fields */
+  }
+  

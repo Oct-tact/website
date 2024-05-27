@@ -18,7 +18,7 @@ import { StudentViewDialogComponent } from 'src/app/student-view-dialog/student-
 })
 export class StudentComponent implements OnInit  {
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['name','rollNumber','email', 'grade', 'parentContact','action']; // Define columns for the table
+  displayedColumns: string[] = ['name','rollNumber','email', 'class', 'parentContact','action']; // Define columns for the table
 
   
   constructor(private dialog: MatDialog) { }

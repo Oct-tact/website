@@ -1,36 +1,80 @@
 <h2>View Fees</h2>
-<div mat-dialog-content>
+<div mat-dialog-content class="my-form">
 
-
-  <mat-form-field style="width: 100%;">
+  <div class="quarter-section">
+  <mat-form-field class="quarter-field">
     <mat-label>Class</mat-label>
     <input matInput [value]="data.class" readonly />
   </mat-form-field>
 
-  <mat-form-field style="width: 100%;">
+  <mat-form-field class="date-field">
     <mat-label>Fees Amount</mat-label>
     <input matInput [value]="data.feesAmount" readonly />
   </mat-form-field>
+</div>
 
-  <mat-form-field style="width: 100%;">
+  <div class="quarter-section">
+  <mat-form-field class="quarter-field">
     <mat-label>Quarter 1 (Jan-Mar)</mat-label>
     <input matInput [value]="data.quarterFees.Q1" readonly />
   </mat-form-field>
 
-  <mat-form-field style="width: 100%;">
+   
+  <mat-form-field class="date-field" appearance="fill">
+    <mat-label>Quarter 1 Date</mat-label>
+    <input matInput [matDatepicker]="q1Date"[value]="data.quarterDates.Q1" readonly />
+    <mat-datepicker-toggle matSuffix [for]="q1Date"></mat-datepicker-toggle>
+    <mat-datepicker #q1Date></mat-datepicker>
+  
+  </mat-form-field>
+</div>
+
+  <div class="quarter-section">
+  <mat-form-field class="quarter-field">
     <mat-label>Quarter 2 (Apr-Jun)</mat-label>
     <input matInput [value]="data.quarterFees.Q2" readonly />
   </mat-form-field>
 
-  <mat-form-field style="width: 100%;">
+  <mat-form-field class="date-field" appearance="fill">
+    <mat-label>Quarter 2 Date</mat-label>
+    <input matInput [matDatepicker]="q2Date"  [value]="data.quarterDates.Q2" readonly/>
+    <mat-datepicker-toggle matSuffix [for]="q2Date"></mat-datepicker-toggle>
+    <mat-datepicker #q2Date></mat-datepicker>
+   
+  </mat-form-field>
+</div>
+
+  <div class="quarter-section">
+  <mat-form-field class="quarter-field">
     <mat-label>Quarter 3 (Jul-Sep)</mat-label>
     <input matInput [value]="data.quarterFees.Q3" readonly />
   </mat-form-field>
 
-  <mat-form-field style="width: 100%;">
+  <mat-form-field class="date-field" appearance="fill">
+    <mat-label>Quarter 3 Date</mat-label>
+    <input matInput [matDatepicker]="q3Date" [value]="data.quarterDates.Q3" readonly/>
+    <mat-datepicker-toggle matSuffix [for]="q3Date"></mat-datepicker-toggle>
+    <mat-datepicker #q3Date></mat-datepicker>
+  
+  </mat-form-field>
+</div>
+
+
+  <div class="quarter-section">
+  <mat-form-field class="quarter-field">
     <mat-label>Quarter 4 (Oct-Dec)</mat-label>
     <input matInput [value]="data.quarterFees.Q4" readonly />
   </mat-form-field>
+
+  <mat-form-field class="date-field" appearance="fill">
+    <mat-label>Quarter 4 Date</mat-label>
+    <input matInput [matDatepicker]="q4Date" [value]="data.quarterDates.Q4" readonly/>
+    <mat-datepicker-toggle matSuffix [for]="q4Date"></mat-datepicker-toggle>
+    <mat-datepicker #q4Date></mat-datepicker>
+  
+  </mat-form-field>
+</div>
+
 </div>
 <div mat-dialog-actions class="kk">
   <button  mat-raised-button color="warn" (click)="onCloseClick()">Close</button>

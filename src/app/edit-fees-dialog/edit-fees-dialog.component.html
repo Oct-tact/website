@@ -1,45 +1,6 @@
-<!-- <h2>Edit Fees</h2>
-<div mat-dialog-content>
- 
-
-  <mat-form-field style="width: 100%;">
-    <mat-label>Class</mat-label>
-    <input matInput [value]="data.class" readonly />
-  </mat-form-field>
-
-  <mat-form-field style="width: 100%;">
-    <mat-label>Fees Amount</mat-label>
-    <input matInput [(ngModel)]="updatedData.feesAmount" (ngModelChange)="onFeesAmountChange()" />
-  </mat-form-field>
-
-  <mat-form-field style="width: 100%;">
-    <mat-label>Quarter 1 (Jan-Mar)</mat-label>
-    <input matInput [value]="updatedData.quarterFees.Q1" readonly />
-  </mat-form-field>
-
-  <mat-form-field style="width: 100%;">
-    <mat-label>Quarter 2 (Apr-Jun)</mat-label>
-    <input matInput [value]="updatedData.quarterFees.Q2" readonly />
-  </mat-form-field>
-
-  <mat-form-field style="width: 100%;">
-    <mat-label>Quarter 3 (Jul-Sep)</mat-label>
-    <input matInput [value]="updatedData.quarterFees.Q3" readonly />
-  </mat-form-field>
-
-  <mat-form-field style="width: 100%;">
-    <mat-label>Quarter 4 (Oct-Dec)</mat-label>
-    <input matInput [value]="updatedData.quarterFees.Q4" readonly />
-  </mat-form-field>
-</div>
-<div mat-dialog-actions class="kk">
-  <button  mat-raised-button color="warn" (click)="onCancelClick()">Cancel</button>
-  <button mat-raised-button color="primary" (click)="onUpdateClick()">Update</button>
-</div>
- -->
 
  <!-- edit-fees.component.html -->
- <form #myForm="ngForm" (ngSubmit)="onUpdateClick()">
+ <!-- <form #myForm="ngForm" (ngSubmit)="onUpdateClick()">
 <h2>Edit Fees</h2>
 <div mat-dialog-content>
 
@@ -80,4 +41,121 @@
   <button mat-raised-button color="primary" [disabled]="!myForm.valid">Update</button>
 </div>
 
+</form> -->
+
+
+<form #myForm="ngForm" (ngSubmit)="onUpdateClick()" class="my-form">
+  <h2>Edit Fees</h2>
+  <div mat-dialog-content>
+    <div class="quarter-section">
+    <mat-form-field  class="quarter-field" appearance="fill">
+      <mat-label>Class</mat-label>
+      <input matInput [(ngModel)]="updatedData.class" name="class" readonly />
+    </mat-form-field>
+
+    <mat-form-field class="date-field"  appearance="fill">
+      <mat-label>Fees Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="updatedData.feesAmount" (ngModelChange)="onFeesAmountChange()" name="feesAmount" required #feesAmountField="ngModel" />
+      <mat-error *ngIf="!updatedData.feesAmount">Fees Amount is required</mat-error>
+      <mat-error *ngIf="feesAmountField.invalid && (feesAmountField.dirty || feesAmountField.touched)">Fees Amount must be a valid number</mat-error>
+    </mat-form-field>
+  </div>
+
+
+  <div class="quarter-section">
+    <mat-form-field  class="quarter-field" appearance="fill">
+      <mat-label>Quarter 1 (Jan-Mar)</mat-label>
+      <input matInput type="number" [value]="updatedData.quarterFees.Q1" readonly />
+    </mat-form-field>
+    
+    <mat-form-field class="date-field"  appearance="fill">
+      <mat-label>Quarter 1 Date</mat-label>
+      <input matInput [matDatepicker]="q1Date" [(ngModel)]="updatedData.quarterDates.Q1" (dateChange)="onDateChange('Q1')" name="q1Date" required />
+      <mat-datepicker-toggle matSuffix [for]="q1Date"></mat-datepicker-toggle>
+      <mat-datepicker #q1Date></mat-datepicker>
+      <mat-error *ngIf="!quarterDates.Q1">Date for Quarter-1 is required</mat-error>
+    </mat-form-field>
+  </div>
+
+
+    
+    <div class="quarter-section">
+    <mat-form-field  class="quarter-field" appearance="fill">
+      <mat-label>Quarter 2 (Apr-Jun)</mat-label>
+      <input matInput type="number" [value]="updatedData.quarterFees.Q2" readonly />
+    </mat-form-field>
+    
+    <mat-form-field class="date-field"  appearance="fill">
+      <mat-label>Quarter 2 Date</mat-label>
+      <input matInput [matDatepicker]="q2Date" [(ngModel)]="updatedData.quarterDates.Q2" (dateChange)="onDateChange('Q2')" name="q2Date" required/>
+      <mat-datepicker-toggle matSuffix [for]="q2Date"></mat-datepicker-toggle>
+      <mat-datepicker #q2Date></mat-datepicker>
+      <mat-error  *ngIf="!quarterDates.Q2 || invalidDates.Q2">Date for Quarter-2 is required and should be after Quarter-1</mat-error>
+    </mat-form-field>
+  </div>
+
+    
+    <div class="quarter-section">
+    <mat-form-field  class="quarter-field" appearance="fill">
+      <mat-label>Quarter 3 (Jul-Sep)</mat-label>
+      <input matInput type="number" [value]="updatedData.quarterFees.Q3" readonly />
+    </mat-form-field>
+    <mat-form-field class="date-field"  appearance="fill">
+      <mat-label>Quarter 3 Date</mat-label>
+      <input matInput [matDatepicker]="q3Date" [(ngModel)]="updatedData.quarterDates.Q3" (dateChange)="onDateChange('Q3')" name="q3Date"required />
+      <mat-datepicker-toggle matSuffix [for]="q3Date"></mat-datepicker-toggle>
+      <mat-datepicker #q3Date></mat-datepicker>
+      <mat-error *ngIf="!quarterDates.Q3 || invalidDates.Q3">Date for Quarter-3 is required and should be after Quarter-2</mat-error>
+    </mat-form-field>
+
+  </div>
+    
+    <div class="quarter-section">
+    <mat-form-field  class="quarter-field" appearance="fill">
+      <mat-label>Quarter 4 (Oct-Dec)</mat-label>
+      <input matInput type="number" [value]="updatedData.quarterFees.Q4" readonly />
+    </mat-form-field>
+    <mat-form-field class="date-field"  appearance="fill">
+      <mat-label>Quarter 4 Date</mat-label>
+      <input matInput [matDatepicker]="q4Date" [(ngModel)]="updatedData.quarterDates.Q4" (dateChange)="onDateChange('Q4')" name="q4Date" [ngClass]="{'invalid-date': invalidDates.Q4}" />
+      <mat-datepicker-toggle matSuffix [for]="q4Date"></mat-datepicker-toggle>
+      <mat-datepicker #q4Date></mat-datepicker>
+      <mat-error *ngIf="!quarterDates.Q4 || invalidDates.Q4">Date for Quarter-4 is required and should be after Quarter-3</mat-error>
+    </mat-form-field>
+  </div>
+    <!-- <mat-form-field style="width: 100%;" appearance="fill">
+      <mat-label>Quarter 1 Date</mat-label>
+      <input matInput [matDatepicker]="q1Date" [(ngModel)]="updatedData.quarterDates.Q1" (dateChange)="onDateChange('Q1')" name="q1Date" />
+      <mat-datepicker-toggle matSuffix [for]="q1Date"></mat-datepicker-toggle>
+      <mat-datepicker #q1Date></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%;" appearance="fill">
+      <mat-label>Quarter 2 Date</mat-label>
+      <input matInput [matDatepicker]="q2Date" [(ngModel)]="updatedData.quarterDates.Q2" (dateChange)="onDateChange('Q2')" name="q2Date" [ngClass]="{'invalid-date': invalidDates.Q2}" />
+      <mat-datepicker-toggle matSuffix [for]="q2Date"></mat-datepicker-toggle>
+      <mat-datepicker #q2Date></mat-datepicker>
+      <mat-error *ngIf="invalidDates.Q2">Quarter 2 Date cannot be before Quarter 1 Date</mat-error>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%;" appearance="fill">
+      <mat-label>Quarter 3 Date</mat-label>
+      <input matInput [matDatepicker]="q3Date" [(ngModel)]="updatedData.quarterDates.Q3" (dateChange)="onDateChange('Q3')" name="q3Date" [ngClass]="{'invalid-date': invalidDates.Q3}" />
+      <mat-datepicker-toggle matSuffix [for]="q3Date"></mat-datepicker-toggle>
+      <mat-datepicker #q3Date></mat-datepicker>
+      <mat-error *ngIf="invalidDates.Q3">Quarter 3 Date cannot be before Quarter 1 or Quarter 2 Dates</mat-error>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%;" appearance="fill">
+      <mat-label>Quarter 4 Date</mat-label>
+      <input matInput [matDatepicker]="q4Date" [(ngModel)]="updatedData.quarterDates.Q4" (dateChange)="onDateChange('Q4')" name="q4Date" [ngClass]="{'invalid-date': invalidDates.Q4}" />
+      <mat-datepicker-toggle matSuffix [for]="q4Date"></mat-datepicker-toggle>
+      <mat-datepicker #q4Date></mat-datepicker>
+      <mat-error *ngIf="invalidDates.Q4">Quarter 4 Date cannot be before Quarter 1, Quarter 2, or Quarter 3 Dates</mat-error>
+    </mat-form-field> -->
+  </div>
+  <div mat-dialog-actions class="kk">
+    <button mat-raised-button color="warn" (click)="onCancelClick()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid || !areDatesValid()">Update</button>
+  </div>
 </form>

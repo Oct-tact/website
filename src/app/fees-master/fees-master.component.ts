@@ -142,7 +142,7 @@ export class FeesMasterComponent implements OnInit {
 
   openAddFeesDialog(): void {
     const dialogRef = this.dialog.open(AddFeesDialogComponent, {
-      width: '400px',
+      width: '500px',
       data: {}
     });
 
@@ -160,6 +160,7 @@ export class FeesMasterComponent implements OnInit {
       class: data.class,
       feesAmount: data.feesAmount,
       quarterFees: data.quarterFees,
+      quarterDates: data.quarterDates, // Add quarter dates here
       status: 'Active' // Set initial status as Active
     };
     this.feesData.push(newFeesData);
@@ -185,14 +186,14 @@ export class FeesMasterComponent implements OnInit {
 
   viewFees(element: FeesData): void {
     this.dialog.open(ViewFeesDialogComponent, {
-      width: '400px',
+      width: '500px',
       data: { ...element }
     });
   }
 
   editFees(element: FeesData): void {
     const dialogRef = this.dialog.open(EditFeesDialogComponent, {
-      width: '400px',
+      width: '500px',
       data: { ...element }
     });
 

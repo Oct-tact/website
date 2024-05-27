@@ -40,14 +40,25 @@
 
 
 
-<!-- add-fees.component.html -->
-
+<!-- add-fees.component.html
+    <mat-form-field style="width: 100%;" appearance="fill">
+      <mat-label>Class</mat-label>
+      
+      <input matInput [(ngModel)]="class" name="class" required />
+      <mat-error *ngIf="!class">Class is required</mat-error>
+    </mat-form-field> --> 
+<!-- 
 <form #myForm="ngForm" (ngSubmit)="onAddClick()">
   <h2>Add Fees</h2>
   <div mat-dialog-content>
+ 
     <mat-form-field style="width: 100%;" appearance="fill">
       <mat-label>Class</mat-label>
-      <input matInput [(ngModel)]="class" name="class" required />
+      <mat-select [(ngModel)]="class" name="class" required>
+        <mat-option *ngFor="let classOption of classOptions" [value]="classOption">
+          {{ classOption }}
+        </mat-option>
+      </mat-select>
       <mat-error *ngIf="!class">Class is required</mat-error>
     </mat-form-field>
 
@@ -83,4 +94,92 @@
     <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid">Add</button>
   </div>
 </form>
+ -->
 
+ <form #myForm="ngForm" (ngSubmit)="onAddClick()"class="my-form">
+  <h2>Add Fees</h2>
+  <div mat-dialog-content>
+    <div class="quarter-section">
+    <mat-form-field class="quarter-field"  appearance="fill">
+      <mat-label>Class</mat-label>
+      <mat-select [(ngModel)]="class" name="class" required>
+        <mat-option *ngFor="let classOption of classOptions" [value]="classOption">
+          {{ classOption }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="!class">Class is required</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="date-field" appearance="fill">
+      <mat-label>Total Fees Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="feesAmount" (input)="calculateQuarterFees()" name="feesAmount" required #feesAmountField="ngModel" />
+      <mat-error *ngIf="!feesAmount">Total Fees Amount is required</mat-error>
+      <mat-error *ngIf="feesAmountField.invalid && (feesAmountField.dirty || feesAmountField.touched)">Total Fees Amount must be a valid number</mat-error>
+    </mat-form-field>
+  </div>
+
+    <div class="quarter-section">
+    <mat-form-field   class="quarter-field"  appearance="fill">
+      <mat-label>Quarter 1 (Jan-Mar)</mat-label>
+      <input matInput type="number" [value]="quarterFees.Q1" readonly />
+    </mat-form-field>
+    <mat-form-field class="date-field"  appearance="fill">
+      <mat-label>Date for Quarter 1</mat-label>
+      <input matInput [matDatepicker]="picker1" [(ngModel)]="quarterDates.Q1" (dateChange)="onDateChange('Q1')" name="Q1Date" required>
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+      <mat-error *ngIf="!quarterDates.Q1">Date for Quarter-1 is required</mat-error>
+    </mat-form-field>
+    </div>
+
+
+    <div class="quarter-section">
+    <mat-form-field  class="quarter-field" appearance="fill">
+      <mat-label>Quarter 2 (Apr-Jun)</mat-label>
+      <input matInput type="number" [value]="quarterFees.Q2" readonly />
+    </mat-form-field>
+    <mat-form-field class="date-field" appearance="fill">
+      <mat-label>Date for Quarter 2</mat-label>
+      <input matInput [matDatepicker]="picker2" [(ngModel)]="quarterDates.Q2" (dateChange)="onDateChange('Q2')" name="Q2Date" required>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+      <mat-error *ngIf="!quarterDates.Q2 || invalidDates.Q2">Date for Quarter-2 is required and should be after Quarter-1</mat-error>
+    </mat-form-field>
+  </div>
+
+    
+    <div class="quarter-section">
+    <mat-form-field  class="quarter-field" appearance="fill">
+      <mat-label>Quarter 3 (Jul-Sep)</mat-label>
+      <input matInput type="number" [value]="quarterFees.Q3" readonly />
+    </mat-form-field>
+    <mat-form-field class="date-field" appearance="fill">
+      <mat-label>Date for Quarter 3</mat-label>
+      <input matInput [matDatepicker]="picker3" [(ngModel)]="quarterDates.Q3" (dateChange)="onDateChange('Q3')" name="Q3Date" required>
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+      <mat-error *ngIf="!quarterDates.Q3 || invalidDates.Q3">Date for Quarter-3 is required and should be after Quarter-2</mat-error>
+    </mat-form-field>
+  </div>
+
+    
+    <div class="quarter-section">
+    <mat-form-field  class="quarter-field" appearance="fill">
+      <mat-label>Quarter 4 (Oct-Dec)</mat-label>
+      <input matInput type="number" [value]="quarterFees.Q4" readonly />
+    </mat-form-field>
+    <mat-form-field class="date-field" appearance="fill">
+      <mat-label>Date for Quarter 4</mat-label>
+      <input matInput [matDatepicker]="picker4" [(ngModel)]="quarterDates.Q4" (dateChange)="onDateChange('Q4')" name="Q4Date" required>
+      <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+      <mat-datepicker #picker4></mat-datepicker>
+      <mat-error *ngIf="!quarterDates.Q4 || invalidDates.Q4">Date for Quarter-4 is required </mat-error>
+    </mat-form-field>
+  </div>
+  </div>
+  <div mat-dialog-actions class="kk">
+    <button mat-raised-button color="warn" (click)="onCancelClick()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid || !areDatesValid()">Add</button>
+  </div>
+</form>
