@@ -100,6 +100,7 @@ import { StudentViewDialogComponent } from './student-view-dialog/student-view-d
 import { RegularTeacherComponent } from './regular-teacher/regular-teacher.component';
 import { PrivateTeacherComponent } from './private-teacher/private-teacher.component';
 import { BothTeacherComponent } from './both-teacher/both-teacher.component';
+import { StudentFeesComponent } from './student-fees/student-fees.component';
 
 
 @NgModule({
@@ -165,6 +166,7 @@ import { BothTeacherComponent } from './both-teacher/both-teacher.component';
     RegularTeacherComponent,
     PrivateTeacherComponent,
     BothTeacherComponent,
+    StudentFeesComponent,
   
   ],
   imports: [

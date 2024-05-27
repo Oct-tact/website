@@ -1,5 +1,10 @@
 
 <mat-card class="example-card">
+  <div class="card-content">
+    <div class="image-container">
+      <img src="assets\online-account-registration-and-login-concept-woman-who-registers-or-logs-in-to-an-online-account-with-a-user-interface-secure-login-and-password-flat-illustration-vector.jpg" alt="Image"  class="card-image">
+    </div>
+    <div class="form-container">
   <h2>Student Login</h2>
 <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <mat-form-field class="example-full-width">
@@ -14,6 +19,8 @@
       <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
     </mat-form-field>
   
-    <button mat-raised-button color="primary" type="submit">Login</button>
+    <button mat-raised-button color="primary" class="adlogin" type="submit">Login</button>
   </form>
+</div>
+</div>
 </mat-card>

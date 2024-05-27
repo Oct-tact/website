@@ -21,7 +21,7 @@ export class StudentEditDialogComponent {
     this.editForm = this.fb.group({
       name: [this.data.student.name, Validators.required],
       email: [this.data.student.email, [Validators.required, Validators.email]],
-      grade: [this.data.student.grade, Validators.required],
+      class: [this.data.student.class, Validators.required],
       parentContact: [this.data.student.parentContact, Validators.required],
       rollNumber: [this.data.student.rollNumber, Validators.required],
       gender: [this.data.student.gender, Validators.required], // New field

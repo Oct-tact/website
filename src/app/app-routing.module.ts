@@ -32,6 +32,7 @@ import { TeacherMasterComponent } from './teacher-master/teacher-master.componen
 import { RegularTeacherComponent } from './regular-teacher/regular-teacher.component';
 import { PrivateTeacherComponent } from './private-teacher/private-teacher.component';
 import { BothTeacherComponent } from './both-teacher/both-teacher.component';
+import { StudentFeesComponent } from './student-fees/student-fees.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,7 @@ const routes: Routes = [
         { path: 'regualarteacher', component: RegularTeacherComponent },
         { path: 'privateteacher', component: PrivateTeacherComponent },
         { path: 'bothteacher', component: BothTeacherComponent  },
+        { path: 'studentfees', component: StudentFeesComponent  },
       
      ]
      },
