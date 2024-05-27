@@ -1,24 +1,56 @@
 .example-card {
-    width: 600px;
-    height: 320px;
-    margin-left: 500px;
+    width: 900px;
+    height: 500px;
+    margin-left: 374px;
     margin-top: 150px;
     padding: 37px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     position: fixed;
-    border: 3px solid #00b4d8; 
+    border: 6px solid #285cf8e0; 
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
   }
   
   .example-form {
-    width: 100%;
+    width: 90%;
   
+  }
+  
+  .adlogin {
+    width: 90%;
+  margin-left: 20px;
   }
   
   .example-full-width {
     width: 100%;
   }
   h2 {
-    margin-left: 180px;
+    margin-top: 50px;
+    margin-left: 86px;
     color: rgb(59, 59, 237);
     font-weight:600;
+    font-size: 1.8rem;
+  }
+
+
+
+  
+  .card-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  
+  .image-container {
+    flex: 2; /* Adjust the flex value to make the image part bigger */
+  }
+  
+  .form-container {
+    flex: 1.5; /* Adjust the flex value to make the form part smaller */
+  }
+  
+  .card-image {
+    width: 90%;
+    height: auto; /* Maintain aspect ratio */
   }
