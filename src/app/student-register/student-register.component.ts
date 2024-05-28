@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class StudentRegisterComponent {
   registrationForm: FormGroup;
   nextId: number;
+  
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.registrationForm = this.fb.group({
@@ -21,7 +22,8 @@ export class StudentRegisterComponent {
       parentContact: ['', Validators.required],
       rollNumber: ['',],
       gender: ['', Validators.required], // New field
-      cast: ['', Validators.required] // New field
+      cast: ['', Validators.required] ,// New field
+      status: ['Active'] // Set default value to 'Active' for status field
     });
 
     // Initialize nextId based on existing data

@@ -1,8 +1,8 @@
-<h1 mat-dialog-title>Pay for {{data.quarter.quarter}}</h1>
+<h2>Payment for {{data.quarter.quarter}}</h2>
 <div mat-dialog-content>
   <p>Total Amount: {{ data.quarter.totalAmount }}</p>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button (click)="onPay()">Pay</button>
+<div mat-dialog-actions  class="kk">
+  <button  mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onPay()">Pay</button>
 </div>

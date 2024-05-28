@@ -10,6 +10,7 @@ import { StudentDeleteDialogComponent } from 'src/app/student-delete-dialog/stud
 import { StudentUpdatePasswordDialogComponent } from 'src/app/student-update-password-dialog/student-update-password-dialog.component';
 import { EmployeeUpdatePasswordDialogComponent } from 'src/app/employee-update-password-dialog/employee-update-password-dialog.component';
 import { StudentViewDialogComponent } from 'src/app/student-view-dialog/student-view-dialog.component';
+import { StatusConfirmationDialogComponent } from 'src/app/status-confirmation-dialog/status-confirmation-dialog.component';
 
 @Component({
   selector: 'app-student',
@@ -18,7 +19,7 @@ import { StudentViewDialogComponent } from 'src/app/student-view-dialog/student-
 })
 export class StudentComponent implements OnInit  {
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['name','rollNumber','email', 'class', 'parentContact','action']; // Define columns for the table
+  displayedColumns: string[] = ['name','rollNumber','email', 'class', 'parentContact','status','action']; // Define columns for the table
 
   
   constructor(private dialog: MatDialog) { }
@@ -88,6 +89,43 @@ export class StudentComponent implements OnInit  {
       }
     });
   }
+
+  // openStatusChangeDialog(student: any): void {
+  //   const dialogRef = this.dialog.open(StatusConfirmationDialogComponent, {
+  //     width: '400px',
+  //     data: { status: student.status } // Pass current status to the dialog
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(confirm => {
+  //     if (confirm) {
+  //       student.status = student.status === 'Active' ? 'Inactive' : 'Active'; // Toggle status
+  //       this.updateLocalStorage();
+  //     }
+  //   });
+  // }
+
+
+  openStatusChangeDialog(student: any): void {
+    if (!student.status) {
+      student.status = 'Active'; // Set initial status to Active if undefined or null
+    }
+    
+    const dialogRef = this.dialog.open(StatusConfirmationDialogComponent, {
+      width: '400px',
+      data: { status: student.status } // Pass current status to the dialog
+    });
+  
+    dialogRef.afterClosed().subscribe(confirm => {
+      if (confirm) {
+        student.status = student.status === 'Active' ? 'Inactive' : 'Active'; // Toggle status
+        this.updateLocalStorage();
+      }
+    });
+  }
+  
+
+ 
+  
 }
 
 

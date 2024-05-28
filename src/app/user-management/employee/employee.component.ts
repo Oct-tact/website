@@ -5,6 +5,7 @@ import { EmployeeDeleteDialogComponent } from 'src/app/employee-delete-dialog/em
 import { EmployeeEditDialogComponent } from 'src/app/employee-edit-dialog/employee-edit-dialog.component';
 import { EmployeeUpdatePasswordDialogComponent } from 'src/app/employee-update-password-dialog/employee-update-password-dialog.component';
 import { EmployeeViewDialogComponent } from 'src/app/employee-view-dialog/employee-view-dialog.component';
+import { StatusConfirmationDialogComponent } from 'src/app/status-confirmation-dialog/status-confirmation-dialog.component';
 
 @Component({
   selector: 'app-employee',
@@ -13,7 +14,7 @@ import { EmployeeViewDialogComponent } from 'src/app/employee-view-dialog/employ
 })
 export class EmployeeComponent {
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['name','rollNumber','email', 'role', 'mobileNumber','action']; // Define columns for the table
+  displayedColumns: string[] = ['name','rollNumber','email', 'role', 'mobileNumber','status','action']; // Define columns for the table
 
   
   constructor(private dialog: MatDialog) { }
@@ -88,6 +89,23 @@ export class EmployeeComponent {
     localStorage.setItem('employees', JSON.stringify(this.dataSource.data));
   }
 
+  openStatusChangeDialog(student: any): void {
+    if (!student.status) {
+      student.status = 'Active'; // Set initial status to Active if undefined or null
+    }
+    
+    const dialogRef = this.dialog.open(StatusConfirmationDialogComponent, {
+      width: '400px',
+      data: { status: student.status } // Pass current status to the dialog
+    });
+  
+    dialogRef.afterClosed().subscribe(confirm => {
+      if (confirm) {
+        student.status = student.status === 'Active' ? 'Inactive' : 'Active'; // Toggle status
+        this.updateLocalStorage();
+      }
+    });
+  }
 }
 
 // import { Component } from '@angular/core';

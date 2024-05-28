@@ -22,7 +22,8 @@ export class EmployeeRegisterComponent {
       password: ['', Validators.required],
       mobileNumber: ['', Validators.required],
       gender: ['', Validators.required],
-      cast: ['', Validators.required]
+      cast: ['', Validators.required],
+      status: ['Active'] // Set default value to 'Active' for status field
     });
 
     const existingData = JSON.parse(localStorage.getItem('employees') || '[]');

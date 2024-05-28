@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Single Pay</h1>
+<h2>Single Payment</h2>
     <div mat-dialog-content>
       <p>Selected Quarters:</p>
       <ul>
@@ -6,7 +6,7 @@
       </ul>
       <p>Total Amount: {{ totalAmount }}</p>
     </div>
-    <div mat-dialog-actions>
-      <button mat-button (click)="onCancel()">Cancel</button>
-      <button mat-button (click)="onPay()">Pay</button>
+    <div mat-dialog-actions class="kk">
+      <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      <button mat-raised-button color="primary" (click)="onPay()">Pay</button>
     </div>
