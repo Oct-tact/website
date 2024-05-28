@@ -1,5 +1,27 @@
+
+
 <div class="container">
+
 <h2>Registered Employee</h2>
+<div class="cccontainer">
+  <div class="cards-container">
+    <mat-card class="card">
+      <mat-card-content>
+        <h1>Total Employees: {{ totalEmployees }}</h1>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="carddd">
+      <mat-card-content>
+        <h1>Active Employees: {{ activeEmployees }}</h1>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="cardddd">
+      <mat-card-content>
+        <h1>Inactive Employees: {{ inactiveEmployees }}</h1>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div><br>
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 

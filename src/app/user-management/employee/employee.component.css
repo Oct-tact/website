@@ -1,0 +1,42 @@
+.cccontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .cards-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    width: 400px;
+    height: 100px;
+    background-color:#eec7db ;
+   
+    
+    
+  }
+  
+  .carddd {
+    width: 400px;
+    height: 100px;
+    background-color: rgb(163, 243, 163);
+  }
+  
+  .cardddd {
+    width: 400px;
+    height: 100px;
+    background-color:rgb(209, 250, 129);
+  }
+  
+  h1{
+    font-size: 1.4rem;
+   text-align: center;
+    font-weight: 500;
+    margin-top: 20px;
+    color: rgb(68, 63, 63);
+  }

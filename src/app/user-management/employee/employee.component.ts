@@ -15,14 +15,29 @@ import { StatusConfirmationDialogComponent } from 'src/app/status-confirmation-d
 export class EmployeeComponent {
   dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = ['name','rollNumber','email', 'role', 'mobileNumber','status','action']; // Define columns for the table
+  totalEmployees: number = 0;
+  activeEmployees: number = 0;
+  inactiveEmployees: number = 0;
 
   
   constructor(private dialog: MatDialog) { }
 
+  // ngOnInit(): void {
+  //   // Fetch all registered students from local storage
+  //   const existingData = JSON.parse(localStorage.getItem('employees') || '[]');
+  //   this.dataSource = new MatTableDataSource(existingData);
+  // }
+
   ngOnInit(): void {
-    // Fetch all registered students from local storage
+    this.refreshData();
+  }
+
+  refreshData(): void {
     const existingData = JSON.parse(localStorage.getItem('employees') || '[]');
     this.dataSource = new MatTableDataSource(existingData);
+    this.totalEmployees = existingData.length;
+    this.activeEmployees = existingData.filter((employee: any) => employee.status === 'Active').length;
+    this.inactiveEmployees = this.totalEmployees - this.activeEmployees;
   }
   openEditDialog(student: any): void {
     const dialogRef = this.dialog.open(EmployeeEditDialogComponent, {
@@ -35,6 +50,7 @@ export class EmployeeComponent {
       // Refresh the table data after editing
       const existingData = JSON.parse(localStorage.getItem('employees') || '[]');
       this.dataSource.data = existingData;
+      this.refreshData();
     });
   }
 
@@ -54,6 +70,7 @@ export class EmployeeComponent {
         this.dataSource._updateChangeSubscription(); // Manually trigger change detection
   
         this.updateLocalStorage();
+        this.refreshData();
      
       }
     });
@@ -103,6 +120,8 @@ export class EmployeeComponent {
       if (confirm) {
         student.status = student.status === 'Active' ? 'Inactive' : 'Active'; // Toggle status
         this.updateLocalStorage();
+
+      this.refreshData(); // Update counts
       }
     });
   }
