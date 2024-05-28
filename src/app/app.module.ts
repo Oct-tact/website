@@ -102,6 +102,8 @@ import { PrivateTeacherComponent } from './private-teacher/private-teacher.compo
 import { BothTeacherComponent } from './both-teacher/both-teacher.component';
 import { StudentFeesComponent } from './student-fees/student-fees.component';
 import { StudentFeesManagementComponent } from './student-fees-management/student-fees-management.component';
+import { PaymentDialogComponent } from './payment-dialog/payment-dialog.component';
+import { QuarterPayDialogComponent } from './quarter-pay-dialog/quarter-pay-dialog.component';
 
 
 @NgModule({
@@ -169,6 +171,8 @@ import { StudentFeesManagementComponent } from './student-fees-management/studen
     BothTeacherComponent,
     StudentFeesComponent,
     StudentFeesManagementComponent,
+    PaymentDialogComponent,
+    QuarterPayDialogComponent,
   
   ],
   imports: [

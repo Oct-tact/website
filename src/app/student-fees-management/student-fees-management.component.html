@@ -1,15 +1,9 @@
-<!-- <div class="fees-container">
-    <div class="student-info">
-      <p><strong>Name:</strong> {{ studentName }}</p>
-      <p><strong>Roll Number:</strong> {{ rollNumber }}</p>
-    </div>
-  </div>
-   -->
+<!-- 
    <div class="fees-container">
     <div class="student-info">
       <p><strong>Name:</strong> {{ studentName }}</p>
       <p><strong>Roll Number:</strong> {{ rollNumber }}</p>
-      <p><strong>Class:</strong> {{ studentClass }}</p> <!-- Display student class -->
+      <p><strong>Class:</strong> {{ studentClass }}</p> 
     </div>
     
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -33,6 +27,127 @@
         <td mat-cell *matCellDef="let element">
           <button mat-button [disabled]="element.status === 'Paid'" (click)="payNow(element)">
             {{element.action}}
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+   -->
+
+
+
+<!--    
+
+   <div class="fees-container">
+    <div class="student-info">
+      <p><strong>Name:</strong> {{ studentName }}</p>
+      <p><strong>Roll Number:</strong> {{ rollNumber }}</p>
+      <p><strong>Class:</strong> {{ studentClass }}</p> 
+    </div>
+  
+    <button mat-button (click)="openPaymentDialog()">Single Pay</button>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(element) : null"
+                        [checked]="selection.isSelected(element)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="quarter">
+        <th mat-header-cell *matHeaderCellDef> Quarter </th>
+        <td mat-cell *matCellDef="let element"> {{element.quarter}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="totalAmount">
+        <th mat-header-cell *matHeaderCellDef> Total Amount </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalAmount}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button [disabled]="element.status === 'Paid'" (click)="payNow(element)">
+            {{element.action}}
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+   -->
+
+
+
+   <div class="fees-container">
+    <div class="student-info">
+      <p><strong>Name:</strong> {{ studentName }}</p>
+      <p><strong>Roll Number:</strong> {{ rollNumber }}</p>
+      <p><strong>Class:</strong> {{ studentClass }}</p>
+    </div>
+  
+    <button mat-button (click)="openSinglePayDialog()">Single Pay</button>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(element) : null"
+                        [checked]="selection.isSelected(element)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="quarter">
+        <th mat-header-cell *matHeaderCellDef> Quarter </th>
+        <td mat-cell *matCellDef="let element"> {{element.quarter}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="totalAmount">
+        <th mat-header-cell *matHeaderCellDef> Total Amount </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalAmount}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="paidDate">
+        <th mat-header-cell *matHeaderCellDef> Paid Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.paidDate || '---------------'}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button (click)="openQuarterPayDialog(element)">
+            Pay Now
           </button>
         </td>
       </ng-container>

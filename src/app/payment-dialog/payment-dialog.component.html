@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Single Pay</h1>
+    <div mat-dialog-content>
+      <p>Selected Quarters:</p>
+      <ul>
+        <li *ngFor="let quarter of data.quarters">{{ quarter.quarter }}: {{ quarter.totalAmount }}</li>
+      </ul>
+      <p>Total Amount: {{ totalAmount }}</p>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancel()">Cancel</button>
+      <button mat-button (click)="onPay()">Pay</button>
+    </div>

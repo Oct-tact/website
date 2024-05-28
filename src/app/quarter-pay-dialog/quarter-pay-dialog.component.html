@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Pay for {{data.quarter.quarter}}</h1>
+<div mat-dialog-content>
+  <p>Total Amount: {{ data.quarter.totalAmount }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onPay()">Pay</button>
+</div>
