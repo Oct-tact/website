@@ -42,3 +42,15 @@
       padding: 12px;
       width: 195px;
       }
+
+
+      .status-all-paid {
+        color: green;
+      
+      }
+      
+      .status-installment-due {
+        color:#56052f ;
+     
+      }
+      

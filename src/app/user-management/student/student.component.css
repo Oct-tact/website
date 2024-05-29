@@ -41,3 +41,14 @@
     margin-top: 20px;
     color: rgb(68, 63, 63);
   }
+
+
+  .status-active {
+    color: green;
+  }
+  
+  .status-inactive {
+    color:#56052f ;
+ 
+  }
+  

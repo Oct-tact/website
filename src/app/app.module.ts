@@ -105,6 +105,7 @@ import { StudentFeesManagementComponent } from './student-fees-management/studen
 import { PaymentDialogComponent } from './payment-dialog/payment-dialog.component';
 import { QuarterPayDialogComponent } from './quarter-pay-dialog/quarter-pay-dialog.component';
 import { SuccessDialogComponent } from './success-dialog/success-dialog.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -203,7 +204,8 @@ import { SuccessDialogComponent } from './success-dialog/success-dialog.componen
     ReactiveFormsModule,
     MatSnackBarModule,
     MatTabsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTooltipModule
    
  
   

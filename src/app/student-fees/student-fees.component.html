@@ -22,7 +22,12 @@
     <!-- Status Column -->
     <ng-container matColumnDef="statusFees">
       <th mat-header-cell *matHeaderCellDef> Status </th>
-      <td mat-cell *matCellDef="let element"> {{element.statusFees}} </td>
+      <td mat-cell *matCellDef="let element"
+      [ngClass]="{
+        'status-all-paid': element.statusFees === 'All Paid',
+        'status-installment-due': element.statusFees.includes('Installment Due')
+      }"> 
+        {{element.statusFees}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
