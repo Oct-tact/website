@@ -104,6 +104,7 @@ import { StudentFeesComponent } from './student-fees/student-fees.component';
 import { StudentFeesManagementComponent } from './student-fees-management/student-fees-management.component';
 import { PaymentDialogComponent } from './payment-dialog/payment-dialog.component';
 import { QuarterPayDialogComponent } from './quarter-pay-dialog/quarter-pay-dialog.component';
+import { SuccessDialogComponent } from './success-dialog/success-dialog.component';
 
 
 @NgModule({
@@ -173,6 +174,7 @@ import { QuarterPayDialogComponent } from './quarter-pay-dialog/quarter-pay-dial
     StudentFeesManagementComponent,
     PaymentDialogComponent,
     QuarterPayDialogComponent,
+    SuccessDialogComponent,
   
   ],
   imports: [
