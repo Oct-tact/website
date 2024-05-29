@@ -27,7 +27,8 @@ export class EmployeeEditDialogComponent {
       mobileNumber: [this.data.student.mobileNumber, Validators.required],
       rollNumber: [this.data.student.rollNumber, Validators.required],
       gender: [this.data.student.gender, Validators.required],
-      cast: [this.data.student.cast, Validators.required]
+      cast: [this.data.student.cast, Validators.required],
+      status: [this.data.student.status]
     });
   }
 

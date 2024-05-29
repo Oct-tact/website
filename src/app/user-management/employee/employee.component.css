@@ -15,7 +15,8 @@
   .card {
     width: 400px;
     height: 100px;
-    background-color:#eec7db ;
+   
+    background-color:rgb(209, 250, 129);
    
     
     
@@ -30,7 +31,7 @@
   .cardddd {
     width: 400px;
     height: 100px;
-    background-color:rgb(209, 250, 129);
+    background-color:#eec7db ;
   }
   
   h1{

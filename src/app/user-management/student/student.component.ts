@@ -20,15 +20,27 @@ import { StatusConfirmationDialogComponent } from 'src/app/status-confirmation-d
 export class StudentComponent implements OnInit  {
   dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = ['name','rollNumber','email', 'class', 'parentContact','status','action']; // Define columns for the table
-
+  totalStudents: number = 0;
+  activeStudents: number = 0;
+  inactiveStudents: number = 0;
   
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    // Fetch all registered students from local storage
+    this.refreshData();
+    // const existingData = JSON.parse(localStorage.getItem('students') || '[]');
+    // this.dataSource = new MatTableDataSource(existingData);
+  }
+  refreshData(): void {
     const existingData = JSON.parse(localStorage.getItem('students') || '[]');
     this.dataSource = new MatTableDataSource(existingData);
+    this.totalStudents = existingData.length;
+    this.activeStudents = existingData.filter((employee: any) => employee.status === 'Active').length;
+    this.inactiveStudents = this.totalStudents - this.activeStudents;
   }
+
+
+
   openEditDialog(student: any): void {
     const dialogRef = this.dialog.open(StudentEditDialogComponent, {
       width: '400px',
@@ -40,6 +52,7 @@ export class StudentComponent implements OnInit  {
       // Refresh the table data after editing
       const existingData = JSON.parse(localStorage.getItem('students') || '[]');
       this.dataSource.data = existingData;
+      this.refreshData();
     });
   }
   openViewDialog(student: any): void {
@@ -65,6 +78,7 @@ export class StudentComponent implements OnInit  {
         this.dataSource._updateChangeSubscription(); // Manually trigger change detection
   
         this.updateLocalStorage();
+        this.refreshData();
      
       }
     });
@@ -119,6 +133,7 @@ export class StudentComponent implements OnInit  {
       if (confirm) {
         student.status = student.status === 'Active' ? 'Inactive' : 'Active'; // Toggle status
         this.updateLocalStorage();
+        this.refreshData();
       }
     });
   }

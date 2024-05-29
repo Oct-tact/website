@@ -25,7 +25,8 @@ export class StudentEditDialogComponent {
       parentContact: [this.data.student.parentContact, Validators.required],
       rollNumber: [this.data.student.rollNumber, Validators.required],
       gender: [this.data.student.gender, Validators.required], // New field
-      cast: [this.data.student.cast, Validators.required] // New field
+      cast: [this.data.student.cast, Validators.required],// New field
+      status: [this.data.student.status] // Set default value to 'Active' for status field
     });
   }
 
