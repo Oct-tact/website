@@ -34,6 +34,22 @@ export class StudentComponent implements OnInit  {
     // const existingData = JSON.parse(localStorage.getItem('students') || '[]');
     // this.dataSource = new MatTableDataSource(existingData);
   }
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+
   refreshData(): void {
     const existingData = JSON.parse(localStorage.getItem('students') || '[]');
     this.dataSource = new MatTableDataSource(existingData);
@@ -44,15 +60,7 @@ export class StudentComponent implements OnInit  {
     this.inactiveStudents = this.totalStudents - this.activeStudents;
   }
 
-  applyFilter(event: Event): void {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
+ 
   openEditDialog(student: any): void {
     const dialogRef = this.dialog.open(StudentEditDialogComponent, {
       width: '400px',

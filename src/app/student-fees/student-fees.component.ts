@@ -90,7 +90,9 @@
 
 
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 export interface StudentFeesData {
@@ -109,6 +111,11 @@ export class StudentFeesComponent implements OnInit {
   displayedColumns: string[] = ['sno', 'studentName', 'class', 'statusFees'];
   dataSource: MatTableDataSource<StudentFeesData>;
 
+
+
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   constructor() {
     this.dataSource = new MatTableDataSource<StudentFeesData>([]);
   }
@@ -116,6 +123,23 @@ export class StudentFeesComponent implements OnInit {
   ngOnInit(): void {
     this.loadStudentFeesData();
   }
+
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+
 
   loadStudentFeesData(): void {
     const students = JSON.parse(localStorage.getItem('students') || '[]');
@@ -150,8 +174,5 @@ export class StudentFeesComponent implements OnInit {
     return 'First Installment Due';
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+ 
 }
