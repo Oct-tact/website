@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { DeleteTaskDialogComponent } from 'src/app/delete-task-dialog/delete-task-dialog.component';
 import { EditTaskDialogComponent } from 'src/app/edit-task-dialog/edit-task-dialog.component';
@@ -11,6 +11,7 @@ import { StudentUpdatePasswordDialogComponent } from 'src/app/student-update-pas
 import { EmployeeUpdatePasswordDialogComponent } from 'src/app/employee-update-password-dialog/employee-update-password-dialog.component';
 import { StudentViewDialogComponent } from 'src/app/student-view-dialog/student-view-dialog.component';
 import { StatusConfirmationDialogComponent } from 'src/app/status-confirmation-dialog/status-confirmation-dialog.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-student',
@@ -24,6 +25,8 @@ export class StudentComponent implements OnInit  {
   activeStudents: number = 0;
   inactiveStudents: number = 0;
   
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -34,12 +37,21 @@ export class StudentComponent implements OnInit  {
   refreshData(): void {
     const existingData = JSON.parse(localStorage.getItem('students') || '[]');
     this.dataSource = new MatTableDataSource(existingData);
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
     this.totalStudents = existingData.length;
     this.activeStudents = existingData.filter((employee: any) => employee.status === 'Active').length;
     this.inactiveStudents = this.totalStudents - this.activeStudents;
   }
 
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 
   openEditDialog(student: any): void {
     const dialogRef = this.dialog.open(StudentEditDialogComponent, {

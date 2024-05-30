@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { SubjectDialogComponent, SubjectData } from '../subject-dialog/subject-dialog.component';
@@ -6,6 +6,8 @@ import { EditSubjectDialogComponent } from '../edit-subject-dialog/edit-subject-
 import { ViewSubjectDialogComponent } from '../view-subject-dialog/view-subject-dialog.component';
 import { StatusConfirmationDialogComponent } from '../status-confirmation-dialog/status-confirmation-dialog.component';
 import { DeleteConfirmationDialogComponent } from '../delete-confirmation-dialog/delete-confirmation-dialog.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-subject-master',
@@ -16,6 +18,11 @@ export class SubjectMasterComponent implements OnInit {
   displayedColumns: string[] = ['sno', 'subject', 'class', 'status', 'action'];
   dataSource: MatTableDataSource<SubjectData>;
 
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+
   subjectData: SubjectData[] = JSON.parse(localStorage.getItem('subjectData') || '[]');
 
   constructor(public dialog: MatDialog) {
@@ -23,6 +30,21 @@ export class SubjectMasterComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 
   openAddSubjectDialog(): void {
     const dialogRef = this.dialog.open(SubjectDialogComponent, {

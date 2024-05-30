@@ -1,0 +1,20 @@
+<h2>Edit FeeType</h2>
+<div mat-dialog-content>
+  <form [formGroup]="feeTypeForm">
+    <mat-form-field>
+      <mat-label>Fee Type</mat-label>
+      <input matInput formControlName="feeType" placeholder="Enter fee type">
+      <mat-error *ngIf="feeTypeForm.get('feeType')?.hasError('required')">
+        Fee Type is required.
+      </mat-error>
+      <mat-error *ngIf="feeTypeForm.get('feeType')?.hasError('minlength')">
+        Fee Type must be at least 3 characters long.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="kk">
+  <button mat-raised-button color="warn"  (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onUpdateClick()" [disabled]="!feeTypeForm.valid">Update</button>
+</div>
+

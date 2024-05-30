@@ -106,6 +106,10 @@ import { PaymentDialogComponent } from './payment-dialog/payment-dialog.componen
 import { QuarterPayDialogComponent } from './quarter-pay-dialog/quarter-pay-dialog.component';
 import { SuccessDialogComponent } from './success-dialog/success-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { FeeTypeComponent } from './fee-type/fee-type.component';
+import { AddFeeTypeDialogComponent } from './add-fee-type-dialog/add-fee-type-dialog.component';
+import { EditFeeTypeDialogComponent } from './edit-fee-type-dialog/edit-fee-type-dialog.component';
+import { ViewFeeTypeDialogComponent } from './view-fee-type-dialog/view-fee-type-dialog.component';
 
 
 @NgModule({
@@ -176,6 +180,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     PaymentDialogComponent,
     QuarterPayDialogComponent,
     SuccessDialogComponent,
+    FeeTypeComponent,
+    AddFeeTypeDialogComponent,
+    EditFeeTypeDialogComponent,
+    ViewFeeTypeDialogComponent,
   
   ],
   imports: [

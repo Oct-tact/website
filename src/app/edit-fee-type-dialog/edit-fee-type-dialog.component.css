@@ -1,0 +1,32 @@
+/* Dialog box styles */
+mat-dialog-container {
+    padding: 20px;
+  }
+  
+  .mat-dialog-actions {
+    justify-content: flex-end;
+  }
+  
+
+  mat-form-field {
+    width: 100%;
+  }
+  
+  /* Error messages */
+  .mat-error {
+    font-size: 12px;
+    color: red;
+  }
+  
+
+    
+  h2 {
+    margin-left: 85px;
+    margin-top: 20px;
+    color: rgb(59, 59, 237);
+    font-weight:600;
+  }
+  .kk {
+    margin-left: 100px;
+ 
+  }

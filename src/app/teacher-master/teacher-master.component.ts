@@ -317,12 +317,14 @@
 // //   }
 // // }
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddTeacherDialogComponent } from '../add-teacher-dialog/add-teacher-dialog.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar'; 
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 interface TeacherData {
   name: string;
@@ -341,6 +343,11 @@ interface TeacherData {
 export class TeacherMasterComponent implements OnInit {
   displayedColumns: string[] = ['select', 'name', 'class', 'section', 'subject', 'status', 'action'];
   dataSource: MatTableDataSource<TeacherData>;
+
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   teacherData: TeacherData[] = [];
 
   constructor(public dialog: MatDialog, private snackBar: MatSnackBar) {
@@ -350,6 +357,21 @@ export class TeacherMasterComponent implements OnInit {
   ngOnInit(): void {
     this.loadTeacherData();
   }
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
 
   loadTeacherData(): void {
     const savedTeacherData = JSON.parse(localStorage.getItem('teacherData') || '[]');

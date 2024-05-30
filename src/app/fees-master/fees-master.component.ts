@@ -114,7 +114,7 @@
 
 
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddFeesDialogComponent, FeesData } from '../add-fees-dialog/add-fees-dialog.component';
@@ -122,6 +122,8 @@ import { ViewFeesDialogComponent } from '../view-fees-dialog/view-fees-dialog.co
 import { EditFeesDialogComponent } from '../edit-fees-dialog/edit-fees-dialog.component';
 import { DeleteConfirmationDialogComponent } from '../delete-confirmation-dialog/delete-confirmation-dialog.component';
 import { StatusConfirmationDialogComponent } from '../status-confirmation-dialog/status-confirmation-dialog.component'; // Import the new dialog component
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-fees-master',
@@ -132,6 +134,8 @@ export class FeesMasterComponent implements OnInit {
   displayedColumns: string[] = ['sno', 'class', 'feesAmount', 'status', 'action'];
   dataSource: MatTableDataSource<FeesData>;
   
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   feesData: FeesData[] = JSON.parse(localStorage.getItem('feesData') || '[]');
 
   constructor(public dialog: MatDialog) {
@@ -139,6 +143,23 @@ export class FeesMasterComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+
+
 
   openAddFeesDialog(): void {
     const dialogRef = this.dialog.open(AddFeesDialogComponent, {
