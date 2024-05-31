@@ -1,104 +1,11 @@
-<!-- <h2>Add Fees</h2>
-<div mat-dialog-content>
-  <mat-form-field style="width: 100%;">
-    <mat-label>Class</mat-label>
-    <input matInput [(ngModel)]="class" />
-  </mat-form-field>
 
-  <mat-form-field style="width: 100%;">
-    <mat-label>Total Fees Amount</mat-label>
-    <input matInput type="number" [(ngModel)]="feesAmount" (input)="calculateQuarterFees()" />
-  </mat-form-field>
- 
-
-  <mat-form-field style="width: 100%;">
-    <mat-label>Quarter 1 (Jan-Mar)</mat-label>
-    <input matInput type="number" [value]="quarterFees.Q1" readonly />
-  </mat-form-field>
-
-  <mat-form-field style="width: 100%;">
-    <mat-label>Quarter 2 (Apr-Jun)</mat-label>
-    <input matInput type="number" [value]="quarterFees.Q2" readonly />
-  </mat-form-field>
-
-  <mat-form-field style="width: 100%;">
-    <mat-label>Quarter 3 (Jul-Sep)</mat-label>
-    <input matInput type="number" [value]="quarterFees.Q3" readonly />
-  </mat-form-field>
-
-  <mat-form-field style="width: 100%;">
-    <mat-label>Quarter 4 (Oct-Dec)</mat-label>
-    <input matInput type="number" [value]="quarterFees.Q4" readonly />
-  </mat-form-field>
-</div>
-<div mat-dialog-actions  class="kk">
-  <button  mat-raised-button color="warn" (click)="onCancelClick()">Cancel</button>
-  <button mat-raised-button color="primary" (click)="onAddClick()">Add</button>
-
-</div>
- -->
-
-
-
-<!-- add-fees.component.html
-    <mat-form-field style="width: 100%;" appearance="fill">
-      <mat-label>Class</mat-label>
-      
-      <input matInput [(ngModel)]="class" name="class" required />
-      <mat-error *ngIf="!class">Class is required</mat-error>
-    </mat-form-field> --> 
-<!-- 
-<form #myForm="ngForm" (ngSubmit)="onAddClick()">
-  <h2>Add Fees</h2>
-  <div mat-dialog-content>
- 
-    <mat-form-field style="width: 100%;" appearance="fill">
-      <mat-label>Class</mat-label>
-      <mat-select [(ngModel)]="class" name="class" required>
-        <mat-option *ngFor="let classOption of classOptions" [value]="classOption">
-          {{ classOption }}
-        </mat-option>
-      </mat-select>
-      <mat-error *ngIf="!class">Class is required</mat-error>
-    </mat-form-field>
-
-    <mat-form-field style="width: 100%;" appearance="fill">
-      <mat-label>Total Fees Amount</mat-label>
-      <input matInput type="number" [(ngModel)]="feesAmount" (input)="calculateQuarterFees()" name="feesAmount" required #feesAmountField="ngModel" />
-      <mat-error *ngIf="!feesAmount">Total Fees Amount is required</mat-error>
-      <mat-error *ngIf="feesAmountField.invalid && (feesAmountField.dirty || feesAmountField.touched)">Total Fees Amount must be a valid number</mat-error>
-    </mat-form-field>
-
-    <mat-form-field style="width: 100%;" appearance="fill">
-      <mat-label>Quarter 1 (Jan-Mar)</mat-label>
-      <input matInput type="number" [value]="quarterFees.Q1" readonly />
-    </mat-form-field>
-
-    <mat-form-field style="width: 100%;" appearance="fill">
-      <mat-label>Quarter 2 (Apr-Jun)</mat-label>
-      <input matInput type="number" [value]="quarterFees.Q2" readonly />
-    </mat-form-field>
-
-    <mat-form-field style="width: 100%;" appearance="fill">
-      <mat-label>Quarter 3 (Jul-Sep)</mat-label>
-      <input matInput type="number" [value]="quarterFees.Q3" readonly />
-    </mat-form-field>
-
-    <mat-form-field style="width: 100%;" appearance="fill">
-      <mat-label>Quarter 4 (Oct-Dec)</mat-label>
-      <input matInput type="number" [value]="quarterFees.Q4" readonly />
-    </mat-form-field>
-  </div>
-  <div mat-dialog-actions class="kk">
-    <button mat-raised-button color="warn" (click)="onCancelClick()">Cancel</button>
-    <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid">Add</button>
-  </div>
-</form>
- -->
 
  <form #myForm="ngForm" (ngSubmit)="onAddClick()"class="my-form">
   <h2>Add Fees</h2>
   <div mat-dialog-content>
+
+
+
     <div class="quarter-section">
     <mat-form-field class="quarter-field"  appearance="fill">
       <mat-label>Class</mat-label>
@@ -119,6 +26,11 @@
     </mat-form-field>
   </div>
 
+
+
+
+
+   
     <div class="quarter-section">
     <mat-form-field   class="quarter-field"  appearance="fill">
       <mat-label>Quarter 1 (Jan-Mar)</mat-label>
@@ -176,10 +88,73 @@
       <mat-datepicker #picker4></mat-datepicker>
       <mat-error *ngIf="!quarterDates.Q4 || invalidDates.Q4">Date for Quarter-4 is required </mat-error>
     </mat-form-field>
+
+
+
+
   </div>
+
+  
+
+
   </div>
+
+
+
+
+
   <div mat-dialog-actions class="kk">
     <button mat-raised-button color="warn" (click)="onCancelClick()">Cancel</button>
     <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid || !areDatesValid()">Add</button>
   </div>
 </form>
+
+
+
+
+
+<!-- 
+ <h1 mat-dialog-title>Add Fees</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Class</mat-label>
+    <mat-select [(value)]="class">
+      <mat-option *ngFor="let classOption of classOptions" [value]="classOption">
+        {{classOption}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Total Fees Amount</mat-label>
+    <input matInput type="number" [(ngModel)]="feesAmount" (blur)="calculateQuarterFees()" />
+  </mat-form-field>
+  <br />
+  <div *ngFor="let pair of feeTypeAmountPairs; let i = index">
+    <mat-form-field appearance="fill">
+      <mat-label>Fee Type</mat-label>
+      <mat-select [(value)]="pair.feeType">
+        <mat-option *ngFor="let feeType of feeTypes" [value]="feeType">{{feeType}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="pair.amount" (blur)="calculateTotalFeesAmount()" />
+    </mat-form-field>
+    <button mat-button color="warn" (click)="feeTypeAmountPairs.splice(i, 1)">Remove</button>
+    <br />
+  </div>
+  <button mat-button (click)="addFeeTypeAmountPair()">Add More</button>
+  <br />
+  <div>
+    <strong>Quarterly Fees Distribution:</strong>
+    <p>Q1: {{quarterFees.Q1 | currency}}</p>
+    <p>Q2: {{quarterFees.Q2 | currency}}</p>
+    <p>Q3: {{quarterFees.Q3 | currency}}</p>
+    <p>Q4: {{quarterFees.Q4 | currency}}</p>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="addFees()" cdkFocusInitial>Add</button>
+</div> -->

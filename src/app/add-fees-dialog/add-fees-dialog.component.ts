@@ -1,58 +1,4 @@
 
-// import { Component, Inject } from '@angular/core';
-// import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
-// export interface FeesData {
-//   sno: number;
-//   class: string;
-//   feesAmount: number;
-//   quarterFees: { Q1: number; Q2: number; Q3: number; Q4: number };
-//   status: 'Active' | 'Inactive'; // Add the status property
-// }
-
-// @Component({
-//   selector: 'app-add-fees-dialog',
-//   templateUrl: './add-fees-dialog.component.html',
-//   styleUrls: ['./add-fees-dialog.component.css']
-// })
-// export class AddFeesDialogComponent {
-//   class: string = '';
-//   feesAmount: number = 0;
-//   quarterFees = { Q1: 0, Q2: 0, Q3: 0, Q4: 0 };
-//   classOptions: string[] = ['KG', 'Class I', 'Class II', 'Class III', 'Class IV', 'Class V', 
-//   'Class VI', 'Class VII', 'Class VIII', 'Class IX', 'Class X', 
-//   'Class XI', 'Class XII'];
-
-
-
-//   constructor(
-//     public dialogRef: MatDialogRef<AddFeesDialogComponent>,
-//     @Inject(MAT_DIALOG_DATA) public data: any
-//   ) {}
-
-//   calculateQuarterFees(): void {
-//     const perQuarter = this.feesAmount / 4;
-//     this.quarterFees.Q1 = perQuarter;
-//     this.quarterFees.Q2 = perQuarter;
-//     this.quarterFees.Q3 = perQuarter;
-//     this.quarterFees.Q4 = perQuarter;
-//   }
-
-
-  
-
-//   onAddClick(): void {
-//     this.dialogRef.close({
-//       class: this.class,
-//       feesAmount: this.feesAmount,
-//       quarterFees: this.quarterFees
-//     });
-//   }
-
-//   onCancelClick(): void {
-//     this.dialogRef.close();
-//   }
-// }
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -86,6 +32,8 @@ export class AddFeesDialogComponent {
     public dialogRef: MatDialogRef<AddFeesDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
+
+ 
 
   calculateQuarterFees(): void {
     const perQuarter = this.feesAmount / 4;
@@ -143,4 +91,106 @@ export class AddFeesDialogComponent {
   onCancelClick(): void {
     this.dialogRef.close();
   }
+ 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { Component, Inject } from '@angular/core';
+// import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+// export interface FeesData {
+//   sno: number;
+//   class: string;
+//   feesAmount: number;
+//   quarterFees: { Q1: number; Q2: number; Q3: number; Q4: number };
+//   quarterDates: { Q1: Date | null; Q2: Date | null; Q3: Date | null; Q4: Date | null };
+//   status: 'Active' | 'Inactive'; // Add the status property
+// }
+
+// @Component({
+//   selector: 'app-add-fees-dialog',
+//   templateUrl: './add-fees-dialog.component.html',
+//   styleUrls: ['./add-fees-dialog.component.css']
+// })
+// export class AddFeesDialogComponent {
+//   class: string = '';
+//   feesAmount: number = 0;
+//   quarterFees = { Q1: 0, Q2: 0, Q3: 0, Q4: 0 };
+//   quarterDates = { Q1: null as Date | null, Q2: null as Date | null, Q3: null as Date | null, Q4: null as Date | null };
+//   invalidDates = { Q2: false, Q3: false, Q4: false };
+
+//   feeTypeAmountPairs: { feeType: string, amount: number }[] = [];
+
+//   classOptions: string[] = ['KG', 'Class I', 'Class II', 'Class III', 'Class IV', 'Class V', 
+//      'Class VI', 'Class VII', 'Class VIII', 'Class IX', 'Class X', 
+//      'Class XI', 'Class XII'];
+  
+//   feeTypes: string[];
+
+//   constructor(
+//     public dialogRef: MatDialogRef<AddFeesDialogComponent>,
+//     @Inject(MAT_DIALOG_DATA) public data: any
+//   ) {
+//     this.feeTypes = data.feeTypes || [];
+//   }
+
+//   addFeeTypeAmountPair(): void {
+//     this.feeTypeAmountPairs.push({ feeType: '', amount: 0 });
+//   }
+
+//   calculateTotalFeesAmount(): void {
+//     let total = this.feesAmount;
+//     this.feeTypeAmountPairs.forEach(pair => {
+//       total += pair.amount;
+//     });
+//     this.feesAmount = total;
+//     this.calculateQuarterFees();
+//   }
+
+//   calculateQuarterFees(): void {
+//     const perQuarter = this.feesAmount / 4;
+//     this.quarterFees.Q1 = perQuarter;
+//     this.quarterFees.Q2 = perQuarter;
+//     this.quarterFees.Q3 = perQuarter;
+//     this.quarterFees.Q4 = perQuarter;
+//   }
+
+//   addFees(): void {
+//     const feesData: FeesData = {
+//       sno: 0,
+//       class: this.class,
+//       feesAmount: this.feesAmount,
+//       quarterFees: { ...this.quarterFees },
+//       quarterDates: { ...this.quarterDates },
+//       status: 'Active' // Set initial status as Active
+//     };
+//     this.dialogRef.close(feesData);
+//   }
+
+//   onCancel(): void {
+//     this.dialogRef.close();
+//   }
+// }

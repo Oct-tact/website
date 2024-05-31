@@ -1,0 +1,41 @@
+<!-- feetype-dialog.component.html -->
+<h2 mat-dialog-title>Add Fee Type</h2>
+<mat-dialog-content>
+  <form [formGroup]="feeForm" >
+    <mat-form-field>
+      <mat-label>Class</mat-label>
+      <mat-select formControlName="class">
+        <mat-option *ngFor="let class of classes" [value]="class">{{ class }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Total Amount</mat-label>
+      <input matInput formControlName="totalAmount" type="number" (input)="manualTotalAmountUpdate()">
+    </mat-form-field>
+
+    <div formArrayName="fees">
+      <div *ngFor="let fee of fees.controls; let i = index" [formGroupName]="i">
+        <mat-form-field>
+          <mat-label>Fee Type</mat-label>
+          <mat-select formControlName="feeType">
+            <mat-option *ngFor="let feeType of feeTypes" [value]="feeType">{{ feeType }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Amount</mat-label>
+          <input matInput formControlName="amount" type="number" (input)="updateTotalAmount()">
+        </mat-form-field>
+
+        <button mat-button color="warn" (click)="removeFee(i)">Remove</button>
+      </div>
+    </div>
+
+    <button mat-button type="button" (click)="addFee()">Add More</button>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button type="submit" [disabled]="!feeForm.valid" (click)="onSubmit()">Submit</button>
+</mat-dialog-actions>

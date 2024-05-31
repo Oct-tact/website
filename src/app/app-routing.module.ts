@@ -35,6 +35,7 @@ import { BothTeacherComponent } from './both-teacher/both-teacher.component';
 import { StudentFeesComponent } from './student-fees/student-fees.component';
 import { StudentFeesManagementComponent } from './student-fees-management/student-fees-management.component';
 import { FeeTypeComponent } from './fee-type/fee-type.component';
+import { FeesAssignComponent } from './fees-assign/fees-assign.component';
 
 
 const routes: Routes = [
@@ -72,6 +73,7 @@ const routes: Routes = [
         { path: 'studentfees', component: StudentFeesComponent  },
         { path: 'studentfeesmanage', component: StudentFeesManagementComponent  },
         { path: 'feetype', component: FeeTypeComponent  },
+        { path: 'feeassign', component: FeesAssignComponent  },
       
      ]
      },
