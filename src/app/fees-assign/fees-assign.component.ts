@@ -179,11 +179,22 @@ export class FeesAssignComponent {
   FeeAssignment: FeeAssignment[] = JSON.parse(localStorage.getItem('feesAssignments') || '[]');
   constructor(public dialog: MatDialog) {}
 
+
+
+   
+  ngOnInit(): void {}
+
+  
+
+
+
+
+
   openAddFeeTypeDialog(): void {
     const feeTypes = this.getFeeTypesFromLocalStorage();
 
     const dialogRef = this.dialog.open(FeetypeDialogComponent, {
-      width: '400px',
+      width: '500px',
       data: { feeTypes }
     });
 
@@ -201,7 +212,7 @@ export class FeesAssignComponent {
 
   openEditFeeTypeDialog(element: FeeAssignment): void {
     const dialogRef = this.dialog.open(EditFeetypeDialogComponent, {
-      width: '400px',
+      width: '500px',
       data: element
     });
 
@@ -214,7 +225,7 @@ export class FeesAssignComponent {
 
   openViewFeeTypeDialog(element: FeeAssignment): void {
     this.dialog.open(ViewFeetypeDialogComponent, {
-      width: '400px',
+      width: '500px',
       data: element
     });
   }

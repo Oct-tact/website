@@ -9,7 +9,7 @@
     <div class="quarter-section">
     <mat-form-field class="quarter-field"  appearance="fill">
       <mat-label>Class</mat-label>
-      <mat-select [(ngModel)]="class" name="class" required>
+      <mat-select [(ngModel)]="class" name="class" required (selectionChange)="getClassTotalAmount()">
         <mat-option *ngFor="let classOption of classOptions" [value]="classOption">
           {{ classOption }}
         </mat-option>
@@ -20,7 +20,7 @@
 
     <mat-form-field class="date-field" appearance="fill">
       <mat-label>Total Fees Amount</mat-label>
-      <input matInput type="number" [(ngModel)]="feesAmount" (input)="calculateQuarterFees()" name="feesAmount" required #feesAmountField="ngModel" />
+      <input matInput type="number" [(ngModel)]="feesAmount" name="feesAmount" required #feesAmountField="ngModel" readonly  />
       <mat-error *ngIf="!feesAmount">Total Fees Amount is required</mat-error>
       <mat-error *ngIf="feesAmountField.invalid && (feesAmountField.dirty || feesAmountField.touched)">Total Fees Amount must be a valid number</mat-error>
     </mat-form-field>

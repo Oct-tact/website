@@ -58,9 +58,38 @@ export class FeesMasterComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+ 
 
+  // openAddFeesDialog(): void {
+  
+  //   const dialogRef = this.dialog.open(AddFeesDialogComponent, {
+  //     width: '500px',
+  //      data: {}
+  
+  //   });
 
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result) {
+  //       this.addFees(result);
+  //     }
+  //   });
+  // }
 
+  // addFees(data: FeesData): void {
+  //   const newSno = this.feesData.length ? this.feesData[this.feesData.length - 1].sno + 1 : 1;
+  //   const newFeesData: FeesData = {
+  //     sno: newSno,
+  //     class: data.class,
+  //     feesAmount: data.feesAmount,
+  //     quarterFees: data.quarterFees,
+  //     quarterDates: data.quarterDates, // Add quarter dates here
+  //     status: 'Active' // Set initial status as Active
+  //   };
+  //   this.feesData.push(newFeesData);
+  //   this.saveFeesData();
+  //   this.dataSource.data = [...this.feesData]; // Refresh the table data
+  // }
+ 
 
   openAddFeesDialog(): void {
     const dialogRef = this.dialog.open(AddFeesDialogComponent, {
@@ -68,29 +97,28 @@ export class FeesMasterComponent implements OnInit {
       data: {}
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.addFees(result);
-      }
+    dialogRef.componentInstance.feesAdded.subscribe((newFeesData: FeesData) => {
+      this.addFees(newFeesData);
     });
   }
 
   addFees(data: FeesData): void {
+    // Add new fees data to your table
     const newSno = this.feesData.length ? this.feesData[this.feesData.length - 1].sno + 1 : 1;
-    const newFeesData: FeesData = {
-      sno: newSno,
+    const newFeesData: FeesData = { ...data, sno: newSno ,
+
       class: data.class,
       feesAmount: data.feesAmount,
       quarterFees: data.quarterFees,
       quarterDates: data.quarterDates, // Add quarter dates here
-      status: 'Active' // Set initial status as Active
+      status: 'Active'
     };
     this.feesData.push(newFeesData);
-    this.saveFeesData();
     this.dataSource.data = [...this.feesData]; // Refresh the table data
-  }
- 
 
+    // Save the updated fees data to local storage
+    this.saveFeesData();
+  }
 
 
   

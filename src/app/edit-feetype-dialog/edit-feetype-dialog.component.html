@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Edit Fee Type</h2>
+<h2>Edit Fees Assign</h2>
 <mat-dialog-content>
   <form [formGroup]="feeForm">
     <mat-form-field>
@@ -27,15 +27,15 @@
           <input matInput formControlName="amount" type="number" (input)="updateTotalAmount()">
         </mat-form-field>
 
-        <button mat-button color="warn" (click)="removeFee(i)">Remove</button>
+        <mat-icon color="warn" class="remove-icon" (click)="removeFee(i)">clear</mat-icon>
       </div>
     </div>
 
-    <button mat-button type="button" (click)="addFee()">Add More</button>
+    <button  mat-raised-button color="primary" type="button" (click)="addFee()">Add More</button>
   </form>
 </mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button type="submit" [disabled]="!feeForm.valid" (click)="onSubmit()">Update</button>
+<mat-dialog-actions class="kk">
+  <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary"  type="submit" [disabled]="!feeForm.valid" (click)="onSubmit()">Update</button>
 </mat-dialog-actions>
 

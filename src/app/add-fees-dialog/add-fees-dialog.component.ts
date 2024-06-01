@@ -1,6 +1,7 @@
 
-import { Component, Inject } from '@angular/core';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FeeAssignment } from '../feetype-dialog/feetype-dialog.component';
 
 export interface FeesData {
   sno: number;
@@ -27,13 +28,17 @@ export class AddFeesDialogComponent {
      'Class VI', 'Class VII', 'Class VIII', 'Class IX', 'Class X', 
      'Class XI', 'Class XII'];
   
+     feesAssignments: FeeAssignment[] = JSON.parse(localStorage.getItem('feesAssignments') || '[]'); 
 
+     @Output() feesAdded: EventEmitter<FeesData> = new EventEmitter<FeesData>();
   constructor(
     public dialogRef: MatDialogRef<AddFeesDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
+    
   ) {}
 
  
+
 
   calculateQuarterFees(): void {
     const perQuarter = this.feesAmount / 4;
@@ -41,6 +46,22 @@ export class AddFeesDialogComponent {
     this.quarterFees.Q2 = perQuarter;
     this.quarterFees.Q3 = perQuarter;
     this.quarterFees.Q4 = perQuarter;
+  }
+
+
+
+  getClassTotalAmount(): void {
+    const feeAssignment = this.feesAssignments.find(assignment => assignment.class === this.class);
+    if (feeAssignment) {
+      this.feesAmount = feeAssignment.totalAmount;
+      this.calculateQuarterFees();
+    } else {
+      // Handle case where class is not found
+    }
+  }
+
+  onClassChange(): void {
+    this.getClassTotalAmount();
   }
 
   onDateChange(quarter: string): void {
@@ -76,15 +97,30 @@ export class AddFeesDialogComponent {
   areDatesValid(): boolean {
     return !this.invalidDates.Q2 && !this.invalidDates.Q3 && !this.invalidDates.Q4;
   }
+  // onAddClick(): void {
+  //   if (this.areDatesValid()) {
+  //     this.dialogRef.close({
+  //       class: this.class,
+  //       feesAmount: this.feesAmount,
+  //       quarterFees: this.quarterFees,
+  //       quarterDates: this.quarterDates
+  //     });
+     
+  //   }
+  // }
 
   onAddClick(): void {
     if (this.areDatesValid()) {
-      this.dialogRef.close({
+      const newFeesData: FeesData = {
+        sno: 0, // You can set this value appropriately based on your logic
         class: this.class,
         feesAmount: this.feesAmount,
         quarterFees: this.quarterFees,
-        quarterDates: this.quarterDates
-      });
+        quarterDates: this.quarterDates,
+        status: 'Active' // Assuming default status is always 'Active'
+      };
+      this.feesAdded.emit(newFeesData); // Emit the event with new fees data
+      this.dialogRef.close();
     }
   }
 

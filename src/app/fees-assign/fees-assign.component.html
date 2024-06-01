@@ -1,9 +1,12 @@
 <!-- fees-assign.component.html -->
 <div class="section-container">
   <h2>Fees Assign</h2>
-
-  <button mat-button (click)="openAddFeeTypeDialog()">Add Feestype</button>
-
+  <div class="container">
+    <div class="button-container">
+      <button mat-raised-button class="add"(click)="openAddFeeTypeDialog()">Add FeeType</button>
+    </div>
+</div>
+ 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- SNO Column -->
     <ng-container matColumnDef="sno">
@@ -52,4 +55,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
 </div>
