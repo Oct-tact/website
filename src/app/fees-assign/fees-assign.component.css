@@ -1,0 +1,33 @@
+.section-container {
+    margin: 20px;
+    width: 95%;
+    }
+    
+  
+    .mat-column-sno,
+    .mat-column-subject,
+    .mat-column-class,
+    .mat-column-status,
+    .mat-column-action {
+      width: 20%;
+    }
+    
+   
+    
+    .active-button {
+      background-color: rgb(163, 243, 163);
+      color: rgb(68, 63, 63);
+    }
+    
+    .inactive-button {
+      background-color:#eec7db ;
+      color: rgb(68, 63, 63);
+    }
+    
+    .add {
+      margin-left: 1018px;
+      background-color:rgb(209, 250, 129);
+      color: rgb(68, 63, 63);
+      padding: 12px;
+      width: 195px;
+      }

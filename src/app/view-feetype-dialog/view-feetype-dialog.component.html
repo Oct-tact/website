@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>View Fee Type</h2>
+<mat-dialog-content>
+  <form>
+    <mat-form-field>
+      <mat-label>Class</mat-label>
+      <input matInput [value]="data.class" readonly>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Total Amount</mat-label>
+      <input matInput [value]="data.totalAmount" type="number" readonly>
+    </mat-form-field>
+
+    <div *ngFor="let fee of data.fees">
+      <mat-form-field>
+        <mat-label>Fee Type</mat-label>
+        <input matInput [value]="fee.feeType" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Amount</mat-label>
+        <input matInput [value]="fee.amount" type="number" readonly>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onClose()">Close</button>
+</mat-dialog-actions>

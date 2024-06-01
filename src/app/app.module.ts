@@ -112,6 +112,8 @@ import { EditFeeTypeDialogComponent } from './edit-fee-type-dialog/edit-fee-type
 import { ViewFeeTypeDialogComponent } from './view-fee-type-dialog/view-fee-type-dialog.component';
 import { FeesAssignComponent } from './fees-assign/fees-assign.component';
 import { FeetypeDialogComponent } from './feetype-dialog/feetype-dialog.component';
+import { EditFeetypeDialogComponent } from './edit-feetype-dialog/edit-feetype-dialog.component';
+import { ViewFeetypeDialogComponent } from './view-feetype-dialog/view-feetype-dialog.component';
 
 
 @NgModule({
@@ -188,6 +190,8 @@ import { FeetypeDialogComponent } from './feetype-dialog/feetype-dialog.componen
     ViewFeeTypeDialogComponent,
     FeesAssignComponent,
     FeetypeDialogComponent,
+    EditFeetypeDialogComponent,
+    ViewFeetypeDialogComponent,
   
   ],
   imports: [

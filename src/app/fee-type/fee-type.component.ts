@@ -66,6 +66,8 @@ export class FeeTypeComponent implements OnInit {
     });
   }
 
+  
+
   addFeeType(feeType: string): void {
     const newId = this.generateUniqueId();
     const newFeeType: FeeTypeRecord = {

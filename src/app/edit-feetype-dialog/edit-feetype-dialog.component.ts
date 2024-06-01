@@ -1,20 +1,15 @@
+
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-export interface FeeAssignment {
-  sno: number;
-  class: string;
-  totalAmount: number;
-  fees: { feeType: string, amount: number }[];
-  status: string;
-}
+import { FeeAssignment } from '../fees-assign/fees-assign.component';
 
 @Component({
-  selector: 'app-feetype-dialog',
-  templateUrl: './feetype-dialog.component.html',
-  styleUrls: ['./feetype-dialog.component.css']
+  selector: 'app-edit-feetype-dialog',
+  templateUrl: './edit-feetype-dialog.component.html',
+  styleUrls: ['./edit-feetype-dialog.component.css']
 })
-export class FeetypeDialogComponent {
+export class EditFeetypeDialogComponent {
   feeForm: FormGroup;
   initialTotalAmount: number = 0;
 
@@ -22,15 +17,22 @@ export class FeetypeDialogComponent {
   feeTypes = ['Type 1', 'Type 2', 'Type 3', 'Type 4'];
 
   constructor(
-    public dialogRef: MatDialogRef<FeetypeDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<EditFeetypeDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: FeeAssignment,
     private fb: FormBuilder
   ) {
     this.feeForm = this.fb.group({
-      class: ['', Validators.required],
-      totalAmount: [0, Validators.required],
-      fees: this.fb.array([])
+      class: [data.class, Validators.required],
+      totalAmount: [data.totalAmount, Validators.required],
+      status: [data.status],
+      fees: this.fb.array(data.fees.map(fee => this.fb.group({
+        feeType: [fee.feeType, Validators.required],
+        amount: [fee.amount, [Validators.required, Validators.min(1)]]
+     
+      })))
     });
+
+    this.initialTotalAmount = data.totalAmount;
   }
 
   get fees(): FormArray {
@@ -49,6 +51,11 @@ export class FeetypeDialogComponent {
     this.updateTotalAmount();
   }
 
+  // updateTotalAmount(): void {
+  //   const feeAmounts = this.fees.controls.reduce((acc, control) => acc + control.get('amount')?.value, 0);
+  //   const total = feeAmounts;
+  //   this.feeForm.get('totalAmount')?.setValue(total, { emitEvent: false });
+  // }
   updateTotalAmount(): void {
     const feeAmounts = this.fees.controls.reduce((acc, control) => acc + control.get('amount')?.value, 0);
     const manualTotal = this.feeForm.get('totalAmount')?.value || 0;
@@ -62,17 +69,11 @@ export class FeetypeDialogComponent {
     this.updateTotalAmount();
   }
 
+
   onSubmit(): void {
     if (this.feeForm.valid) {
       const formValue = this.feeForm.getRawValue();
-      const newAssignment: FeeAssignment = {
-        sno: Date.now(),
-        class: formValue.class,
-        totalAmount: formValue.totalAmount,
-        fees: formValue.fees,
-        status: 'Active'
-      };
-      this.dialogRef.close(newAssignment);
+      this.dialogRef.close(formValue);
     }
   }
 
