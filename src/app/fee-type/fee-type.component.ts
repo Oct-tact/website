@@ -96,6 +96,9 @@ export class FeeTypeComponent implements OnInit {
       this.dataSource.data = this.feeTypes;
     }
   }
+  getFeeTypes(): string[] {
+    return this.feeTypes.map(feeType => feeType.feeType);
+  }
 
   
   editFeeType(record: FeeTypeRecord): void {

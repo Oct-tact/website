@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { FeeTypeComponent } from '../fee-type/fee-type.component';
 export interface FeeAssignment {
   sno: number;
   class: string;
@@ -19,19 +20,25 @@ export class FeetypeDialogComponent {
   initialTotalAmount: number = 0;
 
   classes = ['KG', 'Class I', 'Class II', 'Class III', 'Class IV', 'Class V', 'Class VI', 'Class VII', 'Class VIII', 'Class IX', 'Class X', 'Class XI', 'Class XII'];
-  feeTypes = ['Type 1', 'Type 2', 'Type 3', 'Type 4'];
+  // feeTypes = ['Type 1', 'Type 2', 'Type 3', 'Type 4'];
+  feeTypes: string[] = []; // Fee types will be passed via data
+
 
   constructor(
     public dialogRef: MatDialogRef<FeetypeDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+
   ) {
+    this.feeTypes = data.feeTypes; // Assign the passed fee types to the component's property
+
     this.feeForm = this.fb.group({
       class: ['', Validators.required],
       totalAmount: [0, Validators.required],
       fees: this.fb.array([])
     });
   }
+
 
   get fees(): FormArray {
     return this.feeForm.get('fees') as FormArray;

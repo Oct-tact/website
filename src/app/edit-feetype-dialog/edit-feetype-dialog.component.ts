@@ -14,13 +14,15 @@ export class EditFeetypeDialogComponent {
   initialTotalAmount: number = 0;
 
   classes = ['KG', 'Class I', 'Class II', 'Class III', 'Class IV', 'Class V', 'Class VI', 'Class VII', 'Class VIII', 'Class IX', 'Class X', 'Class XI', 'Class XII'];
-  feeTypes = ['Type 1', 'Type 2', 'Type 3', 'Type 4'];
+  // feeTypes = ['Type 1', 'Type 2', 'Type 3', 'Type 4'];
+  feeTypes: string[] = []; // Initialize fee types as an empty array
 
   constructor(
     public dialogRef: MatDialogRef<EditFeetypeDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: FeeAssignment,
     private fb: FormBuilder
   ) {
+    this.feeTypes = this.getFeeTypesFromLocalStorage();
     this.feeForm = this.fb.group({
       class: [data.class, Validators.required],
       totalAmount: [data.totalAmount, Validators.required],
@@ -34,6 +36,12 @@ export class EditFeetypeDialogComponent {
 
     this.initialTotalAmount = data.totalAmount;
   }
+
+  getFeeTypesFromLocalStorage(): string[] {
+    const feeTypes = localStorage.getItem('feeTypes');
+    return feeTypes ? JSON.parse(feeTypes).map((ft: any) => ft.feeType) : [];
+  }
+
 
   get fees(): FormArray {
     return this.feeForm.get('fees') as FormArray;
