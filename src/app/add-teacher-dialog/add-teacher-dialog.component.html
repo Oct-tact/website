@@ -45,7 +45,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <!-- <mat-form-field appearance="fill">
       <mat-label>Subject</mat-label>
       <mat-select formControlName="subject" required>
         <mat-option *ngFor="let subjectOption of subjectOptions" [value]="subjectOption">
@@ -54,6 +54,16 @@
       </mat-select>
     </mat-form-field>
   </form>
+</div> -->
+<mat-form-field appearance="fill">
+  <mat-label>Subjects</mat-label>
+  <mat-select formControlName="subjects" multiple required>
+    <mat-option *ngFor="let subjectOption of subjectOptions" [value]="subjectOption">
+      {{ subjectOption }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</form>
 </div>
 <div mat-dialog-actions class="kk">
   <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
