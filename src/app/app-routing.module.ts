@@ -36,6 +36,7 @@ import { StudentFeesComponent } from './student-fees/student-fees.component';
 import { StudentFeesManagementComponent } from './student-fees-management/student-fees-management.component';
 import { FeeTypeComponent } from './fee-type/fee-type.component';
 import { FeesAssignComponent } from './fees-assign/fees-assign.component';
+import { TimetableComponent } from './timetable/timetable.component';
 
 
 const routes: Routes = [
@@ -74,6 +75,7 @@ const routes: Routes = [
         { path: 'studentfeesmanage', component: StudentFeesManagementComponent  },
         { path: 'feetype', component: FeeTypeComponent  },
         { path: 'feeassign', component: FeesAssignComponent  },
+        { path: 'timetableG', component: TimetableComponent  },
       
      ]
      },

@@ -1,0 +1,261 @@
+
+// import { Component, OnInit } from '@angular/core';
+// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+// @Component({
+//   selector: 'app-timetable',
+//   templateUrl: './timetable.component.html',
+//   styleUrls: ['./timetable.component.css']
+// })
+// export class TimetableComponent implements OnInit {
+//   timetableForm: FormGroup;
+//   classOptions: string[] = ['KG', 'Class I', 'Class II', 'Class III', 'Class IV', 'Class V', 'Class VI', 'Class VII', 'Class VIII', 'Class IX', 'Class X', 'Class XI', 'Class XII'];
+//   sectionOptions: string[] = [];
+//   allSections: any[] = [];
+//   timetableData: any[] = [];
+//   periods: { time: string }[] = [
+//     { time: '8:00am-8:40am' },
+//     { time: '8:40am-9:20am' },
+//     { time: '9:20am-10:00am' },
+//     { time: '10:00am-10:40am' },
+//     { time: 'LUNCH BREAK' },
+//     { time: '11:20am-12:00pm' },
+//     { time: '12:00pm-12:40pm' }, 
+//     { time: '12:40pm-1:20pm' },
+//     { time: '1:20pm-2:00pm' },
+//   ];
+
+//   displayedColumns: string[] = ['time', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+//   constructor(private fb: FormBuilder) {
+//     this.timetableForm = this.fb.group({
+//       class: ['', Validators.required],
+//       section: ['', Validators.required]
+//     });
+//   }
+
+//   ngOnInit(): void {
+//     // Load all sections from local storage
+//     this.allSections = JSON.parse(localStorage.getItem('sectionData') || '[]');
+//   }
+
+//   onClassChange(selectedClass: string): void {
+//     this.sectionOptions = this.allSections
+//       .filter(section => section.class === selectedClass)
+//       .map(section => section.section);
+//   }
+
+//   onSubmit(): void {
+//     if (this.timetableForm.valid) {
+//       const timetableEntry = {
+//         class: this.timetableForm.value.class,
+//         section: this.timetableForm.value.section
+//       };
+//       this.timetableData.push(timetableEntry);
+//       this.saveTimetableData();
+//     }
+//   }
+
+//   saveTimetableData(): void {
+//     localStorage.setItem('timetableData', JSON.stringify(this.timetableData));
+//   }
+// }
+
+
+
+// with plus sign 
+
+// import { Component, OnInit } from '@angular/core';
+// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { MatDialog } from '@angular/material/dialog';
+// import { TimetableFormDialogComponent } from '../timetable-form-dialog/timetable-form-dialog.component';
+
+// @Component({
+//   selector: 'app-timetable',
+//   templateUrl: './timetable.component.html',
+//   styleUrls: ['./timetable.component.css']
+// })
+// export class TimetableComponent implements OnInit {
+//   timetableForm: FormGroup;
+//   classOptions: string[] = ['KG', 'Class I', 'Class II', 'Class III', 'Class IV', 'Class V', 'Class VI', 'Class VII', 'Class VIII', 'Class IX', 'Class X', 'Class XI', 'Class XII'];
+//   sectionOptions: string[] = [];
+//   allSections: any[] = [];
+//   timetableData: any[] = [];
+//   periods: { time: string }[] = [
+//     { time: '8:00am-8:40am' },
+//     { time: '8:40am-9:20am' },
+//     { time: '9:20am-10:00am' },
+//     { time: '10:00am-10:40am' },
+//     { time: 'LUNCH BREAK' },
+//     { time: '11:20am-12:00pm' },
+//     { time: '12:00pm-12:40pm' },
+//     { time: '12:40pm-1:20pm' },
+//     { time: '1:20pm-2:00pm' },
+//   ];
+
+//   displayedColumns: string[] = ['time', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+//   constructor(private fb: FormBuilder, public dialog: MatDialog) {
+//     this.timetableForm = this.fb.group({
+//       class: ['', Validators.required],
+//       section: ['', Validators.required]
+//     });
+//   }
+
+//   ngOnInit(): void {
+//     // Load all sections from local storage
+//     this.allSections = JSON.parse(localStorage.getItem('sectionData') || '[]');
+//   }
+
+//   onClassChange(selectedClass: string): void {
+//     this.sectionOptions = this.allSections
+//       .filter(section => section.class === selectedClass)
+//       .map(section => section.section);
+//   }
+
+//   onSubmit(): void {
+//     if (this.timetableForm.valid) {
+//       const timetableEntry = {
+//         class: this.timetableForm.value.class,
+//         section: this.timetableForm.value.section
+//       };
+//       this.timetableData.push(timetableEntry);
+//       this.saveTimetableData();
+//     }
+//   }
+
+//   saveTimetableData(): void {
+//     localStorage.setItem('timetableData', JSON.stringify(this.timetableData));
+//   }
+
+//   openForm(day: string, period: { time: string }): void {
+//     const dialogRef = this.dialog.open(TimetableFormDialogComponent, {
+//       width: '250px',
+//       data: { day, period }
+//     });
+
+//     dialogRef.afterClosed().subscribe(result => {
+//       if (result) {
+//         // Handle the form result here
+//         console.log(result);
+//       }
+//     });
+//   }
+// }
+
+
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+ import { TimetableFormDialogComponent } from '../timetable-form-dialog/timetable-form-dialog.component';
+import { EditTimetableDialogComponent } from '../edit-timetable-dialog/edit-timetable-dialog.component';
+
+@Component({
+  selector: 'app-timetable',
+  templateUrl: './timetable.component.html',
+  styleUrls: ['./timetable.component.css']
+})
+export class TimetableComponent implements OnInit {
+  timetableForm: FormGroup;
+  classOptions: string[] = ['KG', 'Class I', 'Class II', 'Class III', 'Class IV', 'Class V', 'Class VI', 'Class VII', 'Class VIII', 'Class IX', 'Class X', 'Class XI', 'Class XII'];
+  sectionOptions: string[] = [];
+  allSections: any[] = [];
+  timetableData: any[] = [];
+  periods: { time: string }[] = [
+    { time: '8:00am-8:40am' },
+    { time: '8:40am-9:20am' },
+    { time: '9:20am-10:00am' },
+    { time: '10:00am-10:40am' },
+    { time: 'LUNCH BREAK' },
+    { time: '11:20am-12:00pm' },
+    { time: '12:00pm-12:40pm' },
+    { time: '12:40pm-1:20pm' },
+    { time: '1:20pm-2:00pm' },
+  ];
+
+  displayedColumns: string[] = ['time', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {
+    this.timetableForm = this.fb.group({
+      class: ['', Validators.required],
+      section: ['', Validators.required]
+    });
+  }
+
+  ngOnInit(): void {
+    this.allSections = JSON.parse(localStorage.getItem('sectionData') || '[]');
+    this.timetableData = JSON.parse(localStorage.getItem('timetableData') || '[]');
+  }
+
+  onClassChange(selectedClass: string): void {
+    this.sectionOptions = this.allSections
+      .filter(section => section.class === selectedClass)
+      .map(section => section.section);
+  }
+
+  onSubmit(): void {
+    if (this.timetableForm.valid) {
+      const timetableEntry = {
+        class: this.timetableForm.value.class,
+        section: this.timetableForm.value.section
+      };
+      this.timetableData.push(timetableEntry);
+      this.saveTimetableData();
+    }
+  }
+
+  saveTimetableData(): void {
+    localStorage.setItem('timetableData', JSON.stringify(this.timetableData));
+  }
+
+  openForm(day: string, period: { time: string }): void {
+    const dialogRef = this.dialog.open(TimetableFormDialogComponent, {
+      width: '250px',
+      data: { day, period }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.updateTimetable(day, period.time, result);
+        this.saveTimetableData();
+      }
+    });
+  }
+
+  updateTimetable(day: string, time: string, data: any): void {
+    const entry = this.timetableData.find(entry => entry.class === this.timetableForm.value.class && entry.section === this.timetableForm.value.section);
+    if (entry) {
+      entry[day] = entry[day] || {};
+      entry[day][time] = data;
+    } else {
+      const newEntry = {
+        class: this.timetableForm.value.class,
+        section: this.timetableForm.value.section,
+        [day]: {
+          [time]: data
+        }
+      };
+      this.timetableData.push(newEntry);
+    }
+  }
+
+
+  openEditForm(day: string, period: { time: string }): void {
+    const entry = this.getTimetableEntry(day, period.time);
+    const dialogRef = this.dialog.open(EditTimetableDialogComponent, {
+      width: '250px',
+      data: { day, period, entry }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.updateTimetable(day, period.time, result);
+        this.saveTimetableData();
+      }
+    });
+  }
+  getTimetableEntry(day: string, time: string): any {
+    const entry = this.timetableData.find(entry => entry.class === this.timetableForm.value.class && entry.section === this.timetableForm.value.section);
+    return entry && entry[day] && entry[day][time] ? entry[day][time] : null;
+  }
+}

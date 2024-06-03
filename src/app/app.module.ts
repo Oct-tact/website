@@ -114,6 +114,9 @@ import { FeesAssignComponent } from './fees-assign/fees-assign.component';
 import { FeetypeDialogComponent } from './feetype-dialog/feetype-dialog.component';
 import { EditFeetypeDialogComponent } from './edit-feetype-dialog/edit-feetype-dialog.component';
 import { ViewFeetypeDialogComponent } from './view-feetype-dialog/view-feetype-dialog.component';
+import { TimetableComponent } from './timetable/timetable.component';
+import { TimetableFormDialogComponent } from './timetable-form-dialog/timetable-form-dialog.component';
+import { EditTimetableDialogComponent } from './edit-timetable-dialog/edit-timetable-dialog.component';
 
 
 @NgModule({
@@ -192,6 +195,9 @@ import { ViewFeetypeDialogComponent } from './view-feetype-dialog/view-feetype-d
     FeetypeDialogComponent,
     EditFeetypeDialogComponent,
     ViewFeetypeDialogComponent,
+    TimetableComponent,
+    TimetableFormDialogComponent,
+    EditTimetableDialogComponent,
   
   ],
   imports: [

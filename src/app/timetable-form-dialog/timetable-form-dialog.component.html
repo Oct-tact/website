@@ -1,0 +1,51 @@
+<!-- <h1 mat-dialog-title>{{data.day}} - {{data.period.time}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Subject</mat-label>
+      <input matInput formControlName="subject">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Teacher</mat-label>
+      <input matInput formControlName="teacher">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSubmit()" [disabled]="!form.valid">Save</button>
+</div> -->
+
+
+<h1 mat-dialog-title>{{data.day}} - {{data.period.time}}</h1>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Teacher</mat-label>
+      <mat-select formControlName="teacher" (selectionChange)="onTeacherChange($event.value)">
+        <mat-option *ngFor="let teacher of teacherData" [value]="teacher.name">
+          {{ teacher.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('teacher')?.hasError('required')">
+        Teacher is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Subject</mat-label>
+      <mat-select formControlName="subject" [disabled]="!form.get('teacher')?.value">
+        <mat-option *ngFor="let subject of filteredSubjects" [value]="subject">
+          {{ subject }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('subject')?.hasError('required')">
+        Subject is required
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [disabled]="!form.valid" (click)="onSubmit()">Add</button>
+</mat-dialog-actions>

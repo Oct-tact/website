@@ -1,0 +1,19 @@
+.timetable-container {
+    margin: 20px;
+  }
+  
+  .timetable-table {
+    width: 100%;
+  }
+  
+ 
+  
+  .lunch-break {
+    background-color:rgb(209, 250, 129);/* Light grey background */
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgb(68, 63, 63);
+    padding: 20px;
+
+  }
+  
