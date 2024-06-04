@@ -210,6 +210,7 @@ export class TimetableComponent implements OnInit {
     this.sectionOptions = this.allSections
       .filter(section => section.class === selectedClass)
       .map(section => section.section);
+      this.showTimetable = false; // Hide the timetable after saving
   }
 
   onSubmit(): void {
@@ -220,7 +221,9 @@ export class TimetableComponent implements OnInit {
       };
       this.timetableData.push(timetableEntry);
       this.saveTimetableData();
+    
     }
+
   }
 
   saveTimetableData(): void {
@@ -242,6 +245,7 @@ export class TimetableComponent implements OnInit {
   
       // Update the component state
       this.savedClassesSections = savedEntries;
+      this.showTimetable = false; // Hide the timetable after saving
     }
   }
   
