@@ -117,6 +117,8 @@ import { ViewFeetypeDialogComponent } from './view-feetype-dialog/view-feetype-d
 import { TimetableComponent } from './timetable/timetable.component';
 import { TimetableFormDialogComponent } from './timetable-form-dialog/timetable-form-dialog.component';
 import { EditTimetableDialogComponent } from './edit-timetable-dialog/edit-timetable-dialog.component';
+import { DeleteTimetableDialogComponent } from './delete-timetable-dialog/delete-timetable-dialog.component';
+import { ViewTimetableComponent } from './view-timetable/view-timetable.component';
 
 
 @NgModule({
@@ -198,6 +200,8 @@ import { EditTimetableDialogComponent } from './edit-timetable-dialog/edit-timet
     TimetableComponent,
     TimetableFormDialogComponent,
     EditTimetableDialogComponent,
+    DeleteTimetableDialogComponent,
+    ViewTimetableComponent,
   
   ],
   imports: [

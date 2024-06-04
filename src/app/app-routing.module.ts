@@ -37,6 +37,7 @@ import { StudentFeesManagementComponent } from './student-fees-management/studen
 import { FeeTypeComponent } from './fee-type/fee-type.component';
 import { FeesAssignComponent } from './fees-assign/fees-assign.component';
 import { TimetableComponent } from './timetable/timetable.component';
+import { ViewTimetableComponent } from './view-timetable/view-timetable.component';
 
 
 const routes: Routes = [
@@ -76,6 +77,9 @@ const routes: Routes = [
         { path: 'feetype', component: FeeTypeComponent  },
         { path: 'feeassign', component: FeesAssignComponent  },
         { path: 'timetableG', component: TimetableComponent  },
+        {
+          path:'view-timetable', component:ViewTimetableComponent ,
+         },
       
      ]
      },
@@ -85,11 +89,14 @@ const routes: Routes = [
     //   { path: 'employee', component: EmployeeComponent }
     // ]},
 
-
+    {
+      path:'view-timetable', component:ViewTimetableComponent ,
+     },
 
      {
       path:'sturegister', component:StudentRegisterComponent ,
      },
+   
      {
       path:'stulogin', component:StudentLoginComponent ,
      },

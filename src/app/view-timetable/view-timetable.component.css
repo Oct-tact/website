@@ -1,0 +1,84 @@
+.view-timetable-container {
+    margin: 20px;
+   width: 95%;
+   margin-top: 50px;
+    position: absolute;
+    margin-left: 40px;
+  }
+  
+
+  h2{
+    font-size: 1.4rem;
+   text-align: center;
+    font-weight: bold;
+
+    color: rgb(68, 63, 63);
+  }
+
+  .lunch-break {
+    background-color: rgb(163, 243, 163); /* Green */
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgb(68, 63, 63);
+    padding: 20px;
+
+  }
+  
+
+  .timetable-table {
+    border-collapse: collapse; /* This property ensures borders collapse into a single border */
+    width: 100%;
+  }
+  
+  .timetable-table th {
+    border: 1px solid #6b6969; /* Adds a 1px solid black border to each table cell */
+    padding: 5px; /* Adjust padding as needed */
+
+    
+  }
+  .timetable-table td {
+    border: 1px solid #6b6969; /* Adds a 1px solid black border to each table cell */
+    padding: 5px; /* Adjust padding as needed */
+   
+  }
+
+  /* Add this CSS to your stylesheet */
+.mat-header-cell,
+.mat-cell {
+  padding: 8px; /* Adjust padding as needed */
+}
+
+.mat-header-cell.time,
+.mat-cell.time {
+  width: 10%; /* Set width for the Time column */
+}
+
+.mat-header-cell.monday,
+.mat-cell.monday {
+  width: 18%; /* Set width for the Monday column */
+}
+
+.mat-header-cell.tuesday,
+.mat-cell.tuesday {
+  width: 18%; /* Set width for the Tuesday column */
+}
+
+.mat-header-cell.wednesday,
+.mat-cell.wednesday {
+  width: 18%; /* Set width for the Wednesday column */
+}
+
+.mat-header-cell.thursday,
+.mat-cell.thursday {
+  width: 18%; /* Set width for the Thursday column */
+}
+
+.mat-header-cell.friday,
+.mat-cell.friday {
+  width: 18%; /* Set width for the Friday column */
+}
+
+.mat-header-cell.saturday,
+.mat-cell.saturday {
+  width: 18%; /* Set width for the Saturday column */
+}

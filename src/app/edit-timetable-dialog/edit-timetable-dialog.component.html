@@ -1,5 +1,5 @@
 
-<h1 mat-dialog-title>{{data.day}} - {{data.period.time}}</h1>
+<h2>{{data.day}} - {{data.period.time}}</h2>
 <div mat-dialog-content>
   <form [formGroup]="editForm">
     <mat-form-field appearance="fill">
@@ -20,7 +20,7 @@
     </mat-form-field>
   </form>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="close()">Cancel</button>
-  <button mat-button (click)="save()" [disabled]="!editForm.valid">Update</button>
+<div mat-dialog-actions class="kk">
+  <button  mat-raised-button color="warn" (click)="close()">Cancel</button>
+  <button  mat-raised-button color="primary" (click)="save()" [disabled]="!editForm.valid">Update</button>
 </div>

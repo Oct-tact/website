@@ -12,7 +12,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html, body {
-    background-image: linear-gradient(to bottom right, #0077b6, #00b4d8); /* Beautiful blue gradient */
+    /* background-image: linear-gradient(to bottom right, #0077b6, #00b4d8);  */
+    /* background-image: linear-gradient(to bottom right, #c6e3f3, #d5f7fd);  */
+    /* background-color: rgb(215, 236, 248); */
+    background-color:whitesmoke;
   }
   .container {
     /* padding: 16px; */
