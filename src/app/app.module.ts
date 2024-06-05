@@ -122,6 +122,7 @@ import { ViewTimetableComponent } from './view-timetable/view-timetable.componen
 import { StudentTimetableComponent } from './student-timetable/student-timetable.component';
 import { CreateTimetableComponent } from './create-timetable/create-timetable.component';
 import { EditSaveTimetableComponent } from './edit-save-timetable/edit-save-timetable.component';
+import { DeleteTimetableeeDialogComponent } from './delete-timetableee-dialog/delete-timetableee-dialog.component';
 
 
 @NgModule({
@@ -208,6 +209,7 @@ import { EditSaveTimetableComponent } from './edit-save-timetable/edit-save-time
     StudentTimetableComponent,
     CreateTimetableComponent,
     EditSaveTimetableComponent,
+    DeleteTimetableeeDialogComponent,
   
   ],
   imports: [

@@ -1,0 +1,142 @@
+ /* .timetable-container {
+   padding: 10px;
+  
+  }  */
+
+  .timetable-container {
+    margin: 20px;
+    width: 97%;
+
+
+    }
+    
+  .save-container {
+    margin: 20px;
+    width: 95%;
+
+    }
+    
+  
+ 
+  .lunch-break {
+    background-color: rgb(163, 243, 163); /* Green */
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgb(68, 63, 63);
+    padding: 20px;
+
+  }
+  
+
+  .timetable-table {
+    border-collapse: collapse; 
+    width: 95%;
+    
+  }
+  
+  .timetable-table th {
+    border: 1px solid #6b6969; 
+    padding: 5px; 
+   
+    
+  }
+  .timetable-table td {
+    border: 1px solid #6b6969; 
+    padding: 5px;
+   
+  }
+
+.mat-header-cell,
+.mat-cell {
+  padding: 8px; 
+}
+
+.mat-header-cell.time,
+.mat-cell.time {
+  width: 18%; 
+}
+
+.mat-header-cell.monday,
+.mat-cell.monday {
+  width: 18%; 
+}
+
+.mat-header-cell.tuesday,
+.mat-cell.tuesday {
+  width: 18%; 
+}
+
+.mat-header-cell.wednesday,
+.mat-cell.wednesday {
+  width: 18%; 
+}
+
+.mat-header-cell.thursday,
+.mat-cell.thursday {
+  width: 18%; 
+}
+
+.mat-header-cell.friday,
+.mat-cell.friday {
+  width: 18%; 
+}
+
+.mat-header-cell.saturday,
+.mat-cell.saturday {
+  width: 18%;
+}
+
+
+.name{
+  color:green ;
+  font-weight: 500;
+  font-size: 1rem;
+
+  
+ }
+.sub{
+  color:#56052f ;
+  font-weight: 450;
+
+ }
+
+ .kk {
+  margin-left: 22px;
+margin-top: 8px;
+padding: 21px;
+width: 20%;
+background-color:rgb(209, 250, 129);/* Light grey background */
+color: rgb(68, 63, 63);
+}
+ .kkk {
+margin-left: 1250px;
+margin-top: 20px;
+padding: 10px;
+width: 20%;
+background-color:rgb(209, 250, 129);/* Light grey background */
+color: rgb(68, 63, 63);
+}
+
+ .quarter-field {
+  width: 40%; /* Adjust width as needed */
+  margin-left: 16px; /* Add spacing between quarter and date fields */
+  
+}
+
+.date-field {
+  width: 40%; /* Adjust width as needed */
+  margin-left: 16px; /* Add spacing between quarter and date fields */
+}
+.quarter-section {
+  display: flex;
+  align-items: flex-start; /* Align items at the top */
+  margin-left: 30px;
+}
+
+h2 {
+  margin-left: 17px;
+  margin-top: 20px;
+  color: purple;
+  font-weight: 600;
+ font-size: 1.5rem;
+}

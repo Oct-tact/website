@@ -56,17 +56,17 @@
 
    <div class="timetable-container">
     <h2>Edit Timetable</h2>
-    <form [formGroup]="timetableForm">
-        <mat-form-field appearance="fill">
+    <!-- <form [formGroup]="timetableForm" class="quarter-section">
+        <mat-form-field appearance="fill" class="quarter-field">
             <mat-label>Class</mat-label>
-            <input matInput formControlName="class" >
+            <input matInput formControlName="class" readonly>
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill"  class="date-field">
             <mat-label>Section</mat-label>
-            <input matInput formControlName="section" >
+            <input matInput formControlName="section" readonly>
         </mat-form-field>
-    </form>
+    </form> -->
 
     <div class="timetable" *ngIf="timetableData">
         <table mat-table [dataSource]="periods" class="mat-elevation-z8 timetable-table">
@@ -103,6 +103,6 @@
             <tr mat-header-row *matHeaderRowDef="['time', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']"></tr>
             <tr mat-row *matRowDef="let row; columns: ['time', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']"></tr>
         </table>
-        <button mat-raised-button (click)="saveClassSection()">Save Timetable</button>
+        <button mat-raised-button  class="kkk" (click)="saveClassSection()">Update Timetable</button>
     </div>
 </div>

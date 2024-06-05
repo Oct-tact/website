@@ -427,10 +427,10 @@
  
    
   </div> -->
-  <button mat-raised-button class="kk" type="button" (click)="navigateToCreateTimetable()">Create Timetable</button>
+  
   <div class="save-container">
-   
-  <h2>Saved Classes and Sections</h2>
+    <button mat-raised-button class="kk" type="button" (click)="navigateToCreateTimetable()">Create Timetable</button><br><br>
+  <h2>Saved Timetable for Classes and Sections</h2>
   <table mat-table [dataSource]="savedClassesSections" class="mat-elevation-z8" >
     <ng-container matColumnDef="sno">
       <th mat-header-cell *matHeaderCellDef> SNO. </th>
@@ -456,7 +456,7 @@
         <button mat-icon-button (click)="viewClassSection(element)">
           <mat-icon>visibility</mat-icon>
         </button>
-        <button mat-icon-button (click)="viewClassSection(element)">
+        <button mat-icon-button (click)="confirmDelete(element)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>

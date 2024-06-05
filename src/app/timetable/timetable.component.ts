@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { DeleteTimetableeeDialogComponent } from '../delete-timetableee-dialog/delete-timetableee-dialog.component';
+import { DeleteConfirmationDialogComponent } from '../delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 
 @Component({
@@ -217,7 +219,69 @@ editClassSection(element: any): void {
   this.router.navigate(['editsavetimetable'], { queryParams: { class: element.class, section: element.section } });
 }
 
+
+
+
+
+// opennnDeleteForm(element: any): void {
+//   const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
+//     width: '400px',
+//     data: element
+//   });
+
+//   dialogRef.afterClosed().subscribe(result => {
+//     if (result) {
+//       const index = this.savedClassesSections.findIndex(entry => entry.sno === element.sno);
+//       if (index !== -1) {
+//         this.savedClassesSections.splice(index, 1);
+//         localStorage.setItem('savedClassesSections', JSON.stringify(this.savedClassesSections));
+
+//         // Remove from timetableData as well
+//         const timetableIndex = this.timetableData.findIndex(entry => entry.class === element.class && entry.section === element.section);
+//         if (timetableIndex !== -1) {
+//           this.timetableData.splice(timetableIndex, 1);
+//           localStorage.setItem('timetableData', JSON.stringify(this.timetableData));
+//         }
+
+//         // Update the MatTableDataSource directly
+//         this.dataSource.data = this.savedClassesSections;
+//       }
+//     }
+//   });
+// }
+
+confirmDelete(element: any): void {
+  const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
+    width: '400px',
+    data: element
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      this.deleteTime(element);
+    }
+  });
 }
+
+deleteTime(element: any): void {
+  // Remove the entry from savedClassesSections
+  this.savedClassesSections = this.savedClassesSections.filter(entry => entry.sno !== element.sno);
+  localStorage.setItem('savedClassesSections', JSON.stringify(this.savedClassesSections));
+
+  // Remove the entry from timetableData
+  const timetableIndex = this.timetableData.findIndex(entry => entry.class === element.class && entry.section === element.section);
+  if (timetableIndex !== -1) {
+    this.timetableData.splice(timetableIndex, 1);
+    localStorage.setItem('timetableData', JSON.stringify(this.timetableData));
+  }
+
+  // Update the MatTableDataSource
+  this.dataSource.data = [...this.savedClassesSections];
+}
+
+}
+
+
 
 
 

@@ -3,7 +3,7 @@
     <form [formGroup]="timetableForm" (ngSubmit)="onSubmit()"class="quarter-section">
       <mat-form-field appearance="fill" class="quarter-field">
         <mat-label>Class</mat-label>
-        <mat-select formControlName="class" (selectionChange)="onClassChange($event.value)">
+        <mat-select formControlName="class"  (selectionChange)="onClassChange($event.value)">
           <mat-option *ngFor="let classOption of classOptions" [value]="classOption">
             {{ classOption }}
           </mat-option>
@@ -12,7 +12,7 @@
   
       <mat-form-field appearance="fill" class="date-field">
         <mat-label>Section</mat-label>
-        <mat-select formControlName="section">
+        <mat-select formControlName="section" >
           <mat-option *ngFor="let sectionOption of sectionOptions" [value]="sectionOption">
             {{ sectionOption }}
           </mat-option>
@@ -42,9 +42,9 @@
                 <div class="timetable-entry">
                   <span class="name">  Name : {{ getTimetableEntry(day, period.time)?.teacher }}</span><br>
                   <span class="sub"> Subject : {{ getTimetableEntry(day, period.time)?.subject }}</span>  
-                  <button mat-icon-button (click)="openEditForm(day, period)">
+                  <!-- <button mat-icon-button (click)="openEditForm(day, period)">
                     <mat-icon class="edit-icon">edit</mat-icon>
-                  </button>
+                  </button> -->
                   <button mat-icon-button (click)="openDeleteForm(day, period)">
                     <mat-icon class="delete-icon">delete</mat-icon>
                   </button>
