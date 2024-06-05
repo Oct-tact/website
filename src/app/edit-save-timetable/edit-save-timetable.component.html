@@ -1,0 +1,108 @@
+<!-- 
+<div class="timetable-container">
+    <h2>Edit Timetable</h2>
+    <form [formGroup]="timetableForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Class</mat-label>
+        <input matInput formControlName="class" >
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Section</mat-label>
+        <input matInput formControlName="section" >
+      </mat-form-field>
+    </form>
+  
+    <div class="timetable" *ngIf="timetableData">
+      <table mat-table [dataSource]="periods" class="mat-elevation-z8 timetable-table">
+        <ng-container matColumnDef="time">
+          <th mat-header-cell *matHeaderCellDef> Time </th>
+          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ period.time }} </td>
+        </ng-container>
+  
+        <ng-container *ngFor="let day of ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']" [ngSwitch]="day">
+          <ng-container matColumnDef="{{ day }}">
+            <th mat-header-cell *matHeaderCellDef> {{ day | titlecase }} </th>
+            <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}">
+              <div *ngIf="getTimetableEntry(day, period.time); else addIcon">
+                <div class="timetable-entry">
+                  <span class="name">Name: {{ getTimetableEntry(day, period.time)?.teacher }}</span><br>
+                  <span class="sub">Subject: {{ getTimetableEntry(day, period.time)?.subject }}</span>
+                  <button mat-icon-button (click)="openEditForm(day, period)">
+                    <mat-icon class="edit-icon">edit</mat-icon>
+                  </button>
+                  <button mat-icon-button (click)="openDeleteForm(day, period)">
+                    <mat-icon class="delete-icon">delete</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <ng-template #addIcon>
+                <button mat-icon-button (click)="openForm(day, period)">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </ng-template>
+            </td>
+          </ng-container>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="['time', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['time', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']"></tr>
+      </table>
+      <button mat-raised-button (click)="saveTimetableData()">Save Timetable</button>
+    </div>
+  </div>
+   -->
+
+
+   <div class="timetable-container">
+    <h2>Edit Timetable</h2>
+    <form [formGroup]="timetableForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Class</mat-label>
+            <input matInput formControlName="class" >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Section</mat-label>
+            <input matInput formControlName="section" >
+        </mat-form-field>
+    </form>
+
+    <div class="timetable" *ngIf="timetableData">
+        <table mat-table [dataSource]="periods" class="mat-elevation-z8 timetable-table">
+            <ng-container matColumnDef="time">
+                <th mat-header-cell *matHeaderCellDef> Time </th>
+                <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ period.time }} </td>
+            </ng-container>
+
+            <ng-container *ngFor="let day of ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']" [ngSwitch]="day">
+                <ng-container matColumnDef="{{ day }}">
+                    <th mat-header-cell *matHeaderCellDef> {{ day | titlecase }} </th>
+                    <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}">
+                        <div *ngIf="getTimetableEntry(day, period.time); else addIcon">
+                            <div class="timetable-entry">
+                                <span class="name">Name: {{ getTimetableEntry(day, period.time)?.teacher }}</span><br>
+                                <span class="sub">Subject: {{ getTimetableEntry(day, period.time)?.subject }}</span>
+                                <button mat-icon-button (click)="openEditForm(day, period)">
+                                    <mat-icon class="edit-icon">edit</mat-icon>
+                                </button>
+                                <button mat-icon-button (click)="openDeleteForm(day, period)">
+                                    <mat-icon class="delete-icon">delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <ng-template #addIcon>
+                            <button mat-icon-button (click)="openForm(day, period)">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </ng-template>
+                    </td>
+                </ng-container>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['time', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['time', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']"></tr>
+        </table>
+        <button mat-raised-button (click)="saveClassSection()">Save Timetable</button>
+    </div>
+</div>

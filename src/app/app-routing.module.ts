@@ -39,6 +39,8 @@ import { FeesAssignComponent } from './fees-assign/fees-assign.component';
 import { TimetableComponent } from './timetable/timetable.component';
 import { ViewTimetableComponent } from './view-timetable/view-timetable.component';
 import { StudentTimetableComponent } from './student-timetable/student-timetable.component';
+import { CreateTimetableComponent } from './create-timetable/create-timetable.component';
+import { EditSaveTimetableComponent } from './edit-save-timetable/edit-save-timetable.component';
 
 
 const routes: Routes = [
@@ -91,7 +93,11 @@ const routes: Routes = [
     {
       path:'view-timetable', component:ViewTimetableComponent ,
      },
+    {
+      path:'editsavetimetable', component:EditSaveTimetableComponent ,
+     },
 
+     { path: 'create-timetable', component: CreateTimetableComponent},
      {
       path:'sturegister', component:StudentRegisterComponent ,
      },

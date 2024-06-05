@@ -1,5 +1,3 @@
-
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,13 +9,12 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-
 @Component({
-  selector: 'app-timetable',
-  templateUrl: './timetable.component.html',
-  styleUrls: ['./timetable.component.css']
+  selector: 'app-create-timetable',
+  templateUrl: './create-timetable.component.html',
+  styleUrls: ['./create-timetable.component.css']
 })
-export class TimetableComponent implements OnInit {
+export class CreateTimetableComponent {
   timetableForm: FormGroup;
   classOptions: string[] = ['KG', 'Class I', 'Class II', 'Class III', 'Class IV', 'Class V', 'Class VI', 'Class VII', 'Class VIII', 'Class IX', 'Class X', 'Class XI', 'Class XII'];
   sectionOptions: string[] = [];
@@ -109,11 +106,11 @@ export class TimetableComponent implements OnInit {
       const savedEntries = JSON.parse(localStorage.getItem('savedClassesSections') || '[]');
       savedEntries.push(classSectionEntry);
       localStorage.setItem('savedClassesSections', JSON.stringify(savedEntries));
-  
+      
       // Update the component state
       this.savedClassesSections = savedEntries;
       this.showTimetable = false; // Hide the timetable after saving
-    
+      // this.router.navigate(['timetableG']);
     }
   }
   
@@ -203,21 +200,8 @@ export class TimetableComponent implements OnInit {
   viewClassSection(element: any): void {
     this.router.navigate(['view-timetable', { class: element.class, section: element.section }]);
   }
-
-  navigateToCreateTimetable(): void {
-      this.router.navigate(['create-timetable']);
-}
-// editClassSection(): void {
-//   this.router.navigate(['editsavetimetable']);
-// }
-
-
-editClassSection(element: any): void {
-  console.log('Navigating to editsavetimetable:', element);
-  this.router.navigate(['editsavetimetable'], { queryParams: { class: element.class, section: element.section } });
 }
 
-}
 
 
 
