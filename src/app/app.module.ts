@@ -119,6 +119,7 @@ import { TimetableFormDialogComponent } from './timetable-form-dialog/timetable-
 import { EditTimetableDialogComponent } from './edit-timetable-dialog/edit-timetable-dialog.component';
 import { DeleteTimetableDialogComponent } from './delete-timetable-dialog/delete-timetable-dialog.component';
 import { ViewTimetableComponent } from './view-timetable/view-timetable.component';
+import { StudentTimetableComponent } from './student-timetable/student-timetable.component';
 
 
 @NgModule({
@@ -202,6 +203,7 @@ import { ViewTimetableComponent } from './view-timetable/view-timetable.componen
     EditTimetableDialogComponent,
     DeleteTimetableDialogComponent,
     ViewTimetableComponent,
+    StudentTimetableComponent,
   
   ],
   imports: [

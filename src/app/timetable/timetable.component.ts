@@ -181,6 +181,10 @@ export class TimetableComponent implements OnInit {
     { time: '1:20pm-2:00pm' },
   ];
 
+  dataSource!: MatTableDataSource<any>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   displayedColumns: string[] = ['time', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
   displayedColumnsSaved: string[] = ['sno', 'class', 'section', 'action'];
@@ -192,15 +196,23 @@ export class TimetableComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
+  //   this.allSections = JSON.parse(localStorage.getItem('sectionData') || '[]');
+  //   this.timetableData = JSON.parse(localStorage.getItem('timetableData') || '[]');
+  //   this.savedClassesSections = JSON.parse(localStorage.getItem('savedClassesSections') || '[]');
+  // }
+
+    ngOnInit(): void {
     this.allSections = JSON.parse(localStorage.getItem('sectionData') || '[]');
     this.timetableData = JSON.parse(localStorage.getItem('timetableData') || '[]');
     this.savedClassesSections = JSON.parse(localStorage.getItem('savedClassesSections') || '[]');
+    this.dataSource = new MatTableDataSource(this.savedClassesSections);
   }
 
-  
-
-
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
 
 
   generateTimetable(): void {

@@ -1,12 +1,12 @@
-.view-timetable-container {
+/* .view-timetable-container {
     margin: 20px;
    width: 95%;
    margin-top: 50px;
     position: absolute;
     margin-left: 40px;
+    text-align: center;
   }
-  
-
+ 
   h2{
     font-size: 1.4rem;
    text-align: center;
@@ -16,69 +16,127 @@
   }
 
   .lunch-break {
-    background-color: rgb(163, 243, 163); /* Green */
+    background-color: rgb(163, 243, 163); 
     font-weight: bold;
     font-size: 1rem;
     color: rgb(68, 63, 63);
     padding: 20px;
 
   }
-  
+   */
 
-  .timetable-table {
-    border-collapse: collapse; /* This property ensures borders collapse into a single border */
+  /* .timetable-table {
+    border-collapse: collapse;
     width: 100%;
   }
   
   .timetable-table th {
-    border: 1px solid #6b6969; /* Adds a 1px solid black border to each table cell */
-    padding: 5px; /* Adjust padding as needed */
+    border: 1px solid #6b6969; 
+    padding: 5px; 
 
     
   }
   .timetable-table td {
-    border: 1px solid #6b6969; /* Adds a 1px solid black border to each table cell */
-    padding: 5px; /* Adjust padding as needed */
-   
+    border: 1px solid #6b6969; 
+    padding: 5px; /* 
   }
 
-  /* Add this CSS to your stylesheet */
+  
 .mat-header-cell,
 .mat-cell {
-  padding: 8px; /* Adjust padding as needed */
+  padding: 8px; 
 }
 
 .mat-header-cell.time,
 .mat-cell.time {
-  width: 10%; /* Set width for the Time column */
+  width: 10%; 
 }
 
 .mat-header-cell.monday,
 .mat-cell.monday {
-  width: 18%; /* Set width for the Monday column */
+  width: 18%; 
 }
 
 .mat-header-cell.tuesday,
 .mat-cell.tuesday {
-  width: 18%; /* Set width for the Tuesday column */
+  width: 18%;
 }
 
 .mat-header-cell.wednesday,
 .mat-cell.wednesday {
-  width: 18%; /* Set width for the Wednesday column */
+  width: 18%; 
 }
 
 .mat-header-cell.thursday,
 .mat-cell.thursday {
-  width: 18%; /* Set width for the Thursday column */
+  width: 18%; 
 }
 
 .mat-header-cell.friday,
 .mat-cell.friday {
-  width: 18%; /* Set width for the Friday column */
-}
+  width: 18%; 
 
 .mat-header-cell.saturday,
 .mat-cell.saturday {
-  width: 18%; /* Set width for the Saturday column */
+  width: 18%; 
+} */
+
+
+.view-timetable-container {
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  width: 95%;
+  margin-top: 50px;
+   position: absolute;
+   margin-left: 20px;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+h2{
+  font-size: 1.4rem;
+ text-align: center;
+  font-weight: bold;
+
+  color: rgb(68, 63, 63);
+}
+
+.lunch-break {
+  background-color: rgb(163, 243, 163); /* Green */
+  font-weight: bold;
+  font-size: 1rem;
+  color: rgb(68, 63, 63);
+  padding: 20px;
+
+}
+.teacher{
+  color:green ;
+  font-weight: 500;
+  font-size: 1rem;
+
+  
+ }
+.subject{
+  color:#56052f ;
+  font-weight: 450;
+
+ }

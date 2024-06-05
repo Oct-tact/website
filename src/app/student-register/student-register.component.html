@@ -46,7 +46,12 @@
   <mat-error *ngIf="registrationForm.get('class')?.hasError('required')">class is required</mat-error>
 </mat-form-field>
 
-    
+<mat-form-field class="example-full-width">
+  <mat-label>Section</mat-label>
+  <input matInput placeholder="section" formControlName="section" required>
+  <mat-error *ngIf="registrationForm.get('section')?.hasError('required')">Section is required</mat-error>
+</mat-form-field>
+
 
     <mat-form-field class="example-full-width">
       <mat-label>Date Of Birth</mat-label>

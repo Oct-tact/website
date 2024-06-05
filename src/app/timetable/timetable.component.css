@@ -85,39 +85,6 @@
   width: 18%;
 }
 
-/* 
-.timetable-container {
-  width: 98%;  
-  margin: 0 auto;  
-}
-
-
-
-.timetable-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.timetable-table th,  .timetable-table td {
-  border: 1px solid gray;
-  padding: 5px;
-  text-align: center;
-}
-
-.timetable-table th {
-  background-color: #f2f2f2;  
-}
-
-.edit-icon, .delete-icon {
-  font-size: 16px;
-  color: blue;  
-  cursor: pointer;
-}
-
-
-.edit-icon:hover, .delete-icon:hover {
-  color: #007bff;  
-} */
 
 .name{
   color:green ;

@@ -1,76 +1,122 @@
-<!-- <div class="view-timetable-container">
+<!-- 
+<div class="view">
+   <div class="view-timetable-container">
     <h2>Timetable for {{ class }} - {{ section }}</h2>
     <div *ngIf="timetable">
-      <table>
-        <tr>
-          <th>Time</th>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
-          <th>Saturday</th>
-        </tr>
-        <tr *ngFor="let period of periods">
-          <td>{{ period.time }}</td>
-          <td>{{ timetable.monday?.[period.time]?.subject || '' }}<br>{{ timetable.monday?.[period.time]?.teacher || '' }}</td>
-          <td>{{ timetable.tuesday?.[period.time]?.subject || '' }}<br>{{ timetable.tuesday?.[period.time]?.teacher || '' }}</td>
-          <td>{{ timetable.wednesday?.[period.time]?.subject || '' }}<br>{{ timetable.wednesday?.[period.time]?.teacher || '' }}</td>
-          <td>{{ timetable.thursday?.[period.time]?.subject || '' }}<br>{{ timetable.thursday?.[period.time]?.teacher || '' }}</td>
-          <td>{{ timetable.friday?.[period.time]?.subject || '' }}<br>{{ timetable.friday?.[period.time]?.teacher || '' }}</td>
-          <td>{{ timetable.saturday?.[period.time]?.subject || '' }}<br>{{ timetable.saturday?.[period.time]?.teacher || '' }}</td>
-        </tr>
+      <table mat-table [dataSource]="periods" class="mat-elevation-z8">
+      
+        <ng-container matColumnDef="time">
+          <th mat-header-cell *matHeaderCellDef> Time </th>
+          <td mat-cell *matCellDef="let period"  [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ period.time }} </td>
+        </ng-container>
+  
+    
+        <ng-container matColumnDef="monday">
+          <th mat-header-cell *matHeaderCellDef> Monday </th>
+          <td mat-cell *matCellDef="let period"  [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}">   {{ timetable.monday?.[period.time]?.teacher || '' }}<br>{{ timetable.monday?.[period.time]?.subject || '' }}</td>
+        </ng-container>
+  
+      
+        <ng-container matColumnDef="tuesday">
+          <th mat-header-cell *matHeaderCellDef> Tuesday </th>
+          <td mat-cell *matCellDef="let period"  [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ timetable.tuesday?.[period.time]?.teacher || '' }}<br>{{ timetable.tuesday?.[period.time]?.subject || '' }}</td>
+        </ng-container>
+  
+    
+        <ng-container matColumnDef="wednesday">
+          <th mat-header-cell *matHeaderCellDef> Wednesday </th>
+          <td mat-cell *matCellDef="let period"  [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ timetable.wednesday?.[period.time]?.teacher || '' }}<br>{{ timetable.wednesday?.[period.time]?.subject || '' }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="thursday">
+          <th mat-header-cell *matHeaderCellDef> Thursday </th>
+          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ timetable.thursday?.[period.time]?.teacher || '' }}<br>{{ timetable.thursday?.[period.time]?.subject || '' }}</td>
+        </ng-container>
+  
+     
+        <ng-container matColumnDef="friday">
+          <th mat-header-cell *matHeaderCellDef> Friday </th>
+          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ timetable.friday?.[period.time]?.teacher || '' }}<br>{{ timetable.friday?.[period.time]?.subject || '' }}</td>
+        </ng-container>
+  
+      
+        <ng-container matColumnDef="saturday">
+          <th mat-header-cell *matHeaderCellDef> Saturday </th>
+          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ timetable.saturday?.[period.time]?.teacher || '' }}<br>{{ timetable.saturday?.[period.time]?.subject || '' }}</td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </div>
   </div>
-   -->
+</div> -->
+
 <div class="view">
-   <div class="view-timetable-container">
+  <div class="view-timetable-container">
     <h2>Timetable for {{ class }} - {{ section }}</h2>
     <div *ngIf="timetable">
       <table mat-table [dataSource]="periods" class="mat-elevation-z8">
         <!-- Time Column -->
         <ng-container matColumnDef="time">
           <th mat-header-cell *matHeaderCellDef> Time </th>
-          <td mat-cell *matCellDef="let period"  [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ period.time }} </td>
+          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ period.time }} </td>
         </ng-container>
-  
+
         <!-- Monday Column -->
         <ng-container matColumnDef="monday">
           <th mat-header-cell *matHeaderCellDef> Monday </th>
-          <td mat-cell *matCellDef="let period"  [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}">   {{ timetable.monday?.[period.time]?.teacher || '' }}<br>{{ timetable.monday?.[period.time]?.subject || '' }}</td>
+          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}">
+            <span class="teacher">{{ timetable.monday?.[period.time]?.teacher || '' }}</span><br>
+            <span class="subject">{{ timetable.monday?.[period.time]?.subject || '' }}</span>
+          </td>
         </ng-container>
-  
+
         <!-- Tuesday Column -->
         <ng-container matColumnDef="tuesday">
           <th mat-header-cell *matHeaderCellDef> Tuesday </th>
-          <td mat-cell *matCellDef="let period"  [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ timetable.tuesday?.[period.time]?.teacher || '' }}<br>{{ timetable.tuesday?.[period.time]?.subject || '' }}</td>
+          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}">
+            <span class="teacher">{{ timetable.tuesday?.[period.time]?.teacher || '' }}</span><br>
+            <span class="subject">{{ timetable.tuesday?.[period.time]?.subject || '' }}</span>
+          </td>
         </ng-container>
-  
+
         <!-- Wednesday Column -->
         <ng-container matColumnDef="wednesday">
           <th mat-header-cell *matHeaderCellDef> Wednesday </th>
-          <td mat-cell *matCellDef="let period"  [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ timetable.wednesday?.[period.time]?.teacher || '' }}<br>{{ timetable.wednesday?.[period.time]?.subject || '' }}</td>
+          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}">
+            <span class="teacher">{{ timetable.wednesday?.[period.time]?.teacher || '' }}</span><br>
+            <span class="subject">{{ timetable.wednesday?.[period.time]?.subject || '' }}</span>
+          </td>
         </ng-container>
-  
+
         <!-- Thursday Column -->
         <ng-container matColumnDef="thursday">
           <th mat-header-cell *matHeaderCellDef> Thursday </th>
-          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ timetable.thursday?.[period.time]?.teacher || '' }}<br>{{ timetable.thursday?.[period.time]?.subject || '' }}</td>
+          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}">
+            <span class="teacher">{{ timetable.thursday?.[period.time]?.teacher || '' }}</span><br>
+            <span class="subject">{{ timetable.thursday?.[period.time]?.subject || '' }}</span>
+          </td>
         </ng-container>
-  
+
         <!-- Friday Column -->
         <ng-container matColumnDef="friday">
           <th mat-header-cell *matHeaderCellDef> Friday </th>
-          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ timetable.friday?.[period.time]?.teacher || '' }}<br>{{ timetable.friday?.[period.time]?.subject || '' }}</td>
+          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}">
+            <span class="teacher">{{ timetable.friday?.[period.time]?.teacher || '' }}</span><br>
+            <span class="subject">{{ timetable.friday?.[period.time]?.subject || '' }}</span>
+          </td>
         </ng-container>
-  
+
         <!-- Saturday Column -->
         <ng-container matColumnDef="saturday">
           <th mat-header-cell *matHeaderCellDef> Saturday </th>
-          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}"> {{ timetable.saturday?.[period.time]?.teacher || '' }}<br>{{ timetable.saturday?.[period.time]?.subject || '' }}</td>
+          <td mat-cell *matCellDef="let period" [ngClass]="{'lunch-break': period.time === 'LUNCH BREAK'}">
+            <span class="teacher">{{ timetable.saturday?.[period.time]?.teacher || '' }}</span><br>
+            <span class="subject">{{ timetable.saturday?.[period.time]?.subject || '' }}</span>
+          </td>
         </ng-container>
-  
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
