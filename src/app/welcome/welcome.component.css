@@ -1,8 +1,9 @@
 .welcome-container {
     text-align: center;
-    margin-top: 280px;
+    margin-top: 230px;
     position: fixed;
-    margin-left: 540px;
+    margin-left: 710px;
+    
   }
   
   button {
@@ -11,10 +12,10 @@
     font-size: 16px;
     cursor: pointer;
     color: white;
-    background-color: blue;
-    border-color: blue;
+    background: linear-gradient(to bottom, #ff69b4, #ff1493);
+    border-color:#ff69b4;
   }
   
   h1{
-    color: rgb(68, 63, 63);
+    color:purple
   }

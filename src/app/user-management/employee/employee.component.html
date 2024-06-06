@@ -22,6 +22,8 @@
     </mat-card>
   </div>
 </div><br>
+
+<button mat-raised-button color="primary" (click)="openRegisterDialog()">Add Employee</button>
 <div class="table-container">
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -33,7 +35,7 @@
     </ng-container>
 
     <ng-container matColumnDef="rollNumber">
-        <th mat-header-cell *matHeaderCellDef>Roll Number</th>
+        <th mat-header-cell *matHeaderCellDef>ID Number</th>
         <td mat-cell *matCellDef="let student">{{ student.rollNumber }}</td>
       </ng-container>
 

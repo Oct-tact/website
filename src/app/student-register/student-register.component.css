@@ -23,3 +23,16 @@ h2 {
   font-weight:600;
 }
 
+.quarter-section {
+  display: flex;
+  align-items: flex-start; 
+}
+
+.quarter-field {
+  width: 50%; 
+}
+
+.date-field {
+  width: 50%; 
+  margin-left: 16px; 
+}

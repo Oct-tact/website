@@ -12,7 +12,7 @@ export class WelcomeComponent {
   constructor(private router: Router) { }
 
   goToAdminLogin() {
-    this.router.navigate(['/adminlogin']);
+    this.router.navigate(['/dashboard']);
   }
 
   goToEmployeeRegistration() {

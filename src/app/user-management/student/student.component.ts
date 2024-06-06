@@ -12,6 +12,7 @@ import { EmployeeUpdatePasswordDialogComponent } from 'src/app/employee-update-p
 import { StudentViewDialogComponent } from 'src/app/student-view-dialog/student-view-dialog.component';
 import { StatusConfirmationDialogComponent } from 'src/app/status-confirmation-dialog/status-confirmation-dialog.component';
 import { MatPaginator } from '@angular/material/paginator';
+import { StudentRegisterDialogComponent } from 'src/app/student-register-dialog/student-register-dialog.component';
 
 @Component({
   selector: 'app-student',
@@ -59,6 +60,44 @@ export class StudentComponent implements OnInit  {
     this.activeStudents = existingData.filter((employee: any) => employee.status === 'Active').length;
     this.inactiveStudents = this.totalStudents - this.activeStudents;
   }
+  
+ 
+  
+  openRegisterDialog(): void {
+    const dialogRef = this.dialog.open(StudentRegisterDialogComponent, {
+      width: '400px',
+      data: { nextId: this.dataSource.data.length + 1 }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.refreshData();
+      }
+    });
+  }
+
+  // openRegisterDialog(): void {
+  //   const dialogRef = this.dialog.open(StudentRegisterDialogComponent, {
+  //     width: '400px'
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result) {
+  //       this.addStudent(result);
+  //     }
+  //   });
+  // }
+
+  // addStudent(newStudent: any): void {
+  //   const students = JSON.parse(localStorage.getItem('students') || '[]');
+  //   students.push(newStudent);
+  //   localStorage.setItem('students', JSON.stringify(students));
+  //   this.dataSource.data = [...students]; // Refresh the table data immediately
+  //   this.totalStudents = students.length;
+  //   this.activeStudents = students.filter((student: any) => student.status === 'Active').length;
+  //   this.inactiveStudents = this.totalStudents - this.activeStudents;
+  // }
+
 
  
   openEditDialog(student: any): void {

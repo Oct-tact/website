@@ -65,6 +65,7 @@ export class AdminLoginComponent {
 
       if (formData.email === 'admin@gmail.com' && formData.password === '1234') {
         localStorage.setItem('currentUser', JSON.stringify({ email: formData.email, userType: 0 }));
+        // this.router.navigate(['/welcome']);
         this.router.navigate(['/dashboard']);
       } else {
         console.log('Invalid email or password');

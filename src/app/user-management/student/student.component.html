@@ -4,21 +4,28 @@
   <div class="cards-container">
     <mat-card class="card">
       <mat-card-content>
-        <h1>Total Employees: {{ totalStudents }}</h1>
+        <h1>Total Students: {{ totalStudents }}</h1>
       </mat-card-content>
     </mat-card>
     <mat-card class="carddd">
       <mat-card-content>
-        <h1>Active Employees: {{ activeStudents }}</h1>
+        <h1>Active Students: {{ activeStudents }}</h1>
       </mat-card-content>
     </mat-card>
     <mat-card class="cardddd">
       <mat-card-content>
-        <h1>Inactive Employees: {{ inactiveStudents }}</h1>
+        <h1>Inactive Students: {{ inactiveStudents }}</h1>
       </mat-card-content>
     </mat-card>
   </div>
 </div><br>
+<div class="button-container">
+  <button mat-raised-button color="primary" (click)="openRegisterDialog()">Add Student</button>
+</div>
+
+<br>
+
+
 <div class="table-container">
 <div class="mat-elevation-z8">
 

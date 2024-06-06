@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class StudentRegisterComponent {
   registrationForm: FormGroup;
   nextId: number;
-  
+ 
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.registrationForm = this.fb.group({
@@ -32,6 +32,8 @@ export class StudentRegisterComponent {
     this.nextId = existingData.length + 1;
   }
 
+  
+ 
   onSubmit(): void {
     if (this.registrationForm.valid) {
       const formData = this.registrationForm.value;
@@ -48,7 +50,9 @@ export class StudentRegisterComponent {
 
       // Reset form after submission
       this.registrationForm.reset();
-      this.router.navigate(['/stulogin']);
+      // this.router.navigate(['/stulogin']);
+      this.router.navigate(['/welcome']);
+
     } else {
       // Handle invalid form submission
     }
@@ -59,6 +63,8 @@ export class StudentRegisterComponent {
     while (s.length < size) s = '0' + s;
     return s;
   }
+
+
 }
 
 

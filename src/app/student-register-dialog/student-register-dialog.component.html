@@ -1,0 +1,96 @@
+<mat-card class="example-card">
+    <h2>Student Register</h2>
+    <form class="example-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()" >
+      <!-- Form fields as given earlier -->
+      <!-- Name -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name" required>
+        <mat-error *ngIf="registrationForm.get('name')?.hasError('required')">Name is required</mat-error>
+      </mat-form-field>
+  
+      <!-- Email -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" type="email" formControlName="email" required>
+        <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">Email is required</mat-error>
+      </mat-form-field>
+  
+      <!-- Password -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" type="password" formControlName="password" required>
+        <mat-error *ngIf="registrationForm.get('password')?.hasError('required')">Password is required</mat-error>
+      </mat-form-field>
+  
+      <!-- Class -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Class</mat-label>
+        <mat-select formControlName="class" required>
+          <mat-option value="KG">KG</mat-option>
+          <mat-option value="Class I">Class I</mat-option>
+          <mat-option value="Class II">Class II</mat-option>
+          <mat-option value="Class III">Class III</mat-option>
+          <mat-option value="Class IV">Class IV</mat-option>
+          <mat-option value="Class V">Class V</mat-option>
+          <mat-option value="Class VI">Class VI</mat-option>
+          <mat-option value="Class VII">Class VII</mat-option>
+          <mat-option value="Class VIII">Class VIII</mat-option>
+          <mat-option value="Class IX">Class IX</mat-option>
+          <mat-option value="Class X">Class X</mat-option>
+          <mat-option value="Class XI">Class XI</mat-option>
+          <mat-option value="Class XII">Class XII</mat-option>
+        </mat-select>
+        <mat-error *ngIf="registrationForm.get('class')?.hasError('required')">class is required</mat-error>
+      </mat-form-field>
+  
+      <!-- Section -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Section</mat-label>
+        <input matInput placeholder="Section" formControlName="section" required>
+        <mat-error *ngIf="registrationForm.get('section')?.hasError('required')">Section is required</mat-error>
+      </mat-form-field>
+  
+      <!-- Date Of Birth -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Date Of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dob" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="registrationForm.get('dob')?.hasError('required')">Date Of Birth is required</mat-error>
+      </mat-form-field>
+  
+      <!-- Parents Contact No. -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Parents Contact No.</mat-label>
+        <input matInput placeholder="Parent Contact Number" type="tel" formControlName="parentContact" required>
+        <mat-error *ngIf="registrationForm.get('parentContact')?.hasError('required')">Parents Contact No. is required</mat-error>
+      </mat-form-field>
+  
+      <!-- Gender -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender" required>
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Others">Others</mat-option>
+        </mat-select>
+        <mat-error *ngIf="registrationForm.get('gender')?.hasError('required')">Gender is required</mat-error>
+      </mat-form-field>
+  
+      <!-- Cast -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Cast</mat-label>
+        <mat-select formControlName="cast" required>
+          <mat-option value="SC">SC</mat-option>
+          <mat-option value="ST">ST</mat-option>
+          <mat-option value="OBC">OBC</mat-option>
+          <mat-option value="General">General</mat-option>
+        </mat-select>
+        <mat-error *ngIf="registrationForm.get('cast')?.hasError('required')">Cast is required</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">Register</button>
+    </form>
+  </mat-card>
+  

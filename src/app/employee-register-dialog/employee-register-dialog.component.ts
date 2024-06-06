@@ -1,20 +1,25 @@
-import { Component } from '@angular/core';
+
+import { Component, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-employee-register',
-  templateUrl: './employee-register.component.html',
-  styleUrls: ['./employee-register.component.css']
+  selector: 'app-employee-register-dialog',
+  templateUrl: './employee-register-dialog.component.html',
+  styleUrls: ['./employee-register-dialog.component.css']
 })
-export class EmployeeRegisterComponent {
+export class EmployeeRegisterDialogComponent {
   registrationForm: FormGroup;
   nextId: number;
   roles: string[] = ['teacher', 'Receptionist', 'Librarian', 'HOD', 'Administrator', 'Domestic Help'];
   genders: string[] = ['Male', 'Female', 'Others'];
   casts: string[] = ['SC', 'ST', 'OBC', 'General'];
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private dialogRef: MatDialogRef<EmployeeRegisterDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
     this.registrationForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -23,9 +28,8 @@ export class EmployeeRegisterComponent {
       mobileNumber: ['', Validators.required],
       gender: ['', Validators.required],
       cast: ['', Validators.required],
-      status: ['Active'] // Set default value to 'Active' for status field
+      status: ['Active']
     });
-
     const existingData = JSON.parse(localStorage.getItem('employees') || '[]');
     this.nextId = existingData.length + 1;
   }
@@ -40,22 +44,20 @@ export class EmployeeRegisterComponent {
       formData.rollNumber = 'EM' + this.pad(this.nextId, 3);
         // Set usertype=2 for employee registration
       formData.userType = 2;
-      const existingData = JSON.parse(localStorage.getItem('employees') || '[]');
-      existingData.push(formData);
-      localStorage.setItem('employees', JSON.stringify(existingData));
+      // const existingData = JSON.parse(localStorage.getItem('employees') || '[]');
+      // existingData.push(formData);
+      // localStorage.setItem('employees', JSON.stringify(existingData));
 
-      this.registrationForm.reset();
-      // this.router.navigate(['/employeelogin']);
-      this.router.navigate(['/dashboard/employee']);
-    } else {
-      // Handle invalid form submission
-    }
-  }
+    
+      this.dialogRef.close(formData);
+  }}
 
   private pad(num: number, size: number): string {
     let s = num + '';
     while (s.length < size) s = '0' + s;
     return s;
   }
+  onCancel(): void {
+    this.dialogRef.close();
+  }
 }
-

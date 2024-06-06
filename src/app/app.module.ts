@@ -123,6 +123,8 @@ import { StudentTimetableComponent } from './student-timetable/student-timetable
 import { CreateTimetableComponent } from './create-timetable/create-timetable.component';
 import { EditSaveTimetableComponent } from './edit-save-timetable/edit-save-timetable.component';
 import { DeleteTimetableeeDialogComponent } from './delete-timetableee-dialog/delete-timetableee-dialog.component';
+import { StudentRegisterDialogComponent } from './student-register-dialog/student-register-dialog.component';
+import { EmployeeRegisterDialogComponent } from './employee-register-dialog/employee-register-dialog.component';
 
 
 @NgModule({
@@ -210,6 +212,8 @@ import { DeleteTimetableeeDialogComponent } from './delete-timetableee-dialog/de
     CreateTimetableComponent,
     EditSaveTimetableComponent,
     DeleteTimetableeeDialogComponent,
+    StudentRegisterDialogComponent,
+    EmployeeRegisterDialogComponent,
   
   ],
   imports: [
