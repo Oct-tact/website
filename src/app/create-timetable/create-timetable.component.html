@@ -25,6 +25,7 @@
    
 
     <div class="timetable-container" *ngIf="showTimetable">
+      <div class="table-container">
       <table mat-table [dataSource]="periods" class="mat-elevation-z8 timetable-table">
   
     
@@ -63,7 +64,9 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
    
       </table>
-      <button mat-raised-button class="kkk" (click)="saveClassSection()">Save Timetable</button>
+   
+    </div>
+    <button mat-raised-button class="kkk" (click)="saveClassSection()">Save Timetable</button>
     </div>
  
    

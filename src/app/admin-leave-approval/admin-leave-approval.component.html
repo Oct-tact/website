@@ -2,6 +2,7 @@
 <br><mat-tab-group>
     <mat-tab label="Students Leaves"><br><br>
         <h1>Students Leave Approval</h1><br>
+        <div class="table-container">
       <table mat-table [dataSource]="studentDataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="sno">
           <th mat-header-cell *matHeaderCellDef> SNo. </th>
@@ -51,10 +52,12 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+        </div>
     </mat-tab>
     
     <br><mat-tab label="Employees Leaves"><br><br>
         <h1>Employees Leave Approval</h1><br>
+        <div class="table-container">
       <table mat-table [dataSource]="employeeDataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="sno">
           <th mat-header-cell *matHeaderCellDef> SNo. </th>
@@ -104,6 +107,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+        </div>
     </mat-tab>
   </mat-tab-group>
 </div>

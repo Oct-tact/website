@@ -27,4 +27,19 @@ html, body {
     width: 100%;
   }
   
+  th{
+    color: purple;
+  }
+
+
+  .table-container {
+    width: 100%;
   
+    box-shadow: 1px 3px 8px 3px rgb(251, 170, 251);  /* Purple box shadow */
+    border-collapse: collapse; /* Optional: For a better look */
+  
+  }
+
+  mat-header-cell {
+    color: purple;
+  }

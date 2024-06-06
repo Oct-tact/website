@@ -37,8 +37,19 @@
   margin-bottom: 10px;
 }
 
-table {
+/* table {
   width: 100%;
+
+  box-shadow: 1px 4px 8px  3px rgb(243, 16, 243); 
+  border-collapse: collapse; 
+} */
+
+.table-container {
+  width: 100%;
+
+  box-shadow: 1px 3px 8px 3px rgb(251, 170, 251);  /* Purple box shadow */
+  border-collapse: collapse; /* Optional: For a better look */
+
 }
 
 .assign {

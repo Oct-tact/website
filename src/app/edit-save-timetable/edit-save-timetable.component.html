@@ -69,6 +69,7 @@
     </form> -->
 
     <div class="timetable" *ngIf="timetableData">
+      <div class="table-container">
         <table mat-table [dataSource]="periods" class="mat-elevation-z8 timetable-table">
             <ng-container matColumnDef="time">
                 <th mat-header-cell *matHeaderCellDef> Time </th>
@@ -103,6 +104,7 @@
             <tr mat-header-row *matHeaderRowDef="['time', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']"></tr>
             <tr mat-row *matRowDef="let row; columns: ['time', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']"></tr>
         </table>
+      </div>
         <button mat-raised-button  class="kkk" (click)="saveClassSection()">Update Timetable</button>
     </div>
 </div>

@@ -55,6 +55,7 @@
 <div class="view">
   <div class="view-timetable-container">
     <h2>Timetable for {{ class }} - {{ section }}</h2>
+    <div class="table-container">
     <div *ngIf="timetable">
       <table mat-table [dataSource]="periods" class="mat-elevation-z8">
         <!-- Time Column -->
@@ -122,4 +123,5 @@
       </table>
     </div>
   </div>
+</div>
 </div>
