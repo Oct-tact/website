@@ -45,10 +45,10 @@ import { AdminMarksComponent } from './admin-marks/admin-marks.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: '', redirectTo: 'adminlogin', pathMatch: 'full' },
   {
-    path:'welcome',
-    component:WelcomeComponent,
+    path:'adminlogin',
+    component:AdminLoginComponent,
   },
 
   {
@@ -113,9 +113,9 @@ const routes: Routes = [
      {
       path:'employeeregister', component:EmployeeRegisterComponent ,
      },
-     {
-      path:'adminlogin', component:AdminLoginComponent ,
-     }
+    //  {
+    //   path:'adminlogin', component:AdminLoginComponent ,
+    //  }
 
 ];
 
