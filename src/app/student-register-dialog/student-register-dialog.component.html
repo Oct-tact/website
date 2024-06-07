@@ -1,5 +1,7 @@
-<mat-card class="example-card">
+<!-- <mat-card class="example-card"> -->
     <h2>Student Register</h2>
+    
+<div mat-dialog-content>
     <form class="example-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()" >
       <!-- Form fields as given earlier -->
       <!-- Name -->
@@ -90,7 +92,11 @@
         <mat-error *ngIf="registrationForm.get('cast')?.hasError('required')">Cast is required</mat-error>
       </mat-form-field>
   
-      <button mat-raised-button color="primary" type="submit">Register</button>
+      <div mat-dialog-actions >
+        <button mat-raised-button color="primary"  class="kk"  type="submit">Register</button>
+      </div>
     </form>
-  </mat-card>
+</div>
+
+  <!-- </mat-card> -->
   

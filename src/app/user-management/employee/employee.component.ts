@@ -62,7 +62,7 @@ export class EmployeeComponent {
 
   openRegisterDialog(): void {
     const dialogRef = this.dialog.open(EmployeeRegisterDialogComponent, {
-      width: '400px',
+      width: '600px',
       data: { nextId: this.dataSource.data.length + 1 }
     });
 

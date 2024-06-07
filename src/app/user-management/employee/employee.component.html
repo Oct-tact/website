@@ -23,7 +23,13 @@
   </div>
 </div><br>
 
-<button mat-raised-button color="primary" (click)="openRegisterDialog()">Add Employee</button>
+<div class="button-container">
+  <button mat-raised-button  class="add" (click)="openRegisterDialog()">Register Employee</button>
+</div>
+<br>
+
+
+
 <div class="table-container">
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
