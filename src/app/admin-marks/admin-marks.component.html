@@ -1,0 +1,65 @@
+<h2>Exam Setup</h2>
+<button mat-raised-button (click)="addSubject({subject: 'subject', firstTerm: {exam: 35, assignment1: 7.5, assignment2: 7.5}, secondTerm: {exam: 35, project: 15}, halfYearlyTerm: {exam: 70, assignment1: 15, assignment2: 15}, finalTerm: {exam: 70, project: 30}})">Add Exam</button><br>
+
+
+<div class="admin-marks-container">
+   
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="subject">
+        <th mat-header-cell *matHeaderCellDef> Subject </th>
+        <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="firstTerm">
+        <th mat-header-cell *matHeaderCellDef> First Term </th>
+        <td mat-cell *matCellDef="let element">
+          Exam: {{element.firstTerm.exam}}, 
+          Assignment 1: {{element.firstTerm.assignment1}}, 
+          Assignment 2: {{element.firstTerm.assignment2}}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="secondTerm">
+        <th mat-header-cell *matHeaderCellDef> Second Term </th>
+        <td mat-cell *matCellDef="let element">
+          Exam: {{element.secondTerm.exam}}, 
+          Project: {{element.secondTerm.project}}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="halfYearlyTerm">
+        <th mat-header-cell *matHeaderCellDef> Half-Yearly Term </th>
+        <td mat-cell *matCellDef="let element">
+          Exam: {{element.halfYearlyTerm.exam}}, 
+          Assignment 1: {{element.halfYearlyTerm.assignment1}}, 
+          Assignment 2: {{element.halfYearlyTerm.assignment2}}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="finalTerm">
+        <th mat-header-cell *matHeaderCellDef> Final Term </th>
+        <td mat-cell *matCellDef="let element">
+          Exam: {{element.finalTerm.exam}}, 
+          Project: {{element.finalTerm.project}}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element">
+    <button mat-button [matMenuTriggerFor]="menu" class="menu-button">Actions</button>
+        <mat-menu #menu="matMenu">
+            <button mat-button (click)="editSubject(element)">Edit</button>
+            <button mat-button (click)="viewSubject(element)">View</button>
+            <button mat-button (click)="deleteSubject(element)">Delete</button>
+     
+        </mat-menu>
+        
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

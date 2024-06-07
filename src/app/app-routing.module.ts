@@ -41,6 +41,7 @@ import { ViewTimetableComponent } from './view-timetable/view-timetable.componen
 import { StudentTimetableComponent } from './student-timetable/student-timetable.component';
 import { CreateTimetableComponent } from './create-timetable/create-timetable.component';
 import { EditSaveTimetableComponent } from './edit-save-timetable/edit-save-timetable.component';
+import { AdminMarksComponent } from './admin-marks/admin-marks.component';
 
 
 const routes: Routes = [
@@ -81,6 +82,7 @@ const routes: Routes = [
         { path: 'feeassign', component: FeesAssignComponent  },
         { path: 'timetableG', component: TimetableComponent  },
         { path: 'studenttimetable', component: StudentTimetableComponent  },
+        { path: 'exammodules', component: AdminMarksComponent  },
        
      ]
      },

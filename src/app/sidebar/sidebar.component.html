@@ -48,6 +48,8 @@
         </div>
       </mat-expansion-panel>
     </mat-accordion>
+
+    
   </div>
 </mat-expansion-panel>
 </mat-accordion>
@@ -141,6 +143,23 @@
         </mat-expansion-panel>
       </mat-accordion>
 
+      <mat-accordion class="custom-accordion">
+        <mat-expansion-panel class="custom-expansion-panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="userM">
+              <mat-icon class="white-icon">assignment</mat-icon>
+              Exam Modules
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="sub-menu-item">
+            <button mat-button class="sub-menu-button"   routerLink="exammodules" routerLinkActive="active">
+              <span>Exam Setup</span>
+            </button>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+
     </ng-container>
     <ng-container *ngIf="userType === 2">
      
@@ -171,6 +190,9 @@
    
     </ng-container>
     
+    
+
+
     </div>
   </div>
 

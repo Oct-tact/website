@@ -106,6 +106,18 @@ export class TimetableComponent implements OnInit {
         section: this.timetableForm.value.section,
         timetable: this.getTimetableForClassSection(this.timetableForm.value.class, this.timetableForm.value.section)
       };
+
+  // Check if the class and section already exist
+  const exists = this.savedClassesSections.some(entry => 
+    entry.class === classSectionEntry.class && entry.section === classSectionEntry.section
+  );
+
+  if (exists) {
+    alert('Timetable for this class and section already exists.');
+    return;
+  }
+
+
   
       // Save entry to local storage
       const savedEntries = JSON.parse(localStorage.getItem('savedClassesSections') || '[]');
@@ -223,63 +235,60 @@ editClassSection(element: any): void {
 
 
 
-// opennnDeleteForm(element: any): void {
+// confirmDelete(element: any): void {
+//   console.log('Confirm delete for element:', element);
 //   const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
 //     width: '400px',
 //     data: element
 //   });
 
 //   dialogRef.afterClosed().subscribe(result => {
+//     console.log('Delete confirmation result:', result);
 //     if (result) {
-//       const index = this.savedClassesSections.findIndex(entry => entry.sno === element.sno);
-//       if (index !== -1) {
-//         this.savedClassesSections.splice(index, 1);
-//         localStorage.setItem('savedClassesSections', JSON.stringify(this.savedClassesSections));
-
-//         // Remove from timetableData as well
-//         const timetableIndex = this.timetableData.findIndex(entry => entry.class === element.class && entry.section === element.section);
-//         if (timetableIndex !== -1) {
-//           this.timetableData.splice(timetableIndex, 1);
-//           localStorage.setItem('timetableData', JSON.stringify(this.timetableData));
-//         }
-
-//         // Update the MatTableDataSource directly
-//         this.dataSource.data = this.savedClassesSections;
-//       }
+//       this.deleteRow(element);
 //     }
 //   });
 // }
 
-confirmDelete(element: any): void {
-  const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
-    width: '400px',
-    data: element
-  });
+// deleteRow(element: any): void {
+//   console.log('Deleting row with sno:', element);
 
-  dialogRef.afterClosed().subscribe(result => {
-    if (result) {
-      this.deleteTime(element);
-    }
-  });
+//   // Find the index of the row with the given sno
+//   const rowIndex = this.savedClassesSections.findIndex(entry => entry.sno === element.sno);
+
+//   if (rowIndex !== -1) {
+//     // Remove the row from the data source
+//     const deletedRow = this.savedClassesSections.splice(rowIndex, 1)[0];
+//     console.log('Deleted row:', deletedRow);
+
+//     // Remove the corresponding timetable data
+//     const timetableIndex = this.timetableData.findIndex(entry => entry.class === deletedRow.class && entry.section === deletedRow.section);
+//     if (timetableIndex !== -1) {
+//       this.timetableData.splice(timetableIndex, 1);
+//       localStorage.setItem('timetableData', JSON.stringify(this.timetableData));
+//     } else {
+//       console.log('Timetable data for class', deletedRow.class, 'and section', deletedRow.section, 'not found.');
+//     }
+
+//     // Update local storage for savedClassesSections
+//     localStorage.setItem('savedClassesSections', JSON.stringify(this.savedClassesSections));
+
+//     // Update the MatTableDataSource
+//     this.dataSource.data = [...this.savedClassesSections];
+//   } else {
+//     console.log('Row with sno', element, 'not found.');
+//   }
+// }
+
+
+
+
 }
 
-deleteTime(element: any): void {
-  // Remove the entry from savedClassesSections
-  this.savedClassesSections = this.savedClassesSections.filter(entry => entry.sno !== element.sno);
-  localStorage.setItem('savedClassesSections', JSON.stringify(this.savedClassesSections));
 
-  // Remove the entry from timetableData
-  const timetableIndex = this.timetableData.findIndex(entry => entry.class === element.class && entry.section === element.section);
-  if (timetableIndex !== -1) {
-    this.timetableData.splice(timetableIndex, 1);
-    localStorage.setItem('timetableData', JSON.stringify(this.timetableData));
-  }
 
-  // Update the MatTableDataSource
-  this.dataSource.data = [...this.savedClassesSections];
-}
 
-}
+
 
 
 

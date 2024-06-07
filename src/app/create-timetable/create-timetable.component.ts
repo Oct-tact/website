@@ -110,7 +110,7 @@ export class CreateTimetableComponent {
       // Update the component state
       this.savedClassesSections = savedEntries;
       this.showTimetable = false; // Hide the timetable after saving
-      // this.router.navigate(['timetableG']);
+      // this.router.navigate(['dashboard/timetableG']);
     }
   }
   

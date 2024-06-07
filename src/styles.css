@@ -28,7 +28,7 @@ html, body {
   }
   
   th{
-    color: purple;
+    color: rgb(100, 1, 100);
   }
 
 
@@ -41,5 +41,5 @@ html, body {
   }
 
   mat-header-cell {
-    color: purple;
+    color:rgb(100, 1, 100);
   }

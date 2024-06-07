@@ -125,6 +125,7 @@ import { EditSaveTimetableComponent } from './edit-save-timetable/edit-save-time
 import { DeleteTimetableeeDialogComponent } from './delete-timetableee-dialog/delete-timetableee-dialog.component';
 import { StudentRegisterDialogComponent } from './student-register-dialog/student-register-dialog.component';
 import { EmployeeRegisterDialogComponent } from './employee-register-dialog/employee-register-dialog.component';
+import { AdminMarksComponent } from './admin-marks/admin-marks.component';
 
 
 @NgModule({
@@ -214,6 +215,7 @@ import { EmployeeRegisterDialogComponent } from './employee-register-dialog/empl
     DeleteTimetableeeDialogComponent,
     StudentRegisterDialogComponent,
     EmployeeRegisterDialogComponent,
+    AdminMarksComponent,
   
   ],
   imports: [
